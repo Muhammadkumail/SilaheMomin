@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MianLayout"
+    android:id="@+id/dualayout">
+
+
+    <ScrollView
+        style="@style/HomeScrollViewlayout"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout style="@style/HomeMainButtonLayout">
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickDuaeKuamil" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_kumail_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickDuaeIftitah" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_iftitah_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickDuaeTawssul" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_tawassul_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickDuaeJoshanKabir" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_joshan_kabeer_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickDuaeAbuHamza" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_abu_hamza_thumali_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickDuaeImamZamana" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_imam_zamana_button" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

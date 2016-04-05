@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MianLayout"
+    android:id="@+id/surahlayout">
+
+
+
+    <ScrollView style="@style/HomeScrollViewlayout"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:layout_marginBottom="?android:attr/actionBarSize"
+            >
+
+            <LinearLayout style="@style/HomeMainButtonLayout"
+
+                >
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView style="@style/HomeMainImageView"
+                        android:onClick="onClickSurahAnkabut"/>
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/surah_Ankabut_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickSurahRoom"
+                        />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/surah_room_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView style="@style/HomeMainImageView"
+                        android:onClick="onClickSurahDhukahn"/>
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/surah_dukhan_button" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

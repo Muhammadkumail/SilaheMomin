@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/row_hadith_textview"
+            style="@style/rowTextView"
+            android:layout_marginTop="5dp"
+            android:text="عربی"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:id="@+id/row_author_textview"
+            style="@style/rowTextView"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:text="اردو"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:gravity="center_horizontal"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

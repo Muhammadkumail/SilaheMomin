@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MianLayout"
+    android:id="@+id/duaabuhamzapartslayout">
+
+
+    <ScrollView
+        style="@style/HomeScrollViewlayout"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout style="@style/HomeMainButtonLayout">
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickAbuhamzaPart1" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_abuhamzapart1_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickAbuhamzaPart2" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_abuhamzapart2_thumali_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickAbuhamzaPart3" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_abuhamzapart3_button" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

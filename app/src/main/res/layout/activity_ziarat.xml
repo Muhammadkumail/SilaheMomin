@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MianLayout"
+    android:id="@+id/ziaratlayout">
+
+
+
+    <ScrollView style="@style/HomeScrollViewlayout"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout style="@style/HomeMainButtonLayout"
+                >
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView style="@style/HomeMainImageView"
+                        android:onClick="onClickziaratAshura"/>
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/ziarat_ashura_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickZiaraWaresah"
+                        />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/ziarat_waresa_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView style="@style/HomeMainImageView"
+                        android:onClick="onClickZiaratImamHussain"/>
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/ziarat_imam_hussain_shabe_qadr_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickZiaratHazratAlibinHussain"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/ziarat_hazrat_ali_ibn_hussain_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView style="@style/HomeMainImageView"
+                        android:onClick="onClickZiaratSaerShohada"/>
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/ziarat_saere_shohada_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView style="@style/HomeMainImageView"
+                        android:onClick="onClickZiaratHazratAbbas"
+                        android:layout_marginTop="20dp"/>
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/ziarat_hazrat_abbas__button"
+                       />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

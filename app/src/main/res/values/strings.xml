@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Silahe Momin</string>
+
+    <!--Home page button's Text-->
+    <string name="home_dua_button">مخصوص دعائيں</string>
+    <string name="home_ziarat_button">مخصوص زیارتيں</string>
+    <string name="home_surah_button">منتخب قرانی سوره</string>
+    <string name="home_ramzan_button">ماہ مبارك رمضان کے مخصوص اعمال</string>
+    <string name="home_rajab_button">ماہ رجب کے مخصوص اعمال</string>
+    <string name="home_shaban_button">ماہ شعبان کے مخصوص اعمال</string>
+    <string name="home_shabe_ashur_button">   اعمال شب عاشور</string>
+
+    <!--Dua page button's Text-->
+    <string name="duas_dua_kumail_button">دعا ئے  کمیل</string>
+    <string name="duas_dua_tawassul_button">دعا ئے  توسل</string>
+    <string name="duas_dua_joshan_kabeer_button">دعا ئے  جوشن کبیر</string>
+    <string name="duas_dua_iftitah_button">دعا ئے افتتاح</string>
+    <string name="duas_dua_abu_hamza_thumali_button">دعا ئے ابو حمزہ ثمالی</string>
+    <string name="duas_dua_imam_zamana_button">دعا ئے  امام زمانه</string>
+
+    <!--Dua page button's Text-->
+    <string name="duas_dua_abuhamzapart1_button">حصه اول</string>
+    <string name="duas_dua_abuhamzapart2_thumali_button">حصه دوم</string>
+    <string name="duas_dua_abuhamzapart3_button">حصه سوم</string>
+
+    <!--Ziarat page button's Text-->
+    <string name="ziarat_waresa_button">زیارت وارثه</string>
+    <string name="ziarat_ashura_button">زیارت عاشورا</string>
+    <string name="ziarat_imam_hussain_shabe_qadr_button">شب های قدر مین زیارت  حسین</string>
+    <string name="ziarat_hazrat_ali_ibn_hussain_button">زیارت حضرت علی ابن الحسین </string>
+    <string name="ziarat_saere_shohada_button">زیارت سائر شهدا </string>
+    <string name="ziarat_hazrat_abbas__button">زیارت حضرت عباس بن امیرالمومنین </string>
+
+    <!--Surah page button's Text-->
+    <string name="surah_Ankabut_button"> سوره عنکبوت </string>
+    <string name="surah_room_button"> سوره روم </string>
+    <string name="surah_dukhan_button"> سوره دخان </string>
+
+    <!--Amale shabe Qadr page button's Text-->
+    <string name="amaleshabeqadr_mushtarka_amal_button">اعمال مشترکہ شب ہای قدر </string>
+    <string name="amaleshabeqadr_shabe_unnis_amal_button">انیسویں  رات کے اعمال اور دعا</string>
+    <string name="amaleshabeqadr_shabe_ikkis_amal_button">اکیسویں رات کے اعمال اور دعا</string>
+    <string name="amaleshabeqadr_shabe_teyyes_amal_button">تئیسویں رات کے اعمال اور دعا</string>
+    <string name="amaleshabeqadr_shabe_sattaes_amal_button">مناجات حضرت امیرالمومنین(ع)</string>
+
+
+
+    <!--Amale Rajab page button's Text-->
+    <string name="amalerajab_pheliRat_button">رجب کی پہلی رات </string>
+    <string name="amalesrajab_mushtareka_button">اعمال مشترکہ ماہ رجب</string>
+    <string name="amalesrajab_ziarat_rajabea_button">زیارت رجبیہ </string>
+    <string name="amalesrajab_tera_to_pandra_button">۱۳ سے ۱۵ رج تک کے مخصوص اعمال</string>
+    <string name="amalesrajab_amale_umme_dawood_button">اعمال ام داؤد</string>
+
+
+    <!--Amale Shaban page button's Text-->
+    <string name="amaleShaban_tesriShaban_button">تیسری شعبان کا دن</string>
+    <string name="amaleShaban_nimeShaban_button">اعمال نیمہ شعبان</string>
+    <string name="amaleShaban_mushtareka_button">ماہ شعبان کے مشترکہ اعمال</string>
+
+
+
+</resources>
