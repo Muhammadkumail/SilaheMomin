@@ -46,7 +46,7 @@ public class ShabanThirdNightActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ShabanThirdNightActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mShabanThirdNightDataSource = new ShabanThirdNightDataSource();
+            mShabanThirdNightDataSource = new ShabanThirdNightDataSource(context);
             super.onPreExecute();
         }
 

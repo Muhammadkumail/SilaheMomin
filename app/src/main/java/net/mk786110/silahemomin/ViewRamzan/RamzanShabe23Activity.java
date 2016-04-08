@@ -46,7 +46,7 @@ public class RamzanShabe23Activity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(RamzanShabe23Activity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mRamzanShabe23DataSource = new RamzanShabe23DataSource();
+            mRamzanShabe23DataSource = new RamzanShabe23DataSource(context);
             super.onPreExecute();
         }
 

@@ -39,7 +39,7 @@ public class ZiaratImamHussainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ZiaratImamHussainActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mziaratImamHussainDataSource=new ZiaratImamHussainDataSource();
+            mziaratImamHussainDataSource=new ZiaratImamHussainDataSource(context);
 
             super.onPreExecute();
         }
@@ -63,6 +63,7 @@ public class ZiaratImamHussainActivity extends AppCompatActivity {
             mlistViewDua.setAdapter(mziaratImamHussainAdaptor);
 
             super.onPostExecute(aVoid);
+            progressDialog.dismiss();
         }
     }
 

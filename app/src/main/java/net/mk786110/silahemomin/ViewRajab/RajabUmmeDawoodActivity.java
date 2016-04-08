@@ -46,7 +46,7 @@ public class RajabUmmeDawoodActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(RajabUmmeDawoodActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mRajabUmmeDawoodAmalDataSource = new RajabUmmeDawoodAmalDataSource();
+            mRajabUmmeDawoodAmalDataSource = new RajabUmmeDawoodAmalDataSource(context);
             super.onPreExecute();
         }
 

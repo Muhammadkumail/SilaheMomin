@@ -39,7 +39,7 @@ public class ZiaratHazratAliIbnHussainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ZiaratHazratAliIbnHussainActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mziaratHazratAliIbnHussainSource = new ZiaratHazratAliIbnHussainSource();
+            mziaratHazratAliIbnHussainSource = new ZiaratHazratAliIbnHussainSource(context);
 
             super.onPreExecute();
         }

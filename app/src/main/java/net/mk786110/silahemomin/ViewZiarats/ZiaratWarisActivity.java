@@ -39,7 +39,7 @@ public class ZiaratWarisActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ZiaratWarisActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mziaratWarisDataSource=new ZiaratWarisDataSource();
+            mziaratWarisDataSource=new ZiaratWarisDataSource(context);
 
             super.onPreExecute();
         }

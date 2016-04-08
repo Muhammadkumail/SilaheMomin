@@ -42,7 +42,7 @@ public class SurahRoomActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog = ProgressDialog.show(SurahRoomActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mduaRoomDataSource = new SurahRoomDataSource();
+            mduaRoomDataSource = new SurahRoomDataSource(context);
 
             super.onPreExecute();
         }

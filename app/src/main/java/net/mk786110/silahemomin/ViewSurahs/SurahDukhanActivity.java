@@ -44,7 +44,7 @@ public class SurahDukhanActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(SurahDukhanActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mduaDukhanDataSource = new SurahDukhanDataSource();
+            mduaDukhanDataSource = new SurahDukhanDataSource(context);
 
             super.onPreExecute();
         }

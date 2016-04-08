@@ -46,7 +46,7 @@ public class RajabMushtarekaAmalActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(RajabMushtarekaAmalActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mRajabMushtarekaAmalDataSource = new RajabMushtarekaAmalDataSource();
+            mRajabMushtarekaAmalDataSource = new RajabMushtarekaAmalDataSource(context);
             super.onPreExecute();
         }
 

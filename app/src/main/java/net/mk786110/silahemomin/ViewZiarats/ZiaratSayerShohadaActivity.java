@@ -40,7 +40,7 @@ public class ZiaratSayerShohadaActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ZiaratSayerShohadaActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mziaratSayerShohadaDataSource=new ZiaratSayerShohadaDataSource();
+            mziaratSayerShohadaDataSource=new ZiaratSayerShohadaDataSource(context);
 
             super.onPreExecute();
         }

@@ -37,7 +37,7 @@ public class SurahAnkabutActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(SurahAnkabutActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mduaAnkabutDataSource=new SurahAnkabutDataSource();
+            mduaAnkabutDataSource=new SurahAnkabutDataSource(context);
 
             super.onPreExecute();
         }

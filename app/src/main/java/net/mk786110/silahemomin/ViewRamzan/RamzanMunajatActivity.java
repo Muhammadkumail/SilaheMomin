@@ -46,7 +46,7 @@ public class RamzanMunajatActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(RamzanMunajatActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mRamzanMunajatDataSource = new RamzanMunajatDataSource();
+            mRamzanMunajatDataSource = new RamzanMunajatDataSource(context);
             super.onPreExecute();
         }
 
