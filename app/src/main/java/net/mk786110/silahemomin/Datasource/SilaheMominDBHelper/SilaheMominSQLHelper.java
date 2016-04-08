@@ -12,6 +12,28 @@ import net.mk786110.silahemomin.Contract.DuaImamZmanaContract;
 import net.mk786110.silahemomin.Contract.DuaJoshanKabeerContract;
 import net.mk786110.silahemomin.Contract.DuaKumailContract;
 import net.mk786110.silahemomin.Contract.DuaTawassulContract;
+import net.mk786110.silahemomin.Contract.RajabFirstNightContract;
+import net.mk786110.silahemomin.Contract.RajabMushtarekaAmalContract;
+import net.mk786110.silahemomin.Contract.RajabTeraToPandraContract;
+import net.mk786110.silahemomin.Contract.RajabUmmeDawoodContract;
+import net.mk786110.silahemomin.Contract.RajabZiaratRajabeaContract;
+import net.mk786110.silahemomin.Contract.RamzanMunajatContract;
+import net.mk786110.silahemomin.Contract.RamzanMushtarekaAmalContract;
+import net.mk786110.silahemomin.Contract.RamzanShabe19Contract;
+import net.mk786110.silahemomin.Contract.RamzanShabe21Contract;
+import net.mk786110.silahemomin.Contract.RamzanShabe23Contract;
+import net.mk786110.silahemomin.Contract.ShabanMushtarekaAmalContract;
+import net.mk786110.silahemomin.Contract.ShabanNimeShabanContract;
+import net.mk786110.silahemomin.Contract.ShabanThirdShabanContract;
+import net.mk786110.silahemomin.Contract.SurahAnkabutContract;
+import net.mk786110.silahemomin.Contract.SurahDukhanContract;
+import net.mk786110.silahemomin.Contract.SurahRoomContract;
+import net.mk786110.silahemomin.Contract.ZiaratAshuraContract;
+import net.mk786110.silahemomin.Contract.ZiaratHazratAbbasContract;
+import net.mk786110.silahemomin.Contract.ZiaratHazratAliibnHussainContract;
+import net.mk786110.silahemomin.Contract.ZiaratImamHussainContract;
+import net.mk786110.silahemomin.Contract.ZiaratSayerShohadaContract;
+import net.mk786110.silahemomin.Contract.ZiaratWarisContract;
 
 
 public class SilaheMominSQLHelper extends SQLiteOpenHelper {
@@ -34,6 +56,37 @@ public class SilaheMominSQLHelper extends SQLiteOpenHelper {
         db.execSQL(DuaAbuHamza1Contract.SQL_CREATE);
         db.execSQL(DuaAbuHamza2Contract.SQL_CREATE);
         db.execSQL(DuaAbuHamza3Contract.SQL_CREATE);
+
+        db.execSQL(SurahAnkabutContract.SQL_CREATE);
+        db.execSQL(SurahDukhanContract.SQL_CREATE);
+        db.execSQL(SurahRoomContract.SQL_CREATE);
+
+        db.execSQL(ZiaratAshuraContract.SQL_CREATE);
+        db.execSQL(ZiaratWarisContract.SQL_CREATE);
+        db.execSQL(ZiaratHazratAbbasContract.SQL_CREATE);
+        db.execSQL(ZiaratImamHussainContract.SQL_CREATE);
+        db.execSQL(ZiaratSayerShohadaContract.SQL_CREATE);
+        db.execSQL(ZiaratHazratAliibnHussainContract.SQL_CREATE);
+
+        db.execSQL(RajabFirstNightContract.SQL_CREATE);
+        db.execSQL(RajabMushtarekaAmalContract.SQL_CREATE);
+        db.execSQL(RajabUmmeDawoodContract.SQL_CREATE);
+        db.execSQL(RajabZiaratRajabeaContract.SQL_CREATE);
+        db.execSQL(RajabTeraToPandraContract.SQL_CREATE);
+
+        db.execSQL(RamzanMunajatContract.SQL_CREATE);
+        db.execSQL(RamzanMushtarekaAmalContract.SQL_CREATE);
+        db.execSQL(RamzanShabe19Contract.SQL_CREATE);
+        db.execSQL(RamzanShabe21Contract.SQL_CREATE);
+        db.execSQL(RamzanShabe23Contract.SQL_CREATE);
+
+
+        db.execSQL(ShabanMushtarekaAmalContract.SQL_CREATE);
+        db.execSQL(ShabanNimeShabanContract.SQL_CREATE);
+        db.execSQL(ShabanThirdShabanContract.SQL_CREATE);
+
+
+
     }
 
     @Override
