@@ -3,13 +3,17 @@ package net.mk786110.silahemomin.ViewDuas;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaKumailAdaptor;
 import net.mk786110.silahemomin.Datasource.DuaKumailDataSource;
@@ -29,6 +33,7 @@ public class DuaKumailActivity extends AppCompatActivity {
 
     DuaKumailDataSource mduaKumailDataSource;
     ArrayList<Dua> arrayList;
+    ArrayList<Dua> ararylistSqllite;
     ListView mlistViewDua;
     Context context;
     CheckBox checkBox;
@@ -43,8 +48,19 @@ public class DuaKumailActivity extends AppCompatActivity {
 
         new get_data_AsynchTask().execute();
 
+
     }
-   
+
+    /*private boolean isNetworkConnected() {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ninfo = cm.getActiveNetworkInfo();
+        if (ninfo != null && ninfo.isConnected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }*/
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
 
@@ -53,11 +69,11 @@ public class DuaKumailActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
 
-            progressDialog= ProgressDialog.show(DuaKumailActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog = ProgressDialog.show(DuaKumailActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
 
             arrayList = new ArrayList<>();
 
-            mduaKumailDataSource = new DuaKumailDataSource();
+            mduaKumailDataSource = new DuaKumailDataSource(context);
 
             super.onPreExecute();
         }
@@ -65,8 +81,12 @@ public class DuaKumailActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
 
-            arrayList = mduaKumailDataSource.getList();
+                    arrayList = mduaKumailDataSource.getList();
+
+
             return null;
+
+
         }
 
         @Override

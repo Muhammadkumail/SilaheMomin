@@ -38,7 +38,7 @@ public class DuaTawassulActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(DuaTawassulActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList=new ArrayList<>();
-            mduaTawassulDataSource = new DuaTawassulDataSource();
+            mduaTawassulDataSource = new DuaTawassulDataSource(context);
             super.onPreExecute();
         }
 

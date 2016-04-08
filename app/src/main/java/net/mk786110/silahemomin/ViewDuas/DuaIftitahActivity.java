@@ -46,7 +46,7 @@ public class DuaIftitahActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(DuaIftitahActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mduaIftitahDataSource = new DuaIftitahDataSource();
+            mduaIftitahDataSource = new DuaIftitahDataSource(context);
             super.onPreExecute();
         }
 

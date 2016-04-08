@@ -42,7 +42,7 @@ public class DuaAbumhaza1Activity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(DuaAbumhaza1Activity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
             arrayList = new ArrayList<>();
-            mDuaIAbuHamza1DataSource = new DuaIAbuHamza1DataSource();
+            mDuaIAbuHamza1DataSource = new DuaIAbuHamza1DataSource(context);
             super.onPreExecute();
         }
 
