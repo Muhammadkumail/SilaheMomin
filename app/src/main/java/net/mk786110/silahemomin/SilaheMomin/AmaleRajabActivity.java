@@ -12,6 +12,7 @@ import net.mk786110.silahemomin.R;
 
 import net.mk786110.silahemomin.ViewRajab.RajabFirstNightActivity;
 import net.mk786110.silahemomin.ViewRajab.RajabMushtarekaAmalActivity;
+import net.mk786110.silahemomin.ViewRajab.RajabShabe27Activity;
 import net.mk786110.silahemomin.ViewRajab.RajabTeraToPandraActivity;
 import net.mk786110.silahemomin.ViewRajab.RajabUmmeDawoodActivity;
 import net.mk786110.silahemomin.ViewRajab.RajabZiaratRajabeaActivity;
@@ -57,6 +58,12 @@ public class AmaleRajabActivity extends AppCompatActivity {
     public void onClickUmmeDawood(View view) {
         Intent intent = new Intent();
         intent.setClass(AmaleRajabActivity.this, RajabUmmeDawoodActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
+    public void onClickRajabShabe27(View view) {
+        Intent intent = new Intent();
+        intent.setClass(AmaleRajabActivity.this, RajabShabe27Activity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }

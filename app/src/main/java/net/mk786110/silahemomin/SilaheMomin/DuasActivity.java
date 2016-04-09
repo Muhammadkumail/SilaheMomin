@@ -13,6 +13,8 @@ import net.mk786110.silahemomin.ViewDuas.DuaIftitahActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaImamZamanaActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaJoshanKabeerActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaKumailActivity;
+import net.mk786110.silahemomin.ViewDuas.DuaMujeerActivity;
+import net.mk786110.silahemomin.ViewDuas.DuaSamatActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaTawassulActivity;
 
 public class DuasActivity extends AppCompatActivity {
@@ -71,6 +73,18 @@ public class DuasActivity extends AppCompatActivity {
     public void onClickDuaeImamZamana(View view) {
         Intent intent = new Intent();
         intent.setClass(DuasActivity.this, DuaImamZamanaActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
+    public void onClickDuaeSamat(View view) {
+        Intent intent = new Intent();
+        intent.setClass(DuasActivity.this, DuaSamatActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
+    public void onClickDuaeMujeer(View view) {
+        Intent intent = new Intent();
+        intent.setClass(DuasActivity.this, DuaMujeerActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }

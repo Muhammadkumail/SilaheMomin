@@ -14,6 +14,8 @@
     <string name="duas_dua_kumail_button">دعا ئے  کمیل</string>
     <string name="duas_dua_tawassul_button">دعا ئے  توسل</string>
     <string name="duas_dua_joshan_kabeer_button">دعا ئے  جوشن کبیر</string>
+    <string name="duas_dua_samat_button">دعا ئے سمات</string>
+    <string name="duas_dua_mujeer_button">دعا ئے مجییر</string>
     <string name="duas_dua_iftitah_button">دعا ئے افتتاح</string>
     <string name="duas_dua_abu_hamza_thumali_button">دعا ئے ابو حمزہ ثمالی</string>
     <string name="duas_dua_imam_zamana_button">دعا ئے  امام زمانه</string>
@@ -47,6 +49,7 @@
 
     <!--Amale Rajab page button's Text-->
     <string name="amalerajab_pheliRat_button">رجب کی پہلی رات </string>
+    <string name="amalerajab_shabe27_button">ستائیس رجب کی رات</string>
     <string name="amalesrajab_mushtareka_button">اعمال مشترکہ ماہ رجب</string>
     <string name="amalesrajab_ziarat_rajabea_button">زیارت رجبیہ </string>
     <string name="amalesrajab_tera_to_pandra_button">۱۳ سے ۱۵ رج تک کے مخصوص اعمال</string>

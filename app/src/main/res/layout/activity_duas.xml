@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MianLayout"
-    android:id="@+id/dualayout">
+    android:id="@+id/dualayout"
+    style="@style/MianLayout">
 
 
     <ScrollView
@@ -12,7 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center"
 
             >
 
@@ -39,6 +38,30 @@
                     <TextView
                         style="@style/HomeMainTextView"
                         android:text="@string/duas_dua_iftitah_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+
+                        android:onClick="onClickDuaeSamat" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_samat_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onClickDuaeMujeer" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_mujeer_button" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
