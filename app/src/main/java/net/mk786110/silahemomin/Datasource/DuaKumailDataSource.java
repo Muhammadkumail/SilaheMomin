@@ -34,7 +34,9 @@ public class DuaKumailDataSource {
     public ArrayList<Dua> getList() {
 
         DuaParser duaParser = new DuaParser();
+
         ArrayList<Dua> arrayListLiveData;
+
         try {
 
             ArrayList<Dua> arrayListSqllite = getListFromSQLite();

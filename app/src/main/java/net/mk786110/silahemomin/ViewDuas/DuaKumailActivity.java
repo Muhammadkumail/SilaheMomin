@@ -46,12 +46,14 @@ public class DuaKumailActivity extends AppCompatActivity {
         context = this;
         setContentView(R.layout.activity_detail);
 
-        new get_data_AsynchTask().execute();
+
+            new get_data_AsynchTask().execute();
+
 
 
     }
 
-    /*private boolean isNetworkConnected() {
+   /* private boolean isNetworkConnected() {
 
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ninfo = cm.getActiveNetworkInfo();
@@ -81,9 +83,8 @@ public class DuaKumailActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
 
-                    arrayList = mduaKumailDataSource.getList();
 
-
+            arrayList = mduaKumailDataSource.getList();
             return null;
 
 

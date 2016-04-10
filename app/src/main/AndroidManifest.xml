@@ -61,7 +61,12 @@
         <activity android:name=".ViewDuas.DuaMujeerActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ViewDuas.DuaSamatActivity" android:screenOrientation="portrait"></activity>
 
-
+        <receiver android:name=".receiver.GCMReciever" />
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <category android:name="net.mk786110.silahemomin" />
+        </intent-filter>
+        <service android:name=".service.GCMService" />
 
     </application>
 
