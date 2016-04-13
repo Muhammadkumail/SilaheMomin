@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.SurahAnkabutAdaptor;
 import net.mk786110.silahemomin.Adaptor.ZiaratAshuraAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.SurahAnkabutDataSource;
 import net.mk786110.silahemomin.Datasource.ZiaratAshuraDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -37,7 +38,7 @@ public class ZiaratAshuraActivity extends AppCompatActivity {
         ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(ZiaratAshuraActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(ZiaratAshuraActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mziaratAshuraDataSource=new ZiaratAshuraDataSource(context);
 

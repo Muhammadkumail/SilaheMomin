@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.RajabFirstNightAdaptor;
 import net.mk786110.silahemomin.Adaptor.RajabShabe27Adaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.RajabFirstNightSource;
 import net.mk786110.silahemomin.Datasource.RajabShabe27Source;
 import net.mk786110.silahemomin.Model.Dua;
@@ -44,7 +45,7 @@ public class RajabShabe27Activity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(RajabShabe27Activity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(RajabShabe27Activity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mRajabShabe27Source = new RajabShabe27Source(context);
             super.onPreExecute();

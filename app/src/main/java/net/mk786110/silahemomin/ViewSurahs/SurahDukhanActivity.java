@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.DuaKumailAdaptor;
 import net.mk786110.silahemomin.Adaptor.SurahDukhanAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaKumailDataSource;
 import net.mk786110.silahemomin.Datasource.SurahDukhanDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -42,7 +43,7 @@ public class SurahDukhanActivity extends AppCompatActivity {
         ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(SurahDukhanActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(SurahDukhanActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mduaDukhanDataSource = new SurahDukhanDataSource(context);
 

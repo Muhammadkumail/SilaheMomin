@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.RajabZiaratRajabeatAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.Datasource.RajabZiaratRajabeaDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -44,7 +45,7 @@ public class RajabZiaratRajabeaActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(RajabZiaratRajabeaActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(RajabZiaratRajabeaActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mRajabZiaratRajabeaDataSource = new RajabZiaratRajabeaDataSource(context);
             super.onPreExecute();

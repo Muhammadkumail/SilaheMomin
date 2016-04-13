@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.RamzanShabe23Adaptor;
 import net.mk786110.silahemomin.Adaptor.ShabanMushtarekaAmalAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.RamzanShabe23DataSource;
 import net.mk786110.silahemomin.Datasource.ShabanMushtarekaAmalDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -44,7 +45,7 @@ public class RamzanShabe23Activity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(RamzanShabe23Activity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(RamzanShabe23Activity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mRamzanShabe23DataSource = new RamzanShabe23DataSource(context);
             super.onPreExecute();

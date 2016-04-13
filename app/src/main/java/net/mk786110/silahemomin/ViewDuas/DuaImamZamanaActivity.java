@@ -11,6 +11,7 @@ import android.widget.TextView;
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.DuaImamZamanaAdaptor;
 import net.mk786110.silahemomin.Adaptor.DuaKumailAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.Datasource.DuaImamZamanaDataSource;
 import net.mk786110.silahemomin.Datasource.DuaKumailDataSource;
@@ -39,7 +40,7 @@ public class DuaImamZamanaActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(DuaImamZamanaActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(DuaImamZamanaActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mduaImamZamanaDataSource = new DuaImamZamanaDataSource(context);
             super.onPreExecute();

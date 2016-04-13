@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.RajabUmmeDawoodAmalAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.Datasource.RajabUmmeDawoodAmalDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -44,7 +45,7 @@ public class RajabUmmeDawoodActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(RajabUmmeDawoodActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(RajabUmmeDawoodActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mRajabUmmeDawoodAmalDataSource = new RajabUmmeDawoodAmalDataSource(context);
             super.onPreExecute();

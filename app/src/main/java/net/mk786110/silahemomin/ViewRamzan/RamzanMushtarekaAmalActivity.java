@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.RamzanMushtarekaAmalAdaptor;
 import net.mk786110.silahemomin.Adaptor.ShabanMushtarekaAmalAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.RamzanMushtarekaAmalDataSource;
 import net.mk786110.silahemomin.Datasource.ShabanMushtarekaAmalDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -44,7 +45,7 @@ public class RamzanMushtarekaAmalActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(RamzanMushtarekaAmalActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(RamzanMushtarekaAmalActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mRamzanMushtarekaAmalDataSource = new RamzanMushtarekaAmalDataSource(context);
             super.onPreExecute();

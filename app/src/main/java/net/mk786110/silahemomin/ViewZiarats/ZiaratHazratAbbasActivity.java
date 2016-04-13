@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.SurahAnkabutAdaptor;
 import net.mk786110.silahemomin.Adaptor.ZiaratHazratAbbasAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.SurahAnkabutDataSource;
 import net.mk786110.silahemomin.Datasource.ZiaratHazratAbbasDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -38,7 +39,7 @@ public class ZiaratHazratAbbasActivity extends AppCompatActivity {
         ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(ZiaratHazratAbbasActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(ZiaratHazratAbbasActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mziaratHazratAbbasDataSource=new ZiaratHazratAbbasDataSource(context);
 

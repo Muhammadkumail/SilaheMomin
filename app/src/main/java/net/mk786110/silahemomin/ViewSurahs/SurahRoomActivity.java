@@ -11,6 +11,7 @@ import android.widget.TextView;
 import net.mk786110.silahemomin.Adaptor.DuaKumailAdaptor;
 import net.mk786110.silahemomin.Adaptor.SurahDukhanAdaptor;
 import net.mk786110.silahemomin.Adaptor.SurahRoomAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaKumailDataSource;
 import net.mk786110.silahemomin.Datasource.SurahDukhanDataSource;
 import net.mk786110.silahemomin.Datasource.SurahRoomDataSource;
@@ -40,7 +41,7 @@ public class SurahRoomActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(SurahRoomActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog = ProgressDialog.show(SurahRoomActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mduaRoomDataSource = new SurahRoomDataSource(context);
 

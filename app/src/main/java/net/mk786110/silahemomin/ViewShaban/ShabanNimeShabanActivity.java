@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.RajabFirstNightAdaptor;
 import net.mk786110.silahemomin.Adaptor.ShabanNimeShabanAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.RajabFirstNightSource;
 import net.mk786110.silahemomin.Datasource.ShabanNimeShabanDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -44,7 +45,7 @@ public class ShabanNimeShabanActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(ShabanNimeShabanActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(ShabanNimeShabanActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mShabanNimeShabanDataSource = new ShabanNimeShabanDataSource(context);
             super.onPreExecute();

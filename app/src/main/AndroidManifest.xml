@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.mk786110.silahemomin" >
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
         android:allowBackup="true"
@@ -61,12 +64,12 @@
         <activity android:name=".ViewDuas.DuaMujeerActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ViewDuas.DuaSamatActivity" android:screenOrientation="portrait"></activity>
 
-        <receiver android:name=".receiver.GCMReciever" />
+        <receiver android:name="net.mk786110.silahemomin.receiver.GCMReciever" />
         <intent-filter>
             <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             <category android:name="net.mk786110.silahemomin" />
         </intent-filter>
-        <service android:name=".service.GCMService" />
+        <service android:name="net.mk786110.silahemomin.service.GCMService" />
 
     </application>
 

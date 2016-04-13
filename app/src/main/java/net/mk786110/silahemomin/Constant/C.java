@@ -57,4 +57,9 @@ public class C {
     public static final String RandomHadith=rootUrl+"android/kumail/hadith.php";
 
 
+    /*Waiting Message*/
+
+    public static final String Salwat="اللَّهُمَّ صَلِّ عَلَی مُحَمَّدٍ وَآلِ مُحَمَّد";
+
+
 }

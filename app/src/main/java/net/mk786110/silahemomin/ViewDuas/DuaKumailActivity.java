@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaKumailAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaKumailDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
@@ -71,7 +72,7 @@ public class DuaKumailActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
 
-            progressDialog = ProgressDialog.show(DuaKumailActivity.this, "wait", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog = ProgressDialog.show(DuaKumailActivity.this, "wait", C.Salwat, true);
 
             arrayList = new ArrayList<>();
 

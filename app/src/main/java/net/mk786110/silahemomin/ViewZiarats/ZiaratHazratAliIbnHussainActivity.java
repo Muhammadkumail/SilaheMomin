@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import net.mk786110.silahemomin.Adaptor.SurahAnkabutAdaptor;
 import net.mk786110.silahemomin.Adaptor.ZiaratHazratAliIbnHussainAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.SurahAnkabutDataSource;
 import net.mk786110.silahemomin.Datasource.ZiaratHazratAliIbnHussainSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -37,7 +38,7 @@ public class ZiaratHazratAliIbnHussainActivity extends AppCompatActivity {
         ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(ZiaratHazratAliIbnHussainActivity.this, "wait","اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ", true);
+            progressDialog= ProgressDialog.show(ZiaratHazratAliIbnHussainActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
             mziaratHazratAliIbnHussainSource = new ZiaratHazratAliIbnHussainSource(context);
 
