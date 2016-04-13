@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
 
     GoogleCloudMessaging gcm;
     String gcmId = "";
-    String sender_id = "960364046710";
+    String sender_id = "911030489741";
 
     Context context;
 

@@ -2,6 +2,7 @@ package net.mk786110.silahemomin.service;
 
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -39,14 +40,16 @@ public class GCMService extends IntentService{
     private void sendNotification(String msg) {
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, HomeActivity.class), 0);
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-                this).setSmallIcon(R.drawable.common_plus_signin_btn_icon_light_normal)
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, HomeActivity.class), 0);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.common_plus_signin_btn_icon_light_normal)
                 .setContentTitle("Message Received")
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                .setSound(uri).setContentText(msg);
+                .setSound(uri).setContentText(msg)
+                .setAutoCancel(true);
         mBuilder.setContentIntent(contentIntent);
+
+        //mBuilder.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
 }
