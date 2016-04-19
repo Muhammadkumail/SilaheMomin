@@ -101,9 +101,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onClickAmalshabeAshur(View view) {
 
-        /*Intent mintent = new Intent();
-        // mintent.setClass(HomeActivity.this, AmaleShabeAshurActivity.class);
-        startActivity(mintent);*/
+        Intent mintent = new Intent();
+        mintent.setClass(HomeActivity.this, ShowMsgActivity.class);
+        startActivity(mintent);
     }
 
 

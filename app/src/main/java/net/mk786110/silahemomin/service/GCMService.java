@@ -2,7 +2,6 @@ package net.mk786110.silahemomin.service;
 
 
 import android.app.IntentService;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -13,14 +12,19 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+
+import net.mk786110.silahemomin.Model.MyNotification;
 import net.mk786110.silahemomin.R;
-import net.mk786110.silahemomin.SilaheMomin.HomeActivity;
+import net.mk786110.silahemomin.SilaheMomin.ShowMsgActivity;
+
+import java.io.Serializable;
 
 
-public class GCMService extends IntentService{
+public class GCMService extends IntentService {
 
     private NotificationManager mNotificationManager;
     NotificationCompat.Builder builder;
+
 
     public GCMService() {
         super("GCMService");
@@ -28,22 +32,34 @@ public class GCMService extends IntentService{
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        // do your work here
+
 
         Bundle mBundle = intent.getExtras();
 
         String strTtile = mBundle.getString("title");
+        Log.d("kumail 1", strTtile);
         String strMessage = mBundle.getString("m");
+        Log.d("kumail 1", strMessage);
         String strnotificaton_id = mBundle.getString("notification_id");
-        int NOTIFICATION_ID=Integer.parseInt(strnotificaton_id);
 
-        sendNotification(strMessage,strTtile,NOTIFICATION_ID);
+        int NOTIFICATION_ID = Integer.parseInt(strnotificaton_id);
+
+        sendNotification(strMessage, strTtile, NOTIFICATION_ID);
     }
 
-    private void sendNotification(String msg , String title,int nofication_id) {
+    private void sendNotification(String msg, String title, int nofication_id) {
+
+
+        MyNotification mnotification = new MyNotification();
+        mnotification.setMsg(msg);
+        mnotification.setTitle(title);
+        Intent mintent = new Intent(this, ShowMsgActivity.class);
+        mintent.putExtra("mynotification", mnotification);
+        mintent.setAction(Long.toString(System.currentTimeMillis()));
+
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, HomeActivity.class), 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, mintent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
@@ -51,9 +67,9 @@ public class GCMService extends IntentService{
                 .setSound(uri).setContentText(msg)
                 .setAutoCancel(true);
         mBuilder.setContentIntent(contentIntent);
-
-
         mNotificationManager.notify(nofication_id, mBuilder.build());
 
     }
+
+
 }
