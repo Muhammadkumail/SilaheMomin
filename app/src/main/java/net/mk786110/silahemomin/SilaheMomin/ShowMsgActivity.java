@@ -3,20 +3,11 @@ package net.mk786110.silahemomin.SilaheMomin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 
 import net.mk786110.silahemomin.Model.MyNotification;
 import net.mk786110.silahemomin.R;
-import net.mk786110.silahemomin.ViewZiarats.ZiaratAshuraActivity;
-import net.mk786110.silahemomin.ViewZiarats.ZiaratHazratAbbasActivity;
-import net.mk786110.silahemomin.ViewZiarats.ZiaratHazratAliIbnHussainActivity;
-import net.mk786110.silahemomin.ViewZiarats.ZiaratImamHussainActivity;
-import net.mk786110.silahemomin.ViewZiarats.ZiaratSayerShohadaActivity;
-import net.mk786110.silahemomin.ViewZiarats.ZiaratWarisActivity;
 
 public class ShowMsgActivity extends AppCompatActivity {
 
@@ -41,11 +32,9 @@ public class ShowMsgActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onPause() {
 
-        super.onDestroy();
+        super.onPause();
         finish();
     }
-
-
 }

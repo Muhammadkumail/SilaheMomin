@@ -37,9 +37,7 @@ public class GCMService extends IntentService {
         Bundle mBundle = intent.getExtras();
 
         String strTtile = mBundle.getString("title");
-        Log.d("kumail 1", strTtile);
         String strMessage = mBundle.getString("m");
-        Log.d("kumail 1", strMessage);
         String strnotificaton_id = mBundle.getString("notification_id");
 
         int NOTIFICATION_ID = Integer.parseInt(strnotificaton_id);
