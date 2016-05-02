@@ -63,7 +63,7 @@
         <activity android:name=".ViewRajab.RajabShabe27Activity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ViewDuas.DuaMujeerActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ViewDuas.DuaSamatActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".SilaheMomin.ShowMsgActivity" ></activity>
+        <activity android:name=".SilaheMomin.ShowMsgActivity" android:screenOrientation="portrait" ></activity>
 
         <receiver android:name=".receiver.GCMReciever">
             <intent-filter>

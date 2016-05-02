@@ -1,6 +1,8 @@
 package net.mk786110.silahemomin.SilaheMomin;
 
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -39,11 +41,10 @@ public class HomeActivity extends AppCompatActivity {
     HadithDataSource mhadithDataSource;
     ArrayList<Hadith> arrayList;
     ListView mlistViewHadith;
-
     GoogleCloudMessaging gcm;
     String gcmId = "";
     String sender_id = "911030489741";
-
+    String possibleEmail = "";
     Context context;
 
 
@@ -53,6 +54,19 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         context = this;
 
+
+        try {
+            Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
+
+            for (Account account : accounts) {
+
+                possibleEmail = account.name;
+            }
+        } catch (Exception e) {
+            Log.i("Exception", "Exception:" + e);
+        }
+
+
         new get_data_Hadith_AsynchTask().execute();
 
         if (gcmId.length() == 0) {
@@ -60,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         new asyncTask_RegisterWeb().execute();
+
 
     }
 
@@ -127,7 +142,7 @@ public class HomeActivity extends AppCompatActivity {
             String msg = "";
             try {
                 if (gcmId.length() > -0) {
-                    msg =registerDeviceToWebServer(gcmId);
+                    msg = registerDeviceToWebServer(gcmId, possibleEmail);
                 }
             } catch (Exception ex) {
                 msg = "Error :" + ex.getMessage();
@@ -136,7 +151,8 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
-    public String registerDeviceToWebServer(String gcmId) {
+
+    public String registerDeviceToWebServer(String gcmId, String possibleEmail) {
         String url = "http://friendsfashion.net/android/kumail/register.php";
         String strResponse = "No response";
         HttpClient httpclient = new DefaultHttpClient();
@@ -146,6 +162,7 @@ public class HomeActivity extends AppCompatActivity {
             nameValuePairs.add(new BasicNameValuePair("device_gcm_id", gcmId));
             nameValuePairs.add(new BasicNameValuePair("device_api_key", ""));
             nameValuePairs.add(new BasicNameValuePair("device_type", "1"));
+            nameValuePairs.add(new BasicNameValuePair("device_email_address", possibleEmail));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             HttpResponse response = httpclient.execute(httppost);
             strResponse = EntityUtils.toString(response.getEntity());

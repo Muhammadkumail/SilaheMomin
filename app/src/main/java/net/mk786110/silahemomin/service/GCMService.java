@@ -10,14 +10,14 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
+
 
 
 import net.mk786110.silahemomin.Model.MyNotification;
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.SilaheMomin.ShowMsgActivity;
 
-import java.io.Serializable;
+
 
 
 public class GCMService extends IntentService {
