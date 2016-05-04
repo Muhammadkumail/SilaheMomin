@@ -13,6 +13,9 @@ public class C {
     public static final String DuaMujeerJson = rootUrl + "android/kumail/duas.php?dua=dua_e_mujeer";
     public static final String DuaSamatJson = rootUrl + "android/kumail/duas.php?dua=dua_e_samat";
 
+    /*Qurani Dua*/
+    public static final String QuraniDua = rootUrl+"android/kumail/duas.php?dua=qurani_dua";
+
     /*Duae Abuhamza parts 1 2 3 */
     public static final String DuaAbuHamzaJsonPart1 = rootUrl + "android/kumail/duas.php?dua=dua_e_abuhamza1";
     public static final String DuaAbuHamzaJsonPart2 = rootUrl + "android/kumail/duas.php?dua=dua_e_abuhamza2";
@@ -53,8 +56,13 @@ public class C {
     public static final String RamzanShabe23kaAmal=rootUrl+"android/kumail/getramzan.php?ramzan=shabe23";
     public static final String RamzanMunajat=rootUrl+"android/kumail/getramzan.php?ramzan=munajatali";
 
+
+
     /*Hadith link*/
     public static final String RandomHadith=rootUrl+"android/kumail/hadith.php";
+
+    /*Hijri date picker*/
+     public static  final String HijriDate="http://www.moonsighting.org.uk/scripts/hijri.js?return=json";
 
 
     /*Waiting Message*/

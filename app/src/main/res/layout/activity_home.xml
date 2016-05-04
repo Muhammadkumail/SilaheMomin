@@ -8,7 +8,6 @@
         <ImageView style="@style/MainActionBarImage" />
     </LinearLayout>
 
-
     <ScrollView
         style="@style/HomeRelativelayout"
         android:layout_gravity="center"
@@ -97,12 +96,14 @@
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:onClick="onClickAmalshabeAshur" />
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickQuraniDua" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_shabe_ashur_button" />
+                        android:text="@string/home_qurani_dua_button" />
                 </RelativeLayout>
+
 
             </LinearLayout>
 

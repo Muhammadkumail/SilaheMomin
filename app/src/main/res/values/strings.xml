@@ -8,7 +8,8 @@
     <string name="home_ramzan_button">ماہ مبارك رمضان کے مخصوص اعمال</string>
     <string name="home_rajab_button">ماہ رجب کے مخصوص اعمال</string>
     <string name="home_shaban_button">ماہ شعبان کے مخصوص اعمال</string>
-    <string name="home_shabe_ashur_button">   اعمال شب عاشور</string>
+    <string name="home_qurani_dua_button">قرآن میں بیان شدہ دعائیں</string>
+    <string name="qurani_dua_button">قرآن میں بیان شدہ دعائیں</string>
 
     <!--Dua page button's Text-->
     <string name="duas_dua_kumail_button">دعا ئے  کمیل</string>

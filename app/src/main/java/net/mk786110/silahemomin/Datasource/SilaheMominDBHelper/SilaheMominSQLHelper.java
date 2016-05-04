@@ -14,6 +14,7 @@ import net.mk786110.silahemomin.Contract.DuaKumailContract;
 import net.mk786110.silahemomin.Contract.DuaMujeerContract;
 import net.mk786110.silahemomin.Contract.DuaSamatContract;
 import net.mk786110.silahemomin.Contract.DuaTawassulContract;
+import net.mk786110.silahemomin.Contract.QuraniDuaContract;
 import net.mk786110.silahemomin.Contract.RajabFirstNightContract;
 import net.mk786110.silahemomin.Contract.RajabMushtarekaAmalContract;
 import net.mk786110.silahemomin.Contract.RajabShabe27Contract;
@@ -61,6 +62,7 @@ public class SilaheMominSQLHelper extends SQLiteOpenHelper {
         db.execSQL(DuaAbuHamza3Contract.SQL_CREATE);
         db.execSQL(DuaSamatContract.SQL_CREATE);
         db.execSQL(DuaMujeerContract.SQL_CREATE);
+        db.execSQL(QuraniDuaContract.SQL_CREATE);
 
         db.execSQL(SurahAnkabutContract.SQL_CREATE);
         db.execSQL(SurahDukhanContract.SQL_CREATE);

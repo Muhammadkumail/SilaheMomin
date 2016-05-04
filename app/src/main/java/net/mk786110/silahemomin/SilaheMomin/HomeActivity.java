@@ -114,10 +114,10 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(mintent);
     }
 
-    public void onClickAmalshabeAshur(View view) {
+    public void onClickQuraniDua(View view) {
 
         Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, ShowMsgActivity.class);
+        mintent.setClass(HomeActivity.this, QuraniDuaActivity.class);
         startActivity(mintent);
     }
 
