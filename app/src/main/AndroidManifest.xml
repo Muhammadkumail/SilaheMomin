@@ -22,7 +22,6 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".SilaheMomin.SplashActivity"></activity>
         <activity android:name=".SilaheMomin.DuasActivity"></activity>
         <activity android:name=".SilaheMomin.ZiaratActivity"></activity>
         <activity android:name=".SilaheMomin.SurahActivity"></activity>
