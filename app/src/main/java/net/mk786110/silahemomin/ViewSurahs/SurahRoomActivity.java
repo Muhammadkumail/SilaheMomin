@@ -2,6 +2,7 @@ package net.mk786110.silahemomin.ViewSurahs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class SurahRoomActivity extends AppCompatActivity {
     ArrayList<Dua> arrayList;
     ListView mlistViewDua;
     Context context;
+    Boolean bCancelled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,13 @@ public class SurahRoomActivity extends AppCompatActivity {
 
 
     }
+    DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
+        @Override
+        public void onCancel(DialogInterface arg0){
+            bCancelled=true;
+            finish();
+        }
+    };
 
     private class get_data_AsyncTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
@@ -42,6 +51,9 @@ public class SurahRoomActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog = ProgressDialog.show(SurahRoomActivity.this, "wait", C.Salwat, true);
+            progressDialog.setCancelable(true);
+            progressDialog.setOnCancelListener(cancelListener);
+            bCancelled=false;
             arrayList = new ArrayList<>();
             mduaRoomDataSource = new SurahRoomDataSource(context);
 

@@ -2,6 +2,8 @@ package net.mk786110.silahemomin.ViewDuas;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -20,6 +22,7 @@ import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.DuaKumailDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
+import net.mk786110.silahemomin.SilaheMomin.DuasActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,11 +37,10 @@ public class DuaKumailActivity extends AppCompatActivity {
 
     DuaKumailDataSource mduaKumailDataSource;
     ArrayList<Dua> arrayList;
-    ArrayList<Dua> ararylistSqllite;
     ListView mlistViewDua;
     Context context;
-    CheckBox checkBox;
-    TextView urdutextView;
+    Boolean bCancelled;
+
 
 
     @Override
@@ -48,22 +50,18 @@ public class DuaKumailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
 
-            new get_data_AsynchTask().execute();
-
-
-
+        new get_data_AsynchTask().execute();
     }
 
-   /* private boolean isNetworkConnected() {
 
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo ninfo = cm.getActiveNetworkInfo();
-        if (ninfo != null && ninfo.isConnected()) {
-            return true;
-        } else {
-            return false;
+    DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
+        @Override
+        public void onCancel(DialogInterface arg0){
+            bCancelled=true;
+            finish();
         }
-    }*/
+    };
+
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
 
@@ -73,6 +71,11 @@ public class DuaKumailActivity extends AppCompatActivity {
         protected void onPreExecute() {
 
             progressDialog = ProgressDialog.show(DuaKumailActivity.this, "wait", C.Salwat, true);
+
+            progressDialog.setCancelable(true);
+            progressDialog.setOnCancelListener(cancelListener);
+            bCancelled=false;
+
 
             arrayList = new ArrayList<>();
 
@@ -86,6 +89,8 @@ public class DuaKumailActivity extends AppCompatActivity {
 
 
             arrayList = mduaKumailDataSource.getList();
+
+
             return null;
 
 

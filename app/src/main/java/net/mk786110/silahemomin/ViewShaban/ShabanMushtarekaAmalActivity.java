@@ -2,6 +2,7 @@ package net.mk786110.silahemomin.ViewShaban;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class ShabanMushtarekaAmalActivity extends AppCompatActivity {
     ArrayList<Dua> arrayList;
     ListView mlistViewDua;
     Context context;
+    Boolean bCancelled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,13 @@ public class ShabanMushtarekaAmalActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
+    DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
+        @Override
+        public void onCancel(DialogInterface arg0){
+            bCancelled=true;
+            finish();
+        }
+    };
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
@@ -46,6 +51,9 @@ public class ShabanMushtarekaAmalActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ShabanMushtarekaAmalActivity.this, "wait", C.Salwat, true);
+            progressDialog.setCancelable(true);
+            progressDialog.setOnCancelListener(cancelListener);
+            bCancelled=false;
             arrayList = new ArrayList<>();
             mShabanMushtarekaAmalDataSource = new ShabanMushtarekaAmalDataSource(context);
             super.onPreExecute();

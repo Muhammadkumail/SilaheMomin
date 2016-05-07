@@ -2,6 +2,7 @@ package net.mk786110.silahemomin.ViewDuas;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class DuaAbumhaza3Activity extends AppCompatActivity {
     ArrayList<Dua> arrayList;
     ListView mlistViewDua;
     Context context;
+    Boolean bCancelled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,13 @@ public class DuaAbumhaza3Activity extends AppCompatActivity {
 
 
     }
-
+    DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
+        @Override
+        public void onCancel(DialogInterface arg0){
+            bCancelled=true;
+            finish();
+        }
+    };
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
 
@@ -42,6 +50,9 @@ public class DuaAbumhaza3Activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(DuaAbumhaza3Activity.this, "wait", C.Salwat, true);
+            progressDialog.setCancelable(true);
+            progressDialog.setOnCancelListener(cancelListener);
+            bCancelled=false;
             arrayList = new ArrayList<>();
             mDuaIAbuHamza3DataSource = new DuaIAbuHamza3DataSource(context);
             super.onPreExecute();

@@ -23,6 +23,7 @@ public class DuaSamatActivity extends AppCompatActivity {
     ArrayList<Dua> arrayList;
     ListView mlistViewDua;
     Context context;
+    Boolean bCancelled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,6 @@ public class DuaSamatActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
