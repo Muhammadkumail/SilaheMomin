@@ -5,12 +5,15 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -37,7 +40,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    MyHttpClient myHttpClient;
+
     HadithDataSource mhadithDataSource;
     ArrayList<Hadith> arrayList;
     ListView mlistViewHadith;
@@ -46,6 +49,9 @@ public class HomeActivity extends AppCompatActivity {
     String sender_id = "911030489741";
     String possibleEmail = "";
     Context context;
+    String strGcmId="";
+    SharedPreferences mSharedPreferences;
+
 
 
     @Override
@@ -53,6 +59,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         context = this;
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+
 
 
         try {
@@ -66,16 +75,32 @@ public class HomeActivity extends AppCompatActivity {
             Log.i("Exception", "Exception:" + e);
         }
 
-
         new get_data_Hadith_AsynchTask().execute();
 
-        if (gcmId.length() == 0) {
-            new asyncTask_RegisterGCM().execute();
+
+        if (checkPreferences()==true) {
+
+
+            if (gcmId.length() == 0) {
+                new asyncTask_RegisterGCM().execute();
+            }
+            new asyncTask_RegisterWeb().execute();
+
+        }
+        else {
+            Toast.makeText(HomeActivity.this, "السلام علیکم", Toast.LENGTH_SHORT).show();
+
         }
 
-        new asyncTask_RegisterWeb().execute();
+    }
 
+    private Boolean checkPreferences() {
+        strGcmId = mSharedPreferences.getString("key_gcmId", "");
 
+        if (strGcmId.length()==0) {
+            return true;
+        }
+        return false;
     }
 
     public void onClickDuas(View view) {
@@ -123,11 +148,16 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private class asyncTask_RegisterGCM extends AsyncTask<Void, Void, String> {
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
         @Override
         protected String doInBackground(Void... params) {
             try {
+
                 gcm = GoogleCloudMessaging.getInstance(context);
                 gcmId = gcm.register(sender_id);
+                editor.putString("key_gcmId", gcmId.toString());
+                editor.commit();
+
             } catch (IOException ex) {
                 return "Error:" + ex.getMessage();
             }
@@ -142,7 +172,10 @@ public class HomeActivity extends AppCompatActivity {
             String msg = "";
             try {
                 if (gcmId.length() > -0) {
-                    msg = registerDeviceToWebServer(gcmId, possibleEmail);
+
+
+                        msg = registerDeviceToWebServer(gcmId, possibleEmail);
+
                 }
             } catch (Exception ex) {
                 msg = "Error :" + ex.getMessage();
@@ -160,7 +193,6 @@ public class HomeActivity extends AppCompatActivity {
         try {
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
             nameValuePairs.add(new BasicNameValuePair("device_gcm_id", gcmId));
-            nameValuePairs.add(new BasicNameValuePair("device_api_key", ""));
             nameValuePairs.add(new BasicNameValuePair("device_type", "1"));
             nameValuePairs.add(new BasicNameValuePair("device_email_address", possibleEmail));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
