@@ -75,6 +75,7 @@ public class MakhsusQuraniDuaActivity extends AppCompatActivity {
             QuraniDuaAdaptor mQuraniDuaAdaptor = new QuraniDuaAdaptor(context, R.layout.activity_row, arrayList);
 
             mtextView.setText("قرآن میں بیان شدہ دعائیں");
+            mtextView.setTextSize(15);
 
             mlistViewDua.setAdapter(mQuraniDuaAdaptor);
 
