@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import net.mk786110.silahemomin.Adaptor.HadithAdaptor;
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
 import net.mk786110.silahemomin.Http.MyHttpClient;
 import net.mk786110.silahemomin.Model.Hadith;
@@ -186,7 +187,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public String registerDeviceToWebServer(String gcmId, String possibleEmail) {
-        String url = "http://friendsfashion.net/android/kumail/register.php";
+        String url = C.DeviceRegister;
         String strResponse = "No response";
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(url);
