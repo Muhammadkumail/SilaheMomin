@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         >
         <TextView
             android:id="@+id/show_msg_title"
@@ -33,6 +34,13 @@
             android:layout_marginTop="?android:actionBarSize"
             android:layout_marginLeft="?android:actionBarSize"
             android:layout_marginRight="?android:actionBarSize"/>
+        <Button
+            android:id="@+id/show_msg_activityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Click Here"
+            android:onClick="activityName_onclick"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

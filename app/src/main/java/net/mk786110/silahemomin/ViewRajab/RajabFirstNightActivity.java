@@ -52,6 +52,9 @@ public class RajabFirstNightActivity extends AppCompatActivity {
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(RajabFirstNightActivity.this, "wait", C.Salwat, true);
             arrayList = new ArrayList<>();
+            progressDialog.setCancelable(true);
+            progressDialog.setOnCancelListener(cancelListener);
+            bCancelled=false;
             mRajabFirstNightSource = new RajabFirstNightSource(context);
             super.onPreExecute();
         }
