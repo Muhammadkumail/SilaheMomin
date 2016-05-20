@@ -16,46 +16,51 @@ public class ShowMsgActivity extends AppCompatActivity {
 
     MyNotification myNotification = new MyNotification();
 
-    String activity_english_part="";
-    String activity_urdu_part="";
-    String activity_pakageName="";
+    String activity_english_part = "";
+    String activity_urdu_part = "";
+    String activity_pakageName = "";
+    String titile = "";
+    String message = "";
+    TextView notification_title;
+    TextView notification_msg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_msg);
         Intent myIntent = getIntent();
         myNotification = (MyNotification) myIntent.getSerializableExtra("mynotification");
+        Button notification_activity_button = (Button) findViewById(R.id.show_msg_activityButton);
+        notification_title = (TextView) findViewById(R.id.show_msg_title);
+        notification_msg = (TextView) findViewById(R.id.show_msg_content);
 
-        TextView notification_title = (TextView) findViewById(R.id.show_msg_title);
-        TextView notification_msg = (TextView) findViewById(R.id.show_msg_content);
-        Button  notification_activity_button=(Button) findViewById(R.id.show_msg_activityButton);
+
+        activity_english_part = myNotification.getActivity_english_part();
+        activity_urdu_part = myNotification.getActivity_urdu_part();
+        activity_pakageName = myNotification.getActivity_pakage_name();
+
+        titile = myNotification.getTitle();
+        message = myNotification.getMsg();
+
+        notification_title.setText(titile);
+        notification_msg.setText(message);
 
         notification_activity_button.setVisibility(View.GONE);
 
-        activity_english_part=myNotification.getActivity_english_part();
-        activity_urdu_part=myNotification.getActivity_urdu_part();
-        activity_pakageName=myNotification.getActivity_pakage_name();
-
-        notification_title.setText(myNotification.getTitle());
-        notification_msg.setText(myNotification.getMsg());
-
-        if (activity_english_part.length()!=0)
-        {
+        if (activity_english_part.length() != 0) {
             notification_activity_button.setText(activity_urdu_part);
             notification_activity_button.setVisibility(View.VISIBLE);
 
         }
 
 
-
-
     }
-    public void activityName_onclick(View view)
-    {
+
+    public void activityName_onclick(View view) {
         Class<?> c = null;
-        if(activity_english_part != null) {
+        if (activity_english_part != null) {
             try {
-                c = Class.forName("net.mk786110.silahemomin."+activity_pakageName+"."+activity_english_part );
+                c = Class.forName("net.mk786110.silahemomin." + activity_pakageName + "." + activity_english_part);
             } catch (ClassNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -63,6 +68,16 @@ public class ShowMsgActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(ShowMsgActivity.this, c);
         startActivity(intent);
+    }
+
+    public void share_onclick(View view) {
+        // String shareBody = ;
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, titile);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
     }
 
     @Override
