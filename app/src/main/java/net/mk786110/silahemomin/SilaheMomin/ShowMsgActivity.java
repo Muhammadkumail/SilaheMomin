@@ -31,6 +31,8 @@ public class ShowMsgActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         myNotification = (MyNotification) myIntent.getSerializableExtra("mynotification");
         Button notification_activity_button = (Button) findViewById(R.id.show_msg_activityButton);
+        Button share_button = (Button) findViewById(R.id.show_msg_share_button);
+
         notification_title = (TextView) findViewById(R.id.show_msg_title);
         notification_msg = (TextView) findViewById(R.id.show_msg_content);
 
@@ -50,6 +52,7 @@ public class ShowMsgActivity extends AppCompatActivity {
         if (activity_english_part.length() != 0) {
             notification_activity_button.setText(activity_urdu_part);
             notification_activity_button.setVisibility(View.VISIBLE);
+            share_button.setVisibility(View.INVISIBLE);
 
         }
 
@@ -71,12 +74,11 @@ public class ShowMsgActivity extends AppCompatActivity {
     }
 
     public void share_onclick(View view) {
-        // String shareBody = ;
+
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, titile);
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,titile+"\n\n"+ message);
         startActivity(Intent.createChooser(sharingIntent, "Share using"));
     }
 
