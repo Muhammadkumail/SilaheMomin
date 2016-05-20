@@ -33,6 +33,9 @@
             android:layout_marginTop="?android:actionBarSize"
             android:layout_marginLeft="?android:actionBarSize"
             android:layout_marginRight="?android:actionBarSize"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/show_msg_activityButton"
             android:layout_width="wrap_content"
@@ -41,15 +44,19 @@
             android:textSize="20sp"
             android:background="@drawable/buttonshape"
             android:text="Click Here"
+            android:layout_marginLeft="5dp"
 
             android:onClick="activityName_onclick"/>
        <Button
            android:id="@+id/show_msg_share_button"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="share"
+           android:layout_width="120dp"
+           android:layout_marginLeft="?actionBarSize"
+           android:layout_height="39dp"
+           android:background="@drawable/buttonshape"
+           android:textColor="#000000"
+           android:text="شیئر کیجیۓ"
            android:onClick="share_onclick"/>
-
+        </RelativeLayout>
 
 
     </LinearLayout>
