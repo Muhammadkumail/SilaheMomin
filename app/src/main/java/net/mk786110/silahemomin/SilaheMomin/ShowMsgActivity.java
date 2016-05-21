@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import net.mk786110.silahemomin.Model.MyNotification;
 import net.mk786110.silahemomin.R;
@@ -23,11 +21,13 @@ public class ShowMsgActivity extends AppCompatActivity {
     String message = "";
     TextView notification_title;
     TextView notification_msg;
+    String app_link="http://bit.ly/1svpjwg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_msg);
+
         Intent myIntent = getIntent();
         myNotification = (MyNotification) myIntent.getSerializableExtra("mynotification");
         Button notification_activity_button = (Button) findViewById(R.id.show_msg_activityButton);
@@ -78,7 +78,7 @@ public class ShowMsgActivity extends AppCompatActivity {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,titile+"\n\n"+ message);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,titile+"\n\n"+ message+"\n\n"+app_link);
         startActivity(Intent.createChooser(sharingIntent, "Share using"));
     }
 
