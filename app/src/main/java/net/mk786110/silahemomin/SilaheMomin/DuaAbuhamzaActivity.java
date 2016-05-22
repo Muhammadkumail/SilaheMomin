@@ -12,9 +12,7 @@ import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza1Activity;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza2Activity;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza3Activity;
-import net.mk786110.silahemomin.ViewDuas.DuaIftitahActivity;
-import net.mk786110.silahemomin.ViewDuas.DuaKumailActivity;
-import net.mk786110.silahemomin.ViewDuas.DuaTawassulActivity;
+
 
 public class DuaAbuhamzaActivity extends AppCompatActivity {
 

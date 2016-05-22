@@ -9,7 +9,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
 import net.mk786110.silahemomin.R;
-import net.mk786110.silahemomin.ViewDuas.DuaIftitahActivity;
+
 import net.mk786110.silahemomin.ViewRamzan.RamzanMunajatActivity;
 import net.mk786110.silahemomin.ViewRamzan.RamzanMushtarekaAmalActivity;
 import net.mk786110.silahemomin.ViewRamzan.RamzanShabe19Activity;

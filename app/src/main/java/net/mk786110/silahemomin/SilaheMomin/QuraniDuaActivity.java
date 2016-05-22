@@ -10,12 +10,7 @@ import com.daimajia.androidanimations.library.YoYo;
 
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewDuas.MakhsusQuraniDuaActivity;
-import net.mk786110.silahemomin.ViewRajab.RajabFirstNightActivity;
-import net.mk786110.silahemomin.ViewRajab.RajabMushtarekaAmalActivity;
-import net.mk786110.silahemomin.ViewRajab.RajabShabe27Activity;
-import net.mk786110.silahemomin.ViewRajab.RajabTeraToPandraActivity;
-import net.mk786110.silahemomin.ViewRajab.RajabUmmeDawoodActivity;
-import net.mk786110.silahemomin.ViewRajab.RajabZiaratRajabeaActivity;
+
 
 public class QuraniDuaActivity extends AppCompatActivity {
 

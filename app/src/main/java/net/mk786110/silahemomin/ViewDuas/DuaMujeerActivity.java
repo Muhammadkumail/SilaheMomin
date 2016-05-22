@@ -19,7 +19,7 @@ import net.mk786110.silahemomin.R;
 
 import java.util.ArrayList;
 
-public class DuaMujeerActivity extends AppCompatActivity {
+public class    DuaMujeerActivity extends AppCompatActivity {
     DuaMujeerDataSource mDuaMujeerDataSource;
     ArrayList<Dua> arrayList;
     ListView mlistViewDua;
