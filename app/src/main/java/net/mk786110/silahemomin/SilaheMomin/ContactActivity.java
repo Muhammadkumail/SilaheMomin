@@ -1,6 +1,8 @@
 package net.mk786110.silahemomin.SilaheMomin;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,6 +61,12 @@ public class ContactActivity extends AppCompatActivity {
 
     }
 
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
+    }
+
     public void onClick_Contact(View view)
 
     {
@@ -66,14 +74,23 @@ public class ContactActivity extends AppCompatActivity {
         strEmail = mEmail.getText().toString();
         strMessage=mMessage.getText().toString();
 
-        if( strName.length() > -0 && strEmail.length() > -0 && strMessage.length() > -0)
-        {
-            new asyncTask_ContactUs().execute();
+
+
+            if (strName.length() > -0 && strEmail.length() > -0 && strMessage.length() > -0)
+            {
+                if(isNetworkConnected()) {
+                    new asyncTask_ContactUs().execute();
+                }
+                else
+                {
+                    errorMessage("Please Check Internet connection");
+                }
+
         }
-        else
-        {
-            errorMessage("Please Fill All The Fields");
-        }
+            else {
+                errorMessage("Please Fill All The Fields");
+            }
+
 
 
     }
