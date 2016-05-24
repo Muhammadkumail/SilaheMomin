@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/ic_notification_background1"
+    android:orientation="vertical"
+    android:id="@+id/contactLayout">
+
+
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="?actionBarSize"
+           android:text="@string/home_contact_us"
+           android:gravity="center"
+           android:textSize="30sp"
+           android:layout_marginTop="10dp"
+           android:textColor="@color/colorDarkGreen"
+           android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/contact_name_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:inputType="text"
+            android:layout_marginTop="?actionBarSize"
+            />
+    <EditText
+        android:id="@+id/contact_email_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="15dp"
+        />
+    <EditText
+        android:id="@+id/contact_message_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please Give Your Message"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:gravity="top"
+        android:layout_weight="1"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="15dp"
+        />
+    <Button
+        android:id="@+id/contact_send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:background="@drawable/buttonshape"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:onClick="onClick_Contact"/>
+
+
+
+
+
+
+</LinearLayout>

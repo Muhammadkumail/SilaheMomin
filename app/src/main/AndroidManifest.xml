@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.mk786110.silahemomin" >
+    package="net.mk786110.silahemomin">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -8,73 +8,145 @@
 
     <application
         android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden|screenSize"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:configChanges="orientation|keyboardHidden|screenSize"
-        >
-        <activity android:name=".SilaheMomin.HomeActivity" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".SilaheMomin.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".SilaheMomin.DuasActivity"></activity>
-        <activity android:name=".SilaheMomin.ZiaratActivity"></activity>
-        <activity android:name=".SilaheMomin.SurahActivity"></activity>
-        <activity android:name=".SilaheMomin.AmaleRajabActivity"></activity>
-        <activity android:name=".SilaheMomin.AmaleShabanActivity"></activity>
-        <activity android:name=".SilaheMomin.AmaleRamazanActivity"></activity>
-        <activity android:name=".SilaheMomin.DuaAbuhamzaActivity"></activity>
-        <activity android:name=".ViewDuas.DuaKumailActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaIftitahActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaTawassulActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaImamZamanaActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaJoshanKabeerActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewSurahs.SurahAnkabutActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewSurahs.SurahDukhanActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewSurahs.SurahRoomActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewZiarats.ZiaratAshuraActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewZiarats.ZiaratHazratAbbasActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewZiarats.ZiaratHazratAliIbnHussainActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewZiarats.ZiaratImamHussainActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewZiarats.ZiaratWarisActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewZiarats.ZiaratSayerShohadaActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRajab.RajabFirstNightActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRajab.RajabMushtarekaAmalActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRajab.RajabTeraToPandraActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRajab.RajabUmmeDawoodActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRajab.RajabZiaratRajabeaActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewShaban.ShabanMushtarekaAmalActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewShaban.ShabanNimeShabanActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewShaban.ShabanThirdNightActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaAbumhaza1Activity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaAbumhaza2Activity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaAbumhaza3Activity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRamzan.RamzanMunajatActivity"   android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRamzan.RamzanMushtarekaAmalActivity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRamzan.RamzanShabe19Activity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRamzan.RamzanShabe21Activity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRamzan.RamzanShabe23Activity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewRajab.RajabShabe27Activity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaMujeerActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.DuaSamatActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".SilaheMomin.ShowMsgActivity" android:screenOrientation="portrait" ></activity>
-        <activity android:name=".SilaheMomin.QuraniDuaActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewDuas.MakhsusQuraniDuaActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".SilaheMomin.DuasActivity" />
+        <activity android:name=".SilaheMomin.ZiaratActivity" />
+        <activity android:name=".SilaheMomin.SurahActivity" />
+        <activity android:name=".SilaheMomin.AmaleRajabActivity" />
+        <activity android:name=".SilaheMomin.AmaleShabanActivity" />
+        <activity android:name=".SilaheMomin.AmaleRamazanActivity" />
+        <activity android:name=".SilaheMomin.DuaAbuhamzaActivity" />
+        <activity
+            android:name=".ViewDuas.DuaKumailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaIftitahActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaTawassulActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaImamZamanaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaJoshanKabeerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewSurahs.SurahAnkabutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewSurahs.SurahDukhanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewSurahs.SurahRoomActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewZiarats.ZiaratAshuraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewZiarats.ZiaratHazratAbbasActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewZiarats.ZiaratHazratAliIbnHussainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewZiarats.ZiaratImamHussainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewZiarats.ZiaratWarisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewZiarats.ZiaratSayerShohadaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRajab.RajabFirstNightActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRajab.RajabMushtarekaAmalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRajab.RajabTeraToPandraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRajab.RajabUmmeDawoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRajab.RajabZiaratRajabeaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewShaban.ShabanMushtarekaAmalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewShaban.ShabanNimeShabanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewShaban.ShabanThirdNightActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaAbumhaza1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaAbumhaza2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaAbumhaza3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRamzan.RamzanMunajatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRamzan.RamzanMushtarekaAmalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRamzan.RamzanShabe19Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRamzan.RamzanShabe21Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRamzan.RamzanShabe23Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRajab.RajabShabe27Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaMujeerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.DuaSamatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SilaheMomin.ShowMsgActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SilaheMomin.QuraniDuaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewDuas.MakhsusQuraniDuaActivity"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".receiver.GCMReciever">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="net.mk786110.silahemomin" />
             </intent-filter>
         </receiver>
 
         <service android:name=".service.GCMService" />
 
+        <activity android:name=".SilaheMomin.ContactActivity"></activity>
     </application>
 
 </manifest>

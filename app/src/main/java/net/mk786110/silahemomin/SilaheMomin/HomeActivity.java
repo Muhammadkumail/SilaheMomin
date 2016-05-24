@@ -20,7 +20,6 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import net.mk786110.silahemomin.Adaptor.HadithAdaptor;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
-import net.mk786110.silahemomin.Http.MyHttpClient;
 import net.mk786110.silahemomin.Model.Hadith;
 import net.mk786110.silahemomin.R;
 
@@ -146,6 +145,13 @@ public class HomeActivity extends AppCompatActivity {
         mintent.setClass(HomeActivity.this, QuraniDuaActivity.class);
         startActivity(mintent);
     }
+    public void onClickContactUs(View view) {
+
+        Intent mintent = new Intent();
+        mintent.setClass(HomeActivity.this, ContactActivity.class);
+        startActivity(mintent);
+    }
+
 
 
     private class asyncTask_RegisterGCM extends AsyncTask<Void, Void, String> {

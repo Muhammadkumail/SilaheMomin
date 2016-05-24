@@ -63,7 +63,10 @@ public class C {
 
     /*device Register*/
 
-    public  static final String DeviceRegister = rootUrl+urlDirectry+"register.php";
+    public static final String DeviceRegister = rootUrl + urlDirectry + "register.php";
+
+    /*Contact us*/
+    public static final String ContactUs = rootUrl + urlDirectry + "contact_us.php";
 
     /*Hijri date picker*/
     public static final String HijriDate = "http://www.moonsighting.org.uk/scripts/hijri.js?return=json";

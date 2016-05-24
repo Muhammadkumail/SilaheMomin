@@ -10,6 +10,7 @@
     <string name="home_shaban_button">ماہ شعبان کے مخصوص اعمال</string>
     <string name="home_qurani_dua_button">قرآن میں بیان شدہ دعائیں</string>
     <string name="qurani_dua_button">قرآن میں بیان شدہ دعائیں</string>
+    <string name="home_contact_us">ہم سے رابطہ کیجیۓ</string>
 
     <!--Dua page button's Text-->
     <string name="duas_dua_kumail_button">دعا ئے  کمیل</string>
@@ -47,7 +48,6 @@
     <string name="amaleshabeqadr_shabe_sattaes_amal_button">مناجات حضرت امیرالمومنین(ع)</string>
 
 
-
     <!--Amale Rajab page button's Text-->
     <string name="amalerajab_pheliRat_button">رجب کی پہلی رات </string>
     <string name="amalerajab_shabe27_button">ستائیس رجب کی رات</string>
@@ -61,7 +61,6 @@
     <string name="amaleShaban_tesriShaban_button">تیسری شعبان کا دن</string>
     <string name="amaleShaban_nimeShaban_button">اعمال نیمہ شعبان</string>
     <string name="amaleShaban_mushtareka_button">ماہ شعبان کے مشترکہ اعمال</string>
-
 
 
 </resources>
