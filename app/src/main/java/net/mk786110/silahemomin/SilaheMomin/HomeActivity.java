@@ -22,11 +22,12 @@ import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
 import net.mk786110.silahemomin.Model.Hadith;
 import net.mk786110.silahemomin.R;
-
+import net.mk786110.silahemomin.Http.MyHttpClient;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;

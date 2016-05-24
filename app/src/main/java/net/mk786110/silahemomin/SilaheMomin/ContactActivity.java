@@ -15,7 +15,6 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.R;
 
 import org.apache.http.HttpResponse;
