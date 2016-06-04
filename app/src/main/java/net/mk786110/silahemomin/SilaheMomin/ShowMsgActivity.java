@@ -31,12 +31,11 @@ public class ShowMsgActivity extends AppCompatActivity {
     String activity_pakageName = "";
     String titile = "";
     String message = "";
-   // String imageUrl = "";
+
     TextView notification_title;
     TextView notification_msg;
-  //  ImageView mimageView;
+
     String app_link = "http://bit.ly/1svpjwg";
-   // Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,7 @@ public class ShowMsgActivity extends AppCompatActivity {
         activity_urdu_part = myNotification.getActivity_urdu_part();
         activity_pakageName = myNotification.getActivity_pakage_name();
 
-      //  imageUrl = myNotification.getImage_url();
+
 
         titile = myNotification.getTitle();
         message = myNotification.getMsg();
@@ -66,13 +65,7 @@ public class ShowMsgActivity extends AppCompatActivity {
         notification_msg.setMovementMethod(new ScrollingMovementMethod());
         notification_msg.setText(message);
 
-        /*if (imageUrl.length()!=0)
-        {
-            share_button.setVisibility(View.GONE);
-            new DownloadImageTask((ImageView) findViewById(R.id.show_msg_imageview)).execute(imageUrl);
 
-
-        }*/
 
         notification_activity_button.setVisibility(View.GONE);
 
@@ -86,34 +79,6 @@ public class ShowMsgActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
-   /* private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }*/
 
     public void activityName_onclick(View view) {
         Class<?> c = null;
