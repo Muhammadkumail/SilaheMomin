@@ -9,6 +9,17 @@ public class MyNotification implements Serializable {
     private String activity_english_part;
     private String activity_urdu_part;
     private String activity_pakage_name;
+    private String image_url;
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
+
 
     public String getActivity_english_part() {
         return activity_english_part;

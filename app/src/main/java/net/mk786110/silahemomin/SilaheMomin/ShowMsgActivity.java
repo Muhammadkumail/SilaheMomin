@@ -1,14 +1,26 @@
 package net.mk786110.silahemomin.SilaheMomin;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.mk786110.silahemomin.Model.MyNotification;
 import net.mk786110.silahemomin.R;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class ShowMsgActivity extends AppCompatActivity {
 
@@ -19,9 +31,12 @@ public class ShowMsgActivity extends AppCompatActivity {
     String activity_pakageName = "";
     String titile = "";
     String message = "";
+   // String imageUrl = "";
     TextView notification_title;
     TextView notification_msg;
-    String app_link="http://bit.ly/1svpjwg";
+  //  ImageView mimageView;
+    String app_link = "http://bit.ly/1svpjwg";
+   // Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +52,27 @@ public class ShowMsgActivity extends AppCompatActivity {
         notification_msg = (TextView) findViewById(R.id.show_msg_content);
 
 
+
         activity_english_part = myNotification.getActivity_english_part();
         activity_urdu_part = myNotification.getActivity_urdu_part();
         activity_pakageName = myNotification.getActivity_pakage_name();
+
+      //  imageUrl = myNotification.getImage_url();
 
         titile = myNotification.getTitle();
         message = myNotification.getMsg();
 
         notification_title.setText(titile);
+        notification_msg.setMovementMethod(new ScrollingMovementMethod());
         notification_msg.setText(message);
+
+        /*if (imageUrl.length()!=0)
+        {
+            share_button.setVisibility(View.GONE);
+            new DownloadImageTask((ImageView) findViewById(R.id.show_msg_imageview)).execute(imageUrl);
+
+
+        }*/
 
         notification_activity_button.setVisibility(View.GONE);
 
@@ -58,6 +85,35 @@ public class ShowMsgActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+   /* private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }*/
 
     public void activityName_onclick(View view) {
         Class<?> c = null;
@@ -78,7 +134,7 @@ public class ShowMsgActivity extends AppCompatActivity {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,titile+"\n\n"+ message+"\n\n"+app_link);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, titile + "\n\n" + message + "\n\n" + app_link);
         startActivity(Intent.createChooser(sharingIntent, "Share using"));
     }
 

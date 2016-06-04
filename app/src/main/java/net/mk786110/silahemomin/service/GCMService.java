@@ -41,14 +41,16 @@ public class GCMService extends IntentService {
         String strActivityEnglish = mBundle.getString("activity_english_part");
         String strActivityUrdu = mBundle.getString("activity_urdu_part");
         String strActivityPakageName = mBundle.getString("activity_pakage_name");
+       // String strImageUrl=mBundle.getString("image_url");
         String strnotificaton_id = mBundle.getString("notification_id");
+
 
         int NOTIFICATION_ID = Integer.parseInt(strnotificaton_id);
 
-        sendNotification(strMessage, strTtile, NOTIFICATION_ID,strActivityEnglish,strActivityUrdu,strActivityPakageName);
+        sendNotification(strMessage, strTtile, NOTIFICATION_ID,strActivityEnglish,strActivityUrdu,strActivityPakageName/*,strImageUrl*/);
     }
 
-    private void sendNotification(String msg, String title, int nofication_id,String activity_english_part,String activity_urdu_part,String activity_pakage_name) {
+    private void sendNotification(String msg, String title, int nofication_id,String activity_english_part,String activity_urdu_part,String activity_pakage_name/*, String imageUrl*/) {
 
 
         MyNotification mnotification = new MyNotification();
@@ -57,6 +59,7 @@ public class GCMService extends IntentService {
         mnotification.setActivity_english_part(activity_english_part);
         mnotification.setActivity_urdu_part(activity_urdu_part);
         mnotification.setActivity_pakage_name(activity_pakage_name);
+     //   mnotification.setImage_url(imageUrl);
 
         Intent mintent = new Intent(this, ShowMsgActivity.class);
         mintent.putExtra("mynotification", mnotification);

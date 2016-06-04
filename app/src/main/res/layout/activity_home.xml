@@ -96,24 +96,38 @@
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:onClick="onClickQuraniDua" />
 
                     <TextView
                         style="@style/HomeMainTextView"
                         android:text="@string/home_qurani_dua_button" />
                 </RelativeLayout>
+
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onClickMukhtalifAmal" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/Mukhtalif_amale" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="10dp"
                         android:onClick="onClickContactUs" />
 
                     <TextView
                         style="@style/HomeMainTextView"
                         android:text="@string/home_contact_us" />
                 </RelativeLayout>
+
 
 
 

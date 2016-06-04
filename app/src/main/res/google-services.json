@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "861563590887",
+    "firebase_url": "https://admob-app-id-2321941079.firebaseio.com",
+    "project_id": "admob-app-id-2321941079",
+    "storage_bucket": "admob-app-id-2321941079.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861563590887:android:b2026ddb3db89a8f",
+        "android_client_info": {
+          "package_name": "net.mk786110.silahemomin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861563590887-e66fpoq9uer0go2hdoun415h62ldpa35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWAx6Rj_mObEDofqDMeBe6LFJyKffFhW4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

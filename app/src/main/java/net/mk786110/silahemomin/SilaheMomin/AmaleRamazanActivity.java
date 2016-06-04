@@ -8,6 +8,7 @@ import android.view.View;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+
 import net.mk786110.silahemomin.R;
 
 import net.mk786110.silahemomin.ViewRamzan.RamzanMunajatActivity;

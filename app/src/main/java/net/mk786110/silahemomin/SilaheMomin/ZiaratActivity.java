@@ -8,6 +8,7 @@ import android.view.View;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewZiarats.ZiaratAshuraActivity;
 import net.mk786110.silahemomin.ViewZiarats.ZiaratHazratAbbasActivity;
@@ -17,6 +18,7 @@ import net.mk786110.silahemomin.ViewZiarats.ZiaratSayerShohadaActivity;
 import net.mk786110.silahemomin.ViewZiarats.ZiaratWarisActivity;
 
 public class ZiaratActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ZiaratActivity extends AppCompatActivity {
                 .playOn(findViewById(R.id.ziaratlayout));
 
     }
+
 
     public void onClickziaratAshura(View view) {
         Intent intent = new Intent();

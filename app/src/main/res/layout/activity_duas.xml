@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
     android:id="@+id/dualayout"
-    style="@style/MianLayout">
+    style="@style/MianLayout"
+    >
 
 
     <ScrollView
         style="@style/HomeScrollViewlayout"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,41 +37,6 @@
                     <ImageView
                         style="@style/HomeMainImageView"
                         android:layout_marginTop="20dp"
-                        android:onClick="onClickDuaeIftitah" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/duas_dua_iftitah_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-
-                        android:onClick="onClickDuaeSamat" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/duas_dua_samat_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:layout_marginTop="10dp"
-                        android:onClick="onClickDuaeMujeer" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/duas_dua_mujeer_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
                         android:onClick="onClickDuaeTawssul" />
 
                     <TextView
@@ -79,7 +48,54 @@
 
                     <ImageView
                         style="@style/HomeMainImageView"
+
+                        android:onClick="onClickDuaeNudbah" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_nudbah_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
                         android:layout_marginTop="20dp"
+                        android:onClick="onClickDuaeIftitah" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_iftitah_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickDuaeMujeer" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_mujeer_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickDuaeSamat" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_samat_button" />
+                </RelativeLayout>
+
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
                         android:onClick="onClickDuaeJoshanKabir" />
 
                     <TextView
@@ -91,6 +107,7 @@
 
                     <ImageView
                         style="@style/HomeMainImageView"
+                        android:layout_marginTop="20dp"
                         android:onClick="onClickDuaeAbuHamza" />
 
                     <TextView
@@ -102,18 +119,32 @@
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="20dp"
+                        android:onClick="onClickDuaeArafah" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/duas_dua_arafah_button" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="10dp"
                         android:onClick="onClickDuaeImamZamana" />
 
                     <TextView
                         style="@style/HomeMainTextView"
                         android:text="@string/duas_dua_imam_zamana_button" />
                 </RelativeLayout>
+
+
             </LinearLayout>
 
 
         </LinearLayout>
 
     </ScrollView>
+
 
 </LinearLayout>

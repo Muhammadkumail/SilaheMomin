@@ -13,6 +13,15 @@ public class C {
     public static final String DuaJoshanKabeerJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_joshankabeer";
     public static final String DuaMujeerJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_mujeer";
     public static final String DuaSamatJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_samat";
+    public static final String DuaNudbahJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_nudbah";
+    public static final String DuaArafahJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_arafah";
+
+    /*Amals*/
+    public static final String ShabeJummahJson = rootUrl + urlDirectry + "getaamals.php?aamal=shabe_jummah";
+    public static final String ShabeEidFitrJson = rootUrl + urlDirectry + "getaamals.php?aamal=sahb_e_eid";
+    public static final String RozFitrJson = rootUrl + urlDirectry + "getaamals.php?aamal=roz_e_eid";
+    public static final String RozJummahJson = rootUrl + urlDirectry + "getaamals.php?aamal=roz_jummah";
+
 
     /*Qurani Dua*/
     public static final String QuraniDua = rootUrl + urlDirectry + "duas.php?dua=qurani_dua";
@@ -26,6 +35,8 @@ public class C {
     public static final String SurahAnkabutJson = rootUrl + urlDirectry + "getsurah.php?surah=ankabut";
     public static final String SurahRoomJson = rootUrl + urlDirectry + "getsurah.php?surah=room";
     public static final String SurahDukhanJson = rootUrl + urlDirectry + "getsurah.php?surah=dukhan";
+    public static final String SurahRehmanJson = rootUrl + urlDirectry + "getsurah.php?surah=rahman";
+    public static final String SurahYaseenJson = rootUrl + urlDirectry + "getsurah.php?surah=yaseen";
 
 
     /*Ziarats links*/

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/surahlayout"
+    android:id="@+id/mukhtaliflayout"
     style="@style/MianLayout">
 
 
@@ -11,69 +11,59 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_gravity="center"
-            android:orientation="vertical">
 
-            <LinearLayout style="@style/HomeMainButtonLayout"
+            >
 
-                >
+            <LinearLayout style="@style/HomeMainButtonLayout">
 
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:onClick="onClickSurahAnkabut" />
+                        android:onClick="onClickShabeJummah" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/surah_Ankabut_button" />
+                        android:text="@string/Mukhtalif_amale_shabe_jummah" />
+                </RelativeLayout>
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onClickRozJummah" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/Mukhtalif_amale_roz_jummah" />
+                </RelativeLayout>
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onClickShabeEidFitr" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/Mukhtalif_amale_shabe_eid" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="20dp"
-                        android:onClick="onClickSurahRoom" />
+                        android:layout_marginTop="10dp"
+                        android:onClick="onClickRozEidFitr" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/surah_room_button" />
+                        android:text="@string/Mukhtalif_amale_roz_eid" />
                 </RelativeLayout>
 
-                <RelativeLayout style="@style/HomeRelativelayout">
 
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:onClick="onClickSurahDhukahn" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/surah_dukhan_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:layout_marginTop="20dp"
-                        android:onClick="onClickSurahRehman" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/surah_rehman_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:onClick="onClickSurahYaseen" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/surah_yaseen_button" />
-                </RelativeLayout>
 
 
             </LinearLayout>

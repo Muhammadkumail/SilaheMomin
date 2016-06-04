@@ -19,6 +19,9 @@
     <string name="duas_dua_samat_button">دعا ئے سمات</string>
     <string name="duas_dua_mujeer_button">دعا ئے مجییر</string>
     <string name="duas_dua_iftitah_button">دعا ئے افتتاح</string>
+    <string name="duas_dua_nudbah_button">دعا ئے ندبہ</string>
+    <string name="duas_dua_arafah_button">دعا ئے عرفہ</string>
+
     <string name="duas_dua_abu_hamza_thumali_button">دعا ئے ابو حمزہ ثمالی</string>
     <string name="duas_dua_imam_zamana_button">دعا ئے  امام زمانه</string>
 
@@ -39,6 +42,8 @@
     <string name="surah_Ankabut_button"> سوره عنکبوت </string>
     <string name="surah_room_button"> سوره روم </string>
     <string name="surah_dukhan_button"> سوره دخان </string>
+    <string name="surah_rehman_button"> سوره رحمان </string>
+    <string name="surah_yaseen_button"> سوره یاسین </string>
 
     <!--Amale shabe Qadr page button's Text-->
     <string name="amaleshabeqadr_mushtarka_amal_button">اعمال مشترکہ شب ہای قدر </string>
@@ -61,6 +66,19 @@
     <string name="amaleShaban_tesriShaban_button">تیسری شعبان کا دن</string>
     <string name="amaleShaban_nimeShaban_button">اعمال نیمہ شعبان</string>
     <string name="amaleShaban_mushtareka_button">ماہ شعبان کے مشترکہ اعمال</string>
+
+
+    <!--Mukhtalif Amal  page button's Text-->
+    <string name="Mukhtalif_amale"> مختلف اعمال</string>
+    <string name="Mukhtalif_amale_shabe_jummah">   اعمال شب جمعہ</string>
+    <string name="Mukhtalif_amale_roz_jummah">  اعمال روز جمعہ</string>
+    <string name="Mukhtalif_amale_shabe_eid">   اعمال شب عیدالفطر</string>
+    <string name="Mukhtalif_amale_roz_eid">   اعمال روز عیدالفطر</string>
+
+
+
+
+
 
 
 </resources>

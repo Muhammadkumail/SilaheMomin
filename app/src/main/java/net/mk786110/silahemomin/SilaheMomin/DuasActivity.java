@@ -9,11 +9,13 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
 import net.mk786110.silahemomin.R;
+import net.mk786110.silahemomin.ViewDuas.DuaArafahActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaIftitahActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaImamZamanaActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaJoshanKabeerActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaKumailActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaMujeerActivity;
+import net.mk786110.silahemomin.ViewDuas.DuaNudbahActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaSamatActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaTawassulActivity;
 
@@ -30,7 +32,12 @@ public class DuasActivity extends AppCompatActivity {
                 .duration(1000)
                 .playOn(findViewById(R.id.dualayout));
 
+
     }
+
+
+
+
 
     public void onClickDuaeKuamil(View view) {
         Intent intent = new Intent();
@@ -76,15 +83,30 @@ public class DuasActivity extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
     public void onClickDuaeSamat(View view) {
         Intent intent = new Intent();
         intent.setClass(DuasActivity.this, DuaSamatActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
     public void onClickDuaeMujeer(View view) {
         Intent intent = new Intent();
         intent.setClass(DuasActivity.this, DuaMujeerActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
+
+    public void onClickDuaeNudbah(View view) {
+        Intent intent = new Intent();
+        intent.setClass(DuasActivity.this, DuaNudbahActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
+    public void onClickDuaeArafah(View view) {
+        Intent intent = new Intent();
+        intent.setClass(DuasActivity.this, DuaArafahActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }

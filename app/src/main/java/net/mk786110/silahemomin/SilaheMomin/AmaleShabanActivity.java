@@ -8,6 +8,7 @@ import android.view.View;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+
 import net.mk786110.silahemomin.R;
 
 import net.mk786110.silahemomin.ViewShaban.ShabanMushtarekaAmalActivity;
@@ -23,7 +24,10 @@ public class AmaleShabanActivity extends AppCompatActivity {
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.amalshabanlaayout));
+
     }
+
+
 
     public void onClicktesriShaban(View view) {
         Intent intent = new Intent();

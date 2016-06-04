@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import net.mk786110.silahemomin.Adaptor.HadithAdaptor;
@@ -52,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
     Context context;
     String strGcmId="";
     SharedPreferences mSharedPreferences;
+
 
 
 
@@ -94,6 +99,8 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
+
+
 
     private Boolean checkPreferences() {
         strGcmId = mSharedPreferences.getString("key_gcmId", "");
@@ -144,6 +151,13 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent mintent = new Intent();
         mintent.setClass(HomeActivity.this, QuraniDuaActivity.class);
+        startActivity(mintent);
+    }
+
+    public void onClickMukhtalifAmal(View view) {
+
+        Intent mintent = new Intent();
+        mintent.setClass(HomeActivity.this, MukhtalifAmalActivity.class);
         startActivity(mintent);
     }
     public void onClickContactUs(View view) {
