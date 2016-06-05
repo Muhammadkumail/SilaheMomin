@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.startapp.android.publish.StartAppSDK;
 
 
 import net.mk786110.silahemomin.R;
@@ -20,6 +21,7 @@ public class AmaleShabanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StartAppSDK.init(this, "205588646", true);
         setContentView(R.layout.activity_shaban);
         YoYo.with(Techniques.DropOut)
                 .duration(1000)

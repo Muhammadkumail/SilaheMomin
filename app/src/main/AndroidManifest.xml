@@ -7,6 +7,8 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
 
@@ -22,6 +24,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".SilaheMomin.DuasActivity" />
         <activity android:name=".SilaheMomin.ZiaratActivity" />
@@ -75,6 +78,19 @@
         <activity android:name=".ViewAmals.ShabeEidFitrActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ViewAmals.RozJummahActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ViewAmals.RozEidFitrActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
+            android:theme="@android:style/Theme" />
+
+        <activity android:name="com.startapp.android.publish.OverlayActivity" android:theme="@android:style/Theme.Translucent"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <activity android:name="com.startapp.android.publish.FullScreenActivity"
+            android:theme="@android:style/Theme" android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+
 
         <receiver android:name=".receiver.GCMReciever">
             <intent-filter>

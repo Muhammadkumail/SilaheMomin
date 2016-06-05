@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.startapp.android.publish.StartAppSDK;
 
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza1Activity;
@@ -21,7 +22,7 @@ public class DuaAbuhamzaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        StartAppSDK.init(this, "205588646", true);
         setContentView(R.layout.activity_dua_abuhamza_parts);
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
