@@ -16,20 +16,16 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.purplebrain.adbuddiz.sdk.AdBuddiz;
-import com.startapp.android.publish.StartAppAd;
-import com.startapp.android.publish.StartAppSDK;
+
 
 import net.mk786110.silahemomin.Adaptor.HadithAdaptor;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
 import net.mk786110.silahemomin.Model.Hadith;
 import net.mk786110.silahemomin.R;
-import net.mk786110.silahemomin.Http.MyHttpClient;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;

@@ -7,10 +7,7 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.startapp.android.publish.StartAppSDK;
+;
 
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewSurahs.SurahAnkabutActivity;
@@ -20,11 +17,11 @@ import net.mk786110.silahemomin.ViewSurahs.SurahRoomActivity;
 import net.mk786110.silahemomin.ViewSurahs.SurahYaseenActivity;
 
 public class SurahActivity extends AppCompatActivity {
-    private InterstitialAd interstitial;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StartAppSDK.init(this, "205588646", true);
+
         setContentView(R.layout.activity_surah);
         YoYo.with(Techniques.DropOut)
                 .duration(1000)

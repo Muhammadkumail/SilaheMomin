@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
 
     android:id="@+id/dualayout"
     style="@style/MianLayout"
@@ -157,12 +158,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.startapp.android.publish.banner.Banner
-                android:id="@+id/startAppBanner"
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                />
+                ads:adSize="BANNER"
+                ads:adUnitId=" ca-app-pub-2985848238387199/7497313864">
+            </com.google.android.gms.ads.AdView>
+
         </RelativeLayout>
 
 
