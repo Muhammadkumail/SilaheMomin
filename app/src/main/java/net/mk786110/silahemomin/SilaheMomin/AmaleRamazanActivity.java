@@ -7,7 +7,8 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 import net.mk786110.silahemomin.R;
@@ -19,7 +20,7 @@ import net.mk786110.silahemomin.ViewRamzan.RamzanShabe21Activity;
 import net.mk786110.silahemomin.ViewRamzan.RamzanShabe23Activity;
 
 public class AmaleRamazanActivity extends AppCompatActivity {
-
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,36 @@ public class AmaleRamazanActivity extends AppCompatActivity {
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.amalramzanlaayout));
+        mAdView = (AdView) findViewById(R.id.ramzan_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
     public void onClickMushtarekAmal(View view) {

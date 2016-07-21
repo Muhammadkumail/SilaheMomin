@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.RamzanMushtarekaAmalAdaptor;
 import net.mk786110.silahemomin.Adaptor.ShabanMushtarekaAmalAdaptor;
@@ -45,7 +46,7 @@ public class RamzanMushtarekaAmalActivity extends AppCompatActivity {
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
-
+        String connectionError="";
 
         @Override
         protected void onPreExecute() {
@@ -61,27 +62,35 @@ public class RamzanMushtarekaAmalActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mRamzanMushtarekaAmalDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(RamzanMushtarekaAmalActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                RamzanMushtarekaAmalAdaptor mRamzanMushtarekaAmalAdaptor = new RamzanMushtarekaAmalAdaptor(context, R.layout.activity_row, arrayList);
 
-            RamzanMushtarekaAmalAdaptor mRamzanMushtarekaAmalAdaptor = new RamzanMushtarekaAmalAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("اعمال مشترکہ");
 
-            mtextView.setText("اعمال مشترکہ");
+                mlistViewDua.setAdapter(mRamzanMushtarekaAmalAdaptor);
 
-            mlistViewDua.setAdapter(mRamzanMushtarekaAmalAdaptor);
+                super.onPostExecute(aVoid);
 
-            super.onPostExecute(aVoid);
-
-            progressDialog.dismiss();
+                progressDialog.dismiss();
+            }
         }
-
 
     }
 

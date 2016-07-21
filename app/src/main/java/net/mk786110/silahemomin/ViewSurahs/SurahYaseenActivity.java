@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.SurahRehmanAdaptor;
 import net.mk786110.silahemomin.Adaptor.SurahYaseenAdaptor;
@@ -42,17 +43,18 @@ public class SurahYaseenActivity extends AppCompatActivity {
         }
     };
 
-    private class get_data_AsynchTask extends AsyncTask<Void,Void,Void>
-    {
+    private class get_data_AsynchTask extends AsyncTask<Void,Void,Void> {
         ProgressDialog progressDialog;
+        String connectionError = "";
+
         @Override
         protected void onPreExecute() {
-            progressDialog= ProgressDialog.show(SurahYaseenActivity.this, "wait", C.Salwat, true);
+            progressDialog = ProgressDialog.show(SurahYaseenActivity.this, "wait", C.Salwat, true);
             progressDialog.setCancelable(true);
             progressDialog.setOnCancelListener(cancelListener);
-            bCancelled=false;
+            bCancelled = false;
             arrayList = new ArrayList<>();
-            mSurahYaseenDataSource=new SurahYaseenDataSource(context);
+            mSurahYaseenDataSource = new SurahYaseenDataSource(context);
 
             super.onPreExecute();
         }
@@ -60,23 +62,32 @@ public class SurahYaseenActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            arrayList=mSurahYaseenDataSource.getList();
+            arrayList = mSurahYaseenDataSource.getList();
+            if (arrayList.size() == 0) {
+                connectionError = "Please Check Internet Connection";
+
+                return null;
+            }
 
             return null;
         }
+
         @Override
         protected void onPostExecute(Void aVoid) {
-            mlistViewDua=(ListView)findViewById(R.id.detail_listview);
-            TextView mtextView=(TextView) findViewById(R.id.detail_textview);
+            if (connectionError.length() != 0) {
+                Toast.makeText(SurahYaseenActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            SurahYaseenAdaptor mSurahYaseenAdaptor=new SurahYaseenAdaptor(context,R.layout.activity_row, arrayList);
-            mtextView.setText(" سوره یاسین ");
+                SurahYaseenAdaptor mSurahYaseenAdaptor = new SurahYaseenAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText(" سوره یاسین ");
 
-            mlistViewDua.setAdapter(mSurahYaseenAdaptor);
+                mlistViewDua.setAdapter(mSurahYaseenAdaptor);
 
-            super.onPostExecute(aVoid);
-            progressDialog.dismiss();
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+            }
         }
     }
-
 }

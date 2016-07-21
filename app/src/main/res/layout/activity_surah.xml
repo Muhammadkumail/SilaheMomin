@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/surahlayout"
     style="@style/MianLayout"
     android:weightSum="3">
@@ -93,7 +94,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/surah_adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                android:layout_centerInParent="true"
+                ads:adUnitId="ca-app-pub-2985848238387199/9111817863">
+            </com.google.android.gms.ads.AdView>
 
         </RelativeLayout>
 

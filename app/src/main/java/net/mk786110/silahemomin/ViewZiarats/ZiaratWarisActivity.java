@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.SurahAnkabutAdaptor;
 import net.mk786110.silahemomin.Adaptor.ZiaratWarisAdaptor;
@@ -45,6 +46,7 @@ public class ZiaratWarisActivity extends AppCompatActivity {
     private class get_data_AsynchTask extends AsyncTask<Void,Void,Void>
     {
         ProgressDialog progressDialog;
+        String connectionError="";
         @Override
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(ZiaratWarisActivity.this, "wait", C.Salwat, true);
@@ -61,11 +63,20 @@ public class ZiaratWarisActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList=mziaratWarisDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
 
             return null;
         }
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(ZiaratWarisActivity.this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
             mlistViewDua=(ListView)findViewById(R.id.detail_listview);
             TextView mtextView=(TextView) findViewById(R.id.detail_textview);
 
@@ -76,7 +87,7 @@ public class ZiaratWarisActivity extends AppCompatActivity {
 
             super.onPostExecute(aVoid);
             progressDialog.dismiss();
-        }
+        }}
     }
 
 }

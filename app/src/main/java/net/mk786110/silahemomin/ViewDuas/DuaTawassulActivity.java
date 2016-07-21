@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaTawassulAdaptor;
 import net.mk786110.silahemomin.Constant.C;
@@ -44,6 +45,7 @@ public class DuaTawassulActivity extends AppCompatActivity {
 
     private class get_dataAsychTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
+        String connectionError="";
         @Override
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(DuaTawassulActivity.this, "wait", C.Salwat, true);
@@ -58,12 +60,21 @@ public class DuaTawassulActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mduaTawassulDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
 
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(DuaTawassulActivity.this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
             TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
             mlistViewDua = (ListView) findViewById(R.id.detail_listview);
@@ -76,7 +87,7 @@ public class DuaTawassulActivity extends AppCompatActivity {
 
             super.onPostExecute(aVoid);
             progressDialog.dismiss();
-        }
+        }}
 
     }
 

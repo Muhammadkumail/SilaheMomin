@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 ;
 
 import net.mk786110.silahemomin.R;
@@ -17,7 +19,7 @@ import net.mk786110.silahemomin.ViewSurahs.SurahRoomActivity;
 import net.mk786110.silahemomin.ViewSurahs.SurahYaseenActivity;
 
 public class SurahActivity extends AppCompatActivity {
-
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,36 @@ public class SurahActivity extends AppCompatActivity {
                 .playOn(findViewById(R.id.surahlayout));
 
 
+        mAdView = (AdView) findViewById(R.id.surah_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
     public void onClickSurahAnkabut(View view)
     {

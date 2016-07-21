@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.RajabUmmeDawoodAmalAdaptor;
@@ -46,7 +47,7 @@ public class RajabUmmeDawoodActivity extends AppCompatActivity {
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
-
+        String connectionError="";
 
         @Override
         protected void onPreExecute() {
@@ -62,27 +63,35 @@ public class RajabUmmeDawoodActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mRajabUmmeDawoodAmalDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(RajabUmmeDawoodActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                RajabUmmeDawoodAmalAdaptor mRajabUmmeDawoodAmalAdaptor = new RajabUmmeDawoodAmalAdaptor(context, R.layout.activity_row, arrayList);
 
-            RajabUmmeDawoodAmalAdaptor mRajabUmmeDawoodAmalAdaptor = new RajabUmmeDawoodAmalAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("اعمال ام داؤد");
 
-            mtextView.setText("اعمال ام داؤد");
+                mlistViewDua.setAdapter(mRajabUmmeDawoodAmalAdaptor);
 
-            mlistViewDua.setAdapter(mRajabUmmeDawoodAmalAdaptor);
+                super.onPostExecute(aVoid);
 
-            super.onPostExecute(aVoid);
-
-            progressDialog.dismiss();
+                progressDialog.dismiss();
+            }
         }
-
 
     }
 

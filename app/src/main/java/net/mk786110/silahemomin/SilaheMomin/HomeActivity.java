@@ -17,6 +17,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 
@@ -44,7 +47,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-
+    InterstitialAd mInterstitialAd;
     HadithDataSource mhadithDataSource;
     ArrayList<Hadith> arrayList;
     ListView mlistViewHadith;
@@ -66,7 +69,21 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         context = this;
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mInterstitialAd = new InterstitialAd(this);
 
+        // set the ad unit ID
+        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/4823049066");
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        // Load ads into Interstitial Ads
+        mInterstitialAd.loadAd(adRequest);
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+        });
 
 
 
@@ -99,7 +116,11 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
-
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
+    }
 
 
     private Boolean checkPreferences() {

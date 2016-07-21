@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.RozEidFitrAdaptor;
 import net.mk786110.silahemomin.Adaptor.ShabeEidFitrAdaptor;
@@ -47,6 +48,7 @@ public class RozEidFitrActivity extends AppCompatActivity {
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
+        String connectionError="";
 
 
         @Override
@@ -63,27 +65,35 @@ public class RozEidFitrActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mRozEidFitrDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(RozEidFitrActivity.this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                RozEidFitrAdaptor mRozEidFitrAdaptor = new RozEidFitrAdaptor(context, R.layout.activity_row, arrayList);
 
-            RozEidFitrAdaptor mRozEidFitrAdaptor = new RozEidFitrAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("   اعمال روز عیدالفطر");
 
-            mtextView.setText("   اعمال روز عیدالفطر");
+                mlistViewDua.setAdapter(mRozEidFitrAdaptor);
 
-            mlistViewDua.setAdapter(mRozEidFitrAdaptor);
+                super.onPostExecute(aVoid);
 
-            super.onPostExecute(aVoid);
-
-            progressDialog.dismiss();
+                progressDialog.dismiss();
+            }
         }
-
 
     }
 

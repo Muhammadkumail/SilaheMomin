@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.DuaJoshanKabeerAdaptor;
@@ -47,6 +48,7 @@ public class DuaJoshanKabeerActivity extends AppCompatActivity {
 
     private class get_data_AsychTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
+        String connectionError="";
         @Override
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(DuaJoshanKabeerActivity.this, "wait", C.Salwat, true);
@@ -62,25 +64,34 @@ public class DuaJoshanKabeerActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mduaJoshanKabeerDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+            if (connectionError.length() != 0) {
+                Toast.makeText(DuaJoshanKabeerActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            DuaJoshanKabeerAdaptor mduaJoshanKabeerAdaptor = new DuaJoshanKabeerAdaptor(context, R.layout.activity_row, arrayList);
+                DuaJoshanKabeerAdaptor mduaJoshanKabeerAdaptor = new DuaJoshanKabeerAdaptor(context, R.layout.activity_row, arrayList);
 
-            mtextView.setText("دعای جوشن کبیر");
+                mtextView.setText("دعای جوشن کبیر");
 
-            mlistViewDua.setAdapter(mduaJoshanKabeerAdaptor);
+                mlistViewDua.setAdapter(mduaJoshanKabeerAdaptor);
 
 
-            super.onPostExecute(aVoid);
-            progressDialog.dismiss();
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+            }
         }
-
 
     }
 

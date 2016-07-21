@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaKumailAdaptor;
 import net.mk786110.silahemomin.Adaptor.SurahDukhanAdaptor;
@@ -47,6 +48,7 @@ public class SurahDukhanActivity extends AppCompatActivity {
     private class get_data_AsyncTask extends AsyncTask<Void,Void,Void>
     {
         ProgressDialog progressDialog;
+        String connectionError="";
         @Override
         protected void onPreExecute() {
             progressDialog= ProgressDialog.show(SurahDukhanActivity.this, "wait", C.Salwat, true);
@@ -61,24 +63,32 @@ public class SurahDukhanActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mduaDukhanDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(SurahDukhanActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                SurahDukhanAdaptor mduaDukhanAdaptor = new SurahDukhanAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("سوره دخان  ");
 
-            SurahDukhanAdaptor mduaDukhanAdaptor = new SurahDukhanAdaptor(context, R.layout.activity_row, arrayList);
-            mtextView.setText("سوره دخان  ");
+                mlistViewDua.setAdapter(mduaDukhanAdaptor);
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+            }
 
-            mlistViewDua.setAdapter(mduaDukhanAdaptor);
-            super.onPostExecute(aVoid);
-            progressDialog.dismiss();
         }
-
-
     }
 
 }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaAbuHamza3Adaptor;
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
@@ -45,7 +46,7 @@ public class DuaAbumhaza3Activity extends AppCompatActivity {
     };
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
-
+        String connectionError="";
 
         @Override
         protected void onPreExecute() {
@@ -61,26 +62,34 @@ public class DuaAbumhaza3Activity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mDuaIAbuHamza3DataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(DuaAbumhaza3Activity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                DuaAbuHamza3Adaptor mDuaAbuHamza3Adaptor = new DuaAbuHamza3Adaptor(context, R.layout.activity_row, arrayList);
 
-            DuaAbuHamza3Adaptor mDuaAbuHamza3Adaptor = new DuaAbuHamza3Adaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("حصه سوم");
 
-            mtextView.setText("حصه سوم");
+                mlistViewDua.setAdapter(mDuaAbuHamza3Adaptor);
 
-            mlistViewDua.setAdapter(mDuaAbuHamza3Adaptor);
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+            }
 
-            super.onPostExecute(aVoid);
-            progressDialog.dismiss();
         }
-
-
     }
 
 }

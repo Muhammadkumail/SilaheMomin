@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.DuaSamatAdaptor;
@@ -45,7 +46,7 @@ public class DuaSamatActivity extends AppCompatActivity {
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
-
+        String connectionError="";
 
         @Override
         protected void onPreExecute() {
@@ -61,27 +62,35 @@ public class DuaSamatActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mDuaSamatDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(DuaSamatActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                DuaSamatAdaptor mDuaSamatAdaptor = new DuaSamatAdaptor(context, R.layout.activity_row, arrayList);
 
-            DuaSamatAdaptor mDuaSamatAdaptor = new DuaSamatAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("دعای سمات");
 
-            mtextView.setText("دعای سمات");
+                mlistViewDua.setAdapter(mDuaSamatAdaptor);
 
-            mlistViewDua.setAdapter(mDuaSamatAdaptor);
+                super.onPostExecute(aVoid);
 
-            super.onPostExecute(aVoid);
-
-            progressDialog.dismiss();
+                progressDialog.dismiss();
+            }
         }
-
 
     }
 

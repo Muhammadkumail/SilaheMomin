@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
 import net.mk786110.silahemomin.Adaptor.RajabFirstNightAdaptor;
@@ -46,6 +47,7 @@ public class RajabFirstNightActivity extends AppCompatActivity {
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
+        String connectionError="";
 
 
         @Override
@@ -62,25 +64,37 @@ public class RajabFirstNightActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mRajabFirstNightSource.getList();
+
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
+        protected void onPostExecute(Void result) {
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+if(connectionError.length()!=0) {
+    Toast.makeText(RajabFirstNightActivity.this, connectionError, Toast.LENGTH_SHORT).show();
+}
+else {
+    mlistViewDua = (ListView) findViewById(R.id.detail_listview);
 
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+    TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            RajabFirstNightAdaptor mRajabFirstNightAdaptor = new RajabFirstNightAdaptor(context, R.layout.activity_row, arrayList);
+    RajabFirstNightAdaptor mRajabFirstNightAdaptor = new RajabFirstNightAdaptor(context, R.layout.activity_row, arrayList);
 
-            mtextView.setText("رجب کی پہلی رات ");
+    mtextView.setText("رجب کی پہلی رات ");
 
-            mlistViewDua.setAdapter(mRajabFirstNightAdaptor);
+    mlistViewDua.setAdapter(mRajabFirstNightAdaptor);
 
-            super.onPostExecute(aVoid);
+    super.onPostExecute(result);
 
-            progressDialog.dismiss();
+    progressDialog.dismiss();
+}
         }
 
 

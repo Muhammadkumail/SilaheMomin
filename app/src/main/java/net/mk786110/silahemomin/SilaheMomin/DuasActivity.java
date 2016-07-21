@@ -7,8 +7,10 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 import net.mk786110.silahemomin.R;
@@ -26,6 +28,7 @@ public class DuasActivity extends AppCompatActivity {
 
 
     private AdView mAdView;
+    InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +37,30 @@ public class DuasActivity extends AppCompatActivity {
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.dualayout));
-
-        mAdView = (AdView) findViewById(R.id.adView);
+//banner ads
+        mAdView = (AdView) findViewById(R.id.dua_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        // full scren ad
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/3946588264");
+        AdRequest adRequestf = new AdRequest.Builder().build();
 
+        // Load ads into Interstitial Ads
+        mInterstitialAd.loadAd(adRequestf);
 
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+        });
+
+    }
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
     }
 
     @Override

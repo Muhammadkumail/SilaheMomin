@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     style="@style/MianLayout"
     android:id="@+id/amalramzanlaayout"
     android:weightSum="3">
@@ -96,6 +97,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/ramzan_adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                android:layout_centerInParent="true"
+                ads:adUnitId="ca-app-pub-2985848238387199/4542017460">
+            </com.google.android.gms.ads.AdView>
 
         </RelativeLayout>
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.mk786110.silahemomin.Adaptor.RajabFirstNightAdaptor;
 import net.mk786110.silahemomin.Adaptor.ShabanMushtarekaAmalAdaptor;
@@ -46,7 +47,7 @@ public class ShabanMushtarekaAmalActivity extends AppCompatActivity {
 
     private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
-
+        String connectionError="";
 
         @Override
         protected void onPreExecute() {
@@ -62,28 +63,36 @@ public class ShabanMushtarekaAmalActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = mShabanMushtarekaAmalDataSource.getList();
+            if(arrayList.size()==0)
+            {
+                connectionError="Please Check Internet Connection";
+
+                return null;
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                Toast.makeText(ShabanMushtarekaAmalActivity. this, connectionError, Toast.LENGTH_SHORT).show();
+            } else {
+                mlistViewDua = (ListView) findViewById(R.id.detail_listview);
 
-            mlistViewDua = (ListView) findViewById(R.id.detail_listview);
+                TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            TextView mtextView = (TextView) findViewById(R.id.detail_textview);
+                ShabanMushtarekaAmalAdaptor mShabanMushtarekaAmalAdaptor = new ShabanMushtarekaAmalAdaptor(context, R.layout.activity_row, arrayList);
 
-            ShabanMushtarekaAmalAdaptor mShabanMushtarekaAmalAdaptor = new ShabanMushtarekaAmalAdaptor(context, R.layout.activity_row, arrayList);
+                mtextView.setText("ماہ شعبان کے مشترکہ اعمال");
 
-            mtextView.setText("ماہ شعبان کے مشترکہ اعمال");
+                mlistViewDua.setAdapter(mShabanMushtarekaAmalAdaptor);
 
-            mlistViewDua.setAdapter(mShabanMushtarekaAmalAdaptor);
+                super.onPostExecute(aVoid);
 
-            super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+            }
 
-            progressDialog.dismiss();
         }
-
-
     }
 
 }
