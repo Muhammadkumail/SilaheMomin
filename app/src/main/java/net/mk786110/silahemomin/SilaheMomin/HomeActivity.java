@@ -181,6 +181,16 @@ public class HomeActivity extends AppCompatActivity {
         mintent.setClass(HomeActivity.this, MukhtalifAmalActivity.class);
         startActivity(mintent);
     }
+
+    public void  onClickAZA(View view) {
+
+        Intent mintent = new Intent();
+        mintent.setClass(HomeActivity.this, AzaActivity.class);
+        startActivity(mintent);
+    }
+
+
+
     public void onClickContactUs(View view) {
 
         Intent mintent = new Intent();

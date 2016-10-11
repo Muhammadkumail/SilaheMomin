@@ -9,8 +9,8 @@ android {
         applicationId "net.mk786110.silahemomin"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 5
-        versionName "2.2"
+        versionCode 6
+        versionName "3"
         multiDexEnabled true
 
 

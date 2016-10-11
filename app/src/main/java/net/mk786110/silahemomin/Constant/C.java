@@ -5,6 +5,17 @@ public class C {
     public static final String rootUrl = "http://friendsfashion.net/";
     public static final String urlDirectry = "android/kumail/silaheMomin/";
 
+    /*Muhraram and safar */
+
+    public static final String MuharramPhelaDin = rootUrl + urlDirectry + "getMuharram.php?muharram=phela_din";
+    public static final String MuharramNineRat = rootUrl + urlDirectry + "getMuharram.php?muharram=nine_din";
+    public static final String MuharramPheliRat = rootUrl + urlDirectry + "getMuharram.php?muharram=pheli_rat";
+    public static final String MuharramRozeAshur = rootUrl + urlDirectry + "getMuharram.php?muharram=roze_ashur";
+    public static final String MuharramtisraDin = rootUrl + urlDirectry + "getMuharram.php?muharram=tisra_din";
+    public static final String MuharramShabeAshur = rootUrl + urlDirectry + "getMuharram.php?muharram=shabe_ashur";
+    public static final String safarAttaes = rootUrl + urlDirectry + "getMuharram.php?muharram=safar_atthaes";
+    public static final String safarChehlum = rootUrl + urlDirectry + "getMuharram.php?muharram=chehlum";
+
     /*Duas links*/
     public static final String DuaKumailJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_kumail";
     public static final String DuaIftitahJson = rootUrl + urlDirectry + "duas.php?dua=dua_e_iftitah";

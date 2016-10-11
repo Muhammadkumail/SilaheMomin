@@ -9,6 +9,7 @@
     <string name="home_rajab_button">ماہ رجب کے مخصوص اعمال</string>
     <string name="home_shaban_button">ماہ شعبان کے مخصوص اعمال</string>
     <string name="home_qurani_dua_button">قرآن میں بیان شدہ دعائیں</string>
+    <string name="home_aza"> ماه محرم اور صفر کے اعمال</string>
     <string name="qurani_dua_button">قرآن میں بیان شدہ دعائیں</string>
     <string name="home_contact_us">ہم سے رابطہ کیجیۓ</string>
 
@@ -74,6 +75,16 @@
     <string name="Mukhtalif_amale_roz_jummah">  اعمال روز جمعہ</string>
     <string name="Mukhtalif_amale_shabe_eid">   اعمال شب عیدالفطر</string>
     <string name="Mukhtalif_amale_roz_eid">   اعمال روز عیدالفطر</string>
+
+
+    <string name="Muharram_pheli_rat"> پہلی محرم کی رات</string>
+    <string name="Muharram_phela_din">پہلی محرم کا دن</string>
+    <string name="Muharram_shabe_ashur"> شب عاشور</string>
+    <string name="Muharram_roze_ashur"> روز عاشور</string>
+    <string name="Muharram_tisra_din">تیسری محرم کا دن</string>
+    <string name="Muharram_nine_din"> نویں محرم کا دن</string>
+    <string name="Safar_attaes"> ۲۸ صفر </string>
+    <string name="Safar_chehlum"> چهلم امام حسین (ع) </string>
 
 
 

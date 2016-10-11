@@ -37,6 +37,15 @@
         <activity android:name=".SilaheMomin.AmaleRamazanActivity" />
         <activity android:name=".SilaheMomin.DuaAbuhamzaActivity" />
         <activity android:name=".SilaheMomin.MukhtalifAmalActivity"/>
+        <activity android:name=".SilaheMomin.AzaActivity"/>
+        <activity android:name=".ViewAza.MuharramNineDinActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.MuharramPhelaDinActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.MuharramPheliRatActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.MuharramRozeAshurActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.MuharramShabeAshurActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.MuharramTisraDinActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.SafarAttaesActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ViewAza.SafarChehlumActivity" android:screenOrientation="portrait" />
         <activity android:name=".ViewDuas.DuaKumailActivity" android:screenOrientation="portrait" />
         <activity android:name=".ViewDuas.DuaIftitahActivity" android:screenOrientation="portrait" />
         <activity android:name=".ViewDuas.DuaTawassulActivity" android:screenOrientation="portrait" />

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/dualayout"
     style="@style/MianLayout"
-    android:weightSum="3">
+    android:weightSum="3" >
 
-    <LinearLayout style="@style/MainActionBar">
-
-        <ImageView style="@style/MainActionBarImage" />
-    </LinearLayout>
 
     <ScrollView
-        style="@style/HomeRelativelayout"
+        style="@style/HomeScrollViewlayout"
         android:layout_gravity="center"
-        android:layout_weight="3">
+        android:layout_marginBottom="10dp"
+        android:layout_weight="3"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,12 +27,11 @@
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:onClick="onClickDuas"
-                        />
+                        android:onClick="onClickMuharrampheliRat" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_dua_button" />
+                        android:text="@string/Muharram_pheli_rat" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
@@ -39,57 +39,23 @@
                     <ImageView
                         style="@style/HomeMainImageView"
                         android:layout_marginTop="20dp"
-                        android:onClick="onClickziarat" />
+                        android:onClick="onClickMuharrampheldin" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_ziarat_button" />
+                        android:text="@string/Muharram_phela_din" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:onClick="onClickMuntakhibSurah" />
+
+                        android:onClick="onClickMuharramtisradin" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_surah_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:layout_marginTop="20dp"
-                        android:onClick="onClickAZA" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/home_aza" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:layout_marginTop="10dp"
-                        android:onClick="onClickRajab" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/home_rajab_button" />
-                </RelativeLayout>
-
-                <RelativeLayout style="@style/HomeRelativelayout">
-
-                    <ImageView
-                        style="@style/HomeMainImageView"
-                        android:onClick="onClickShaban" />
-
-                    <TextView
-                        style="@style/HomeMainTextView"
-                        android:text="@string/home_shaban_button" />
+                        android:text="@string/Muharram_tisra_din" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
@@ -97,49 +63,59 @@
                     <ImageView
                         style="@style/HomeMainImageView"
                         android:layout_marginTop="20dp"
-                        android:onClick="onClickRamazan" />
+                        android:onClick="onClickMuharramninedin" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_ramzan_button" />
+                        android:text="@string/Muharram_nine_din" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="10dp"
-                        android:onClick="onClickQuraniDua" />
+                        android:onClick="onClickMuharramsahbeashur" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_qurani_dua_button" />
+                        android:text="@string/Muharram_shabe_ashur" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="10dp"
-                        android:onClick="onClickMukhtalifAmal" />
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickMuharramrozeashu" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/Mukhtalif_amale" />
+                        android:text="@string/Muharram_roze_ashur" />
+                </RelativeLayout>
+
+
+                <RelativeLayout style="@style/HomeRelativelayout">
+
+                    <ImageView
+                        style="@style/HomeMainImageView"
+                        android:onClick="onClickSafarChehlum" />
+
+                    <TextView
+                        style="@style/HomeMainTextView"
+                        android:text="@string/Safar_chehlum" />
                 </RelativeLayout>
 
                 <RelativeLayout style="@style/HomeRelativelayout">
 
                     <ImageView
                         style="@style/HomeMainImageView"
-                        android:layout_marginTop="10dp"
-                        android:onClick="onClickContactUs" />
+                        android:layout_marginTop="20dp"
+                        android:onClick="onClickSafarAttaes" />
 
                     <TextView
                         style="@style/HomeMainTextView"
-                        android:text="@string/home_contact_us" />
+                        android:text="@string/Safar_attaes" />
                 </RelativeLayout>
-
 
 
 
@@ -157,13 +133,21 @@
         android:orientation="horizontal"
 
         >
-
-        <ListView
-            android:id="@+id/home_hadith_listview"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize">
+            android:layout_height="wrap_content">
 
-        </ListView>
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/dua_adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                android:layout_centerInParent="true"
+                ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
+            </com.google.android.gms.ads.AdView>
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 
