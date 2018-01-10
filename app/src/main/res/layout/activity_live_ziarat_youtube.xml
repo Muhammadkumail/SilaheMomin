@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout style="@style/ActionBar">
+
+        <TextView
+            android:id="@+id/live_ziarat_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/app_name_urdu"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="35">
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/youtubePlyer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="65"
+            android:weightSum="90"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                >
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/live_ziarat_adView_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    ads:adSize="SMART_BANNER"
+                    android:layout_centerInParent="true"
+
+                    ads:adUnitId="ca-app-pub-2985848238387199/4940494472">
+                </com.google.android.gms.ads.AdView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+               >
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/live_ziarat_adView_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    ads:adSize="SMART_BANNER"
+                    android:layout_centerInParent="true"
+                    ads:adUnitId="ca-app-pub-2985848238387199/7945931764">
+                </com.google.android.gms.ads.AdView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                >
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/live_ziarat_adView_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    ads:adSize="SMART_BANNER"
+                    android:layout_centerInParent="true"
+                    ads:adUnitId="ca-app-pub-2985848238387199/4842290113">
+                </com.google.android.gms.ads.AdView>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

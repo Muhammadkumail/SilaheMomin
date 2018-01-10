@@ -11,7 +11,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 ;
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
+import net.mk786110.silahemomin.ViewDuas.MakhsusQuraniDuaActivity;
 import net.mk786110.silahemomin.ViewSurahs.SurahAnkabutActivity;
 import net.mk786110.silahemomin.ViewSurahs.SurahDukhanActivity;
 import net.mk786110.silahemomin.ViewSurahs.SurahRehmanActivity;
@@ -25,17 +27,11 @@ public class SurahActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_surah);
-        YoYo.with(Techniques.DropOut)
-                .duration(1000)
-                .playOn(findViewById(R.id.surahlayout));
-
+        YoYo.with(Techniques.DropOut).duration(1000).playOn(findViewById(R.id.surahlayout));
 
         mAdView = (AdView) findViewById(R.id.surah_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-
-
     }
 
     @Override
@@ -61,39 +57,26 @@ public class SurahActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
-    public void onClickSurahAnkabut(View view)
-    {
-        Intent intent=new Intent();
-        intent.setClass(SurahActivity.this,SurahAnkabutActivity.class);
-        startActivity(intent);
+    public void onClickSurahAnkabut(View view) {
+        C.helperMethods.getStartActivity(SurahAnkabutActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
-    public void onClickSurahRoom(View view)
-    {
-        Intent intent=new Intent();
-        intent.setClass(SurahActivity.this,SurahRoomActivity.class);
-        startActivity(intent);
+    public void onClickSurahRoom(View view) {
+        C.helperMethods.getStartActivity(SurahRoomActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickSurahDhukahn(View view)
     {
-        Intent intent=new Intent();
-        intent.setClass(SurahActivity.this,SurahDukhanActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(SurahDukhanActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
-    public void onClickSurahRehman(View view)
-    {
-        Intent intent=new Intent();
-        intent.setClass(SurahActivity.this,SurahRehmanActivity.class);
-        startActivity(intent);
+    public void onClickSurahRehman(View view) {
+        C.helperMethods.getStartActivity(SurahRehmanActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
-    public void onClickSurahYaseen(View view)
-    {
-        Intent intent=new Intent();
-        intent.setClass(SurahActivity.this,SurahYaseenActivity.class);
-        startActivity(intent);
+    public void onClickSurahYaseen(View view) {
+        C.helperMethods.getStartActivity(SurahYaseenActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
 }

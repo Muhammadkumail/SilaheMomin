@@ -1,265 +1,161 @@
 package net.mk786110.silahemomin.SilaheMomin;
 
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.ads.MobileAds;
 
-
-import net.mk786110.silahemomin.Adaptor.HadithAdaptor;
 import net.mk786110.silahemomin.Constant.C;
+import net.mk786110.silahemomin.Constant.SingletonClass;
+import net.mk786110.silahemomin.Datasource.AllMolanasDataSource;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
+import net.mk786110.silahemomin.Datasource.LiveLinksDataSource;
+import net.mk786110.silahemomin.Model.Album;
+import net.mk786110.silahemomin.PlayVideoActivity;
+import net.mk786110.silahemomin.LiveYouTubeActivity;
+import net.mk786110.silahemomin.MajlisActivity;
 import net.mk786110.silahemomin.Model.Hadith;
+import net.mk786110.silahemomin.Model.LiveLinks;
 import net.mk786110.silahemomin.R;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity {
 
-    InterstitialAd mInterstitialAd;
     HadithDataSource mhadithDataSource;
+    LiveLinksDataSource mliveLinksDataSource;
     ArrayList<Hadith> arrayList;
+    ArrayList<LiveLinks> arrayListLinks;
+
+
+
     ListView mlistViewHadith;
-    GoogleCloudMessaging gcm;
+
     String gcmId = "";
-    String sender_id = "911030489741";
-    String possibleEmail = "";
     Context context;
-    String strGcmId="";
+    String strGcmId = "";
+    Boolean bCancelled;
     SharedPreferences mSharedPreferences;
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home);
+
         context = this;
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mInterstitialAd = new InterstitialAd(this);
+        mSharedPreferences = SingletonClass.getmSharedPreferencesInstance(context);
+        MobileAds.initialize(this, "ca-app-pub-2985848238387199~3346315866");
 
-        // set the ad unit ID
-        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/4823049066");
+        //new get_data_Hadith_AsynchTask().execute();
 
-        AdRequest adRequest = new AdRequest.Builder().build();
+        //if (C.helperMethods.isNetworkConnected())
+        //{
+            new get_data_AsynchTask().execute();
+        //}
 
-        // Load ads into Interstitial Ads
-        mInterstitialAd.loadAd(adRequest);
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
-            }
-        });
-
-
-
-        try {
-            Account[] accounts = AccountManager.get(this).getAccountsByType("com.google");
-
-            for (Account account : accounts) {
-
-                possibleEmail = account.name;
-            }
-        } catch (Exception e) {
-            Log.i("Exception", "Exception:" + e);
-        }
-
-        new get_data_Hadith_AsynchTask().execute();
-
-
-        if (checkPreferences()==true) {
-
-
+        if (checkPreferences() == true) {
             if (gcmId.length() == 0) {
-                new asyncTask_RegisterGCM().execute();
+                // new asyncTask_RegisterGCM().execute();
             }
-            new asyncTask_RegisterWeb().execute();
-
-        }
-        else {
-            Toast.makeText(HomeActivity.this, "السلام علیکم", Toast.LENGTH_SHORT).show();
-
-        }
-
-    }
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
+            //new asyncTask_RegisterWeb().execute();
+        } else {
+            C.helperMethods.showMessage(C.AssalamuAlikum, context);
         }
     }
-
 
     private Boolean checkPreferences() {
         strGcmId = mSharedPreferences.getString("key_gcmId", "");
 
-        if (strGcmId.length()==0) {
+        if (strGcmId.length() == 0) {
             return true;
         }
         return false;
     }
 
     public void onClickDuas(View view) {
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, DuasActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(DuasActivity.class, this);
     }
 
     public void onClickziarat(View view) {
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, ZiaratActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(ZiaratActivity.class, this);
     }
 
     public void onClickMuntakhibSurah(View view) {
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, SurahActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(SurahActivity.class, this);
     }
 
     public void onClickRamazan(View view) {
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, AmaleRamazanActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(AmaleRamazanActivity.class, this);
     }
 
     public void onClickShaban(View view) {
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, AmaleShabanActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(AmaleShabanActivity.class, this);
     }
 
     public void onClickRajab(View view) {
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, AmaleRajabActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(AmaleRajabActivity.class, this);
     }
 
     public void onClickQuraniDua(View view) {
-
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, QuraniDuaActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(QuraniDuaActivity.class, this);
     }
 
     public void onClickMukhtalifAmal(View view) {
-
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, MukhtalifAmalActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(MukhtalifAmalActivity.class, this);
     }
 
-    public void  onClickAZA(View view) {
-
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, AzaActivity.class);
-        startActivity(mintent);
+    public void onClickAZA(View view) {
+        C.helperMethods.getStartActivity(AzaActivity.class, this);
     }
-
-
 
     public void onClickContactUs(View view) {
-
-        Intent mintent = new Intent();
-        mintent.setClass(HomeActivity.this, ContactActivity.class);
-        startActivity(mintent);
+        C.helperMethods.getStartActivity(ContactActivity.class, this);
     }
 
+    public void onClickSettings(View view) {
+        C.helperMethods.getStartActivity(SettingActivity.class, this);
+    }
 
+    public void onclickliveKarbala(View view) {
+        C.helperMethods.getStartActivity(PlayVideoActivity.class, this);
+    }
 
-    private class asyncTask_RegisterGCM extends AsyncTask<Void, Void, String> {
-        SharedPreferences.Editor editor = mSharedPreferences.edit();
-        @Override
-        protected String doInBackground(Void... params) {
-            try {
-
-                gcm = GoogleCloudMessaging.getInstance(context);
-                gcmId = gcm.register(sender_id);
-                editor.putString("key_gcmId", gcmId.toString());
-                editor.commit();
-
-            } catch (IOException ex) {
-                return "Error:" + ex.getMessage();
-            }
-            return gcmId;
-        }
+    public void onclickNajaf(View view) {
+        LiveYouTubeActivity.VideoURL=arrayListLinks.get(0).getLink_url();
+        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
 
     }
 
-    private class asyncTask_RegisterWeb extends AsyncTask<Void, Void, String> {
-        @Override
-        protected String doInBackground(Void... params) {
-            String msg = "";
-            try {
-                if (gcmId.length() > -0) {
-
-
-                        msg = registerDeviceToWebServer(gcmId, possibleEmail);
-
-                }
-            } catch (Exception ex) {
-                msg = "Error :" + ex.getMessage();
-            }
-            return msg;
-        }
-
+    public void onclickMakka(View view) {
+        LiveYouTubeActivity.VideoURL=arrayListLinks.get(3).getLink_url();
+        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
     }
 
-    public String registerDeviceToWebServer(String gcmId, String possibleEmail) {
-        String url = C.DeviceRegister;
-        String strResponse = "No response";
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(url);
-        try {
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
-            nameValuePairs.add(new BasicNameValuePair("device_gcm_id", gcmId));
-            nameValuePairs.add(new BasicNameValuePair("device_type", "1"));
-            nameValuePairs.add(new BasicNameValuePair("device_email_address", possibleEmail));
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            HttpResponse response = httpclient.execute(httppost);
-            strResponse = EntityUtils.toString(response.getEntity());
-        } catch (ClientProtocolException e) {
-            strResponse = e.getMessage();
-        } catch (IOException e) {
-            Log.e("IOException:", e.getMessage());
-            strResponse = e.getMessage();
-        }
-        return strResponse;
+    public void onclickMadinah(View view) {
+        LiveYouTubeActivity.VideoURL=arrayListLinks.get(2).getLink_url();
+        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
     }
 
+    public void onclickKazmain(View view) {
+        LiveYouTubeActivity.VideoURL=arrayListLinks.get(1).getLink_url();
+        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+    }
+    public void onclickliveMajlis(View view)
+    {
+        C.helperMethods.getStartActivity(MajlisActivity.class,this);
+    }
 
     private class get_data_Hadith_AsynchTask extends AsyncTask<Void, Void, Void> {
 
@@ -279,11 +175,65 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-
+/*
             mlistViewHadith = (ListView) findViewById(R.id.home_hadith_listview);
-            HadithAdaptor mhadithAdaptor = new HadithAdaptor(context, R.layout.activity_row, arrayList);
-            mlistViewHadith.setAdapter(mhadithAdaptor);
+            SilaheMominAdaptor mhadithAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
+            mlistViewHadith.setAdapter(mhadithAdaptor);*/
             super.onPostExecute(aVoid);
+        }
+    }
+
+    DialogInterface.OnCancelListener cancelListener = new DialogInterface.OnCancelListener() {
+        @Override
+        public void onCancel(DialogInterface arg0) {
+            bCancelled = true;
+            finish();
+        }
+    };
+
+    private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
+
+        ProgressDialog progressDialog;
+        String connectionError = "";
+
+        @Override
+        protected void onPreExecute() {
+
+            progressDialog = ProgressDialog.show(context, "wait", C.Salwat, true);
+            progressDialog.setCancelable(true);
+            progressDialog.setOnCancelListener(cancelListener);
+            bCancelled = false;
+
+
+            arrayListLinks = new ArrayList<>();
+
+            mliveLinksDataSource = new LiveLinksDataSource(context);
+
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+
+            arrayListLinks = mliveLinksDataSource.getList();
+            if (arrayListLinks.size() == 0) {
+                connectionError = "Please Check Internet Connection";
+
+                return null;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            if (connectionError.length() != 0) {
+                C.helperMethods.showMessage(connectionError, context);
+            } else {
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+            }
+
         }
     }
 

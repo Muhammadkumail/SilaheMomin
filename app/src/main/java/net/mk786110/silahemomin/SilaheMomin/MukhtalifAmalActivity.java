@@ -13,11 +13,13 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewAmals.RozEidFitrActivity;
 import net.mk786110.silahemomin.ViewAmals.RozJummahActivity;
 import net.mk786110.silahemomin.ViewAmals.ShabeEidFitrActivity;
 import net.mk786110.silahemomin.ViewAmals.ShabeJummahActivity;
+import net.mk786110.silahemomin.ViewDuas.DuaArafahActivity;
 
 
 public class MukhtalifAmalActivity extends AppCompatActivity {
@@ -86,27 +88,19 @@ public class MukhtalifAmalActivity extends AppCompatActivity {
     }
 
     public void onClickShabeJummah(View view) {
-        Intent intent = new Intent();
-        intent.setClass(MukhtalifAmalActivity.this, ShabeJummahActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ShabeJummahActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickShabeEidFitr(View view) {
-        Intent intent = new Intent();
-        intent.setClass(MukhtalifAmalActivity.this, ShabeEidFitrActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ShabeEidFitrActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickRozJummah(View view) {
-        Intent intent = new Intent();
-        intent.setClass(MukhtalifAmalActivity.this, RozJummahActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RozJummahActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickRozEidFitr(View view) {
-        Intent intent = new Intent();
-        intent.setClass(MukhtalifAmalActivity.this, RozEidFitrActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RozEidFitrActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 

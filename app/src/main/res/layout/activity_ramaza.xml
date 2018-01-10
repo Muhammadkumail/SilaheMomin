@@ -102,7 +102,7 @@
                 android:id="@+id/ramzan_adView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                ads:adSize="BANNER"
+                ads:adSize="SMART_BANNER"
                 android:layout_centerInParent="true"
                 ads:adUnitId="ca-app-pub-2985848238387199/4542017460">
             </com.google.android.gms.ads.AdView>

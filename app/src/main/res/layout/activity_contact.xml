@@ -28,16 +28,7 @@
             android:inputType="text"
             android:layout_marginTop="?actionBarSize"
             />
-    <EditText
-        android:id="@+id/contact_email_editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:textSize="20sp"
-        android:singleLine="true"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="15dp"
-        />
+
     <EditText
         android:id="@+id/contact_message_editText"
         android:layout_width="match_parent"

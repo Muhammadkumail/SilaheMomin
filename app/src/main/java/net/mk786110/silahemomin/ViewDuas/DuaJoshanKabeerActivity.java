@@ -10,10 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
-import net.mk786110.silahemomin.Adaptor.DuaJoshanKabeerAdaptor;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.Datasource.DuaJoshanKabeerDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
@@ -27,15 +28,44 @@ public class DuaJoshanKabeerActivity extends AppCompatActivity {
     ArrayList<Dua> arrayList;
     ListView mlistViewDua;
     Boolean bCancelled;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         context = this;
-
         new get_data_AsychTask().execute();
 
+        mAdView = (AdView) findViewById(R.id.dua_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
     DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
@@ -81,7 +111,7 @@ public class DuaJoshanKabeerActivity extends AppCompatActivity {
                 mlistViewDua = (ListView) findViewById(R.id.detail_listview);
                 TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-                DuaJoshanKabeerAdaptor mduaJoshanKabeerAdaptor = new DuaJoshanKabeerAdaptor(context, R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mduaJoshanKabeerAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
 
                 mtextView.setText("دعای جوشن کبیر");
 

@@ -10,7 +10,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.SurahAnkabutAdaptor;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.SurahAnkabutDataSource;
 import net.mk786110.silahemomin.Model.Dua;
@@ -25,6 +28,7 @@ public class SurahAnkabutActivity extends AppCompatActivity {
     ListView mlistViewDua;
     Context context;
     Boolean bCancelled;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,35 @@ public class SurahAnkabutActivity extends AppCompatActivity {
         context=this;
         new get_data_AsynchTask().execute();
 
+        mAdView = (AdView) findViewById(R.id.dua_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
     DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
         @Override
@@ -78,7 +111,7 @@ public class SurahAnkabutActivity extends AppCompatActivity {
             mlistViewDua=(ListView)findViewById(R.id.detail_listview);
             TextView mtextView=(TextView) findViewById(R.id.detail_textview);
 
-            SurahAnkabutAdaptor mduaAnkabutAdaptor=new SurahAnkabutAdaptor(context,R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mduaAnkabutAdaptor=new SilaheMominAdaptor(context,R.layout.activity_row, arrayList);
             mtextView.setText(" سوره عنکبوت ");
 
             mlistViewDua.setAdapter(mduaAnkabutAdaptor);

@@ -11,7 +11,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
+import net.mk786110.silahemomin.ViewSurahs.SurahYaseenActivity;
 import net.mk786110.silahemomin.ViewZiarats.ZiaratAshuraActivity;
 import net.mk786110.silahemomin.ViewZiarats.ZiaratHazratAbbasActivity;
 import net.mk786110.silahemomin.ViewZiarats.ZiaratHazratAliIbnHussainActivity;
@@ -35,8 +37,6 @@ public class ZiaratActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.ziarat_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-
 
     }
 
@@ -64,42 +64,28 @@ public class ZiaratActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-
     public void onClickziaratAshura(View view) {
-        Intent intent = new Intent();
-        intent.setClass(ZiaratActivity.this, ZiaratAshuraActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ZiaratAshuraActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
-
     public void onClickZiaraWaresah(View view) {
-        Intent intent = new Intent();
-        intent.setClass(ZiaratActivity.this, ZiaratWarisActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ZiaratWarisActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickZiaratImamHussain(View view) {
-        Intent intent = new Intent();
-        intent.setClass(ZiaratActivity.this, ZiaratImamHussainActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ZiaratImamHussainActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickZiaratHazratAlibinHussain(View view) {
-        Intent intent = new Intent();
-        intent.setClass(ZiaratActivity.this, ZiaratHazratAliIbnHussainActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ZiaratHazratAliIbnHussainActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickZiaratSaerShohada(View view) {
-        Intent intent = new Intent();
-        intent.setClass(ZiaratActivity.this, ZiaratSayerShohadaActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ZiaratSayerShohadaActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickZiaratHazratAbbas(View view) {
-        Intent intent = new Intent();
-        intent.setClass(ZiaratActivity.this, ZiaratHazratAbbasActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ZiaratHazratAbbasActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 

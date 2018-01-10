@@ -10,10 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
-import net.mk786110.silahemomin.Adaptor.RajabTeratoPandraAmalAdaptor;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.Datasource.RajabTeratoPandraDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
@@ -26,7 +27,7 @@ public class RajabTeraToPandraActivity extends AppCompatActivity {
     ListView mlistViewDua;
     Context context;
     Boolean bCancelled;
-
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,35 @@ public class RajabTeraToPandraActivity extends AppCompatActivity {
 
         new get_data_AsynchTask().execute();
 
+        mAdView = (AdView) findViewById(R.id.dua_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
     DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
@@ -81,7 +111,7 @@ public class RajabTeraToPandraActivity extends AppCompatActivity {
 
             TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            RajabTeratoPandraAmalAdaptor mRajabTeratoPandraAmalAdaptor = new RajabTeratoPandraAmalAdaptor(context, R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mRajabTeratoPandraAmalAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
 
             mtextView.setText("۱۳ سے ۱۵ رج تک کے مخصوص اعمال");
             mtextView.setTextSize(15);

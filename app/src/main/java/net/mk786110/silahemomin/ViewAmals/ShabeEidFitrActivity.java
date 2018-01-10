@@ -10,11 +10,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.ShabeEidFitrAdaptor;
-import net.mk786110.silahemomin.Adaptor.ShabeJummahAdaptor;
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.ShabeEidFitrDataSource;
-import net.mk786110.silahemomin.Datasource.ShabeJummahDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
 
@@ -83,7 +81,7 @@ public class ShabeEidFitrActivity extends AppCompatActivity {
 
                 TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-                ShabeEidFitrAdaptor mShabeEidFitrAdaptor = new ShabeEidFitrAdaptor(context, R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mShabeEidFitrAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
 
                 mtextView.setText("   اعمال شب عیدالفطر");
 

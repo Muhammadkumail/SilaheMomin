@@ -10,11 +10,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.RozJummahAdaptor;
-import net.mk786110.silahemomin.Adaptor.ShabeJummahAdaptor;
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.RozJummahDataSource;
-import net.mk786110.silahemomin.Datasource.ShabeJummahDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
 
@@ -82,7 +80,7 @@ public class RozJummahActivity extends AppCompatActivity {
 
                 TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-                RozJummahAdaptor mRozJummahAdaptor = new RozJummahAdaptor(context, R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mRozJummahAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
 
                 mtextView.setText("اعمال شب جمعہ");
 

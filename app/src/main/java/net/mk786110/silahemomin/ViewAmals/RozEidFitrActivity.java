@@ -10,11 +10,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.RozEidFitrAdaptor;
-import net.mk786110.silahemomin.Adaptor.ShabeEidFitrAdaptor;
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.RozEidFitrDataSource;
-import net.mk786110.silahemomin.Datasource.ShabeEidFitrDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
 
@@ -83,7 +81,7 @@ public class RozEidFitrActivity extends AppCompatActivity {
 
                 TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-                RozEidFitrAdaptor mRozEidFitrAdaptor = new RozEidFitrAdaptor(context, R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mRozEidFitrAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
 
                 mtextView.setText("   اعمال روز عیدالفطر");
 

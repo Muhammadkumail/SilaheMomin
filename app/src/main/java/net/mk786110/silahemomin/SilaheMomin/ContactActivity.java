@@ -2,8 +2,10 @@ package net.mk786110.silahemomin.SilaheMomin;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,9 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
@@ -34,13 +39,11 @@ import java.util.List;
 public class ContactActivity extends AppCompatActivity {
 
     EditText mName;
-    EditText mEmail;
     EditText mMessage;
 
     String strName = "";
-    String strEmail = "";
     String strMessage = "";
-
+    InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +54,7 @@ public class ContactActivity extends AppCompatActivity {
 
 
         mName = (EditText) findViewById(R.id.contact_name_editText);
-        mEmail = (EditText) findViewById(R.id.contact_email_editText);
         mMessage = (EditText) findViewById(R.id.contact_message_editText);
-
-
-
-
 
     }
 
@@ -70,12 +68,9 @@ public class ContactActivity extends AppCompatActivity {
 
     {
         strName = mName.getText().toString();
-        strEmail = mEmail.getText().toString();
         strMessage=mMessage.getText().toString();
 
-
-
-            if (strName.length() > -0 && strEmail.length() > -0 && strMessage.length() > -0)
+            if (strName.length() > -0  && strMessage.length() > -0)
             {
                 if(isNetworkConnected()) {
                     new asyncTask_ContactUs().execute();
@@ -112,10 +107,10 @@ public class ContactActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             String msg = "";
             try {
-                if (strName.length() > -0 && strEmail.length() > -0 && strMessage.length() > -0) {
+                if (strName.length() > -0  && strMessage.length() > -0) {
 
 
-                    msg = sendMessageToWebServer(strName, strEmail,strMessage);
+                    msg = sendMessageToWebServer(strName,strMessage);
 
                 }
             } catch (Exception ex) {
@@ -129,24 +124,38 @@ public class ContactActivity extends AppCompatActivity {
             super.onPostExecute(s);
             progressDialog.dismiss();
             mName.setText("");
-            mEmail.setText("");
             mMessage.setText("");
             errorMessage("Thanks . Your Message Has been Submitted");
 
+            // full scren ad
+            mInterstitialAd = new InterstitialAd(getBaseContext());
+            mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/3946588264");
+            AdRequest adRequestf = new AdRequest.Builder().build();
 
+            // Load ads into Interstitial Ads
+            mInterstitialAd.loadAd(adRequestf);
+
+            mInterstitialAd.setAdListener(new AdListener() {
+                public void onAdLoaded() {
+                    showInterstitial();
+                }
+            });
 
         }
     }
-
-    public String sendMessageToWebServer(String name, String email,String message) {
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
+    }
+    public String sendMessageToWebServer(String name,String message) {
         String url = C.ContactUs;
         String strResponse = "No response";
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(url);
         try {
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("name", name));
-            nameValuePairs.add(new BasicNameValuePair("email",email));
             nameValuePairs.add(new BasicNameValuePair("message", message));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             HttpResponse response = httpclient.execute(httppost);

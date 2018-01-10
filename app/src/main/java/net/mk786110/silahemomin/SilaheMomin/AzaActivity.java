@@ -12,6 +12,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.ViewAza.MuharramNineDinActivity;
 import net.mk786110.silahemomin.ViewAza.MuharramPhelaDinActivity;
@@ -30,6 +31,7 @@ import net.mk786110.silahemomin.ViewDuas.DuaMujeerActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaNudbahActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaSamatActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaTawassulActivity;
+import net.mk786110.silahemomin.ViewShaban.ShabanThirdNightActivity;
 
 public class AzaActivity extends AppCompatActivity {
 
@@ -97,61 +99,42 @@ public class AzaActivity extends AppCompatActivity {
 
 
     public void onClickSafarAttaes(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, SafarAttaesActivity.class);
-        startActivity(intent);
-
-
+        C.helperMethods.getStartActivity(SafarAttaesActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickSafarChehlum(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, SafarChehlumActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(SafarChehlumActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMuharramrozeashu(View view) {
-
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, MuharramRozeAshurActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MuharramRozeAshurActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMuharramsahbeashur(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, MuharramShabeAshurActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MuharramShabeAshurActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMuharramninedin(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, MuharramNineDinActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MuharramNineDinActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMuharramtisradin(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, MuharramTisraDinActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MuharramTisraDinActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMuharrampheldin(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, MuharramPhelaDinActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MuharramPhelaDinActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMuharrampheliRat(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AzaActivity.this, MuharramPheliRatActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MuharramPheliRatActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 

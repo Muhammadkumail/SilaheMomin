@@ -11,6 +11,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
 
 import net.mk786110.silahemomin.ViewRajab.RajabFirstNightActivity;
@@ -63,42 +64,30 @@ public class AmaleRajabActivity extends AppCompatActivity {
     }
 
     public void onClickRajabPheliRat(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRajabActivity.this, RajabFirstNightActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RajabFirstNightActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickMushtarekaAmal(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRajabActivity.this, RajabMushtarekaAmalActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RajabMushtarekaAmalActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickZiratRajabea(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRajabActivity.this, RajabZiaratRajabeaActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RajabZiaratRajabeaActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickTeratoPandra(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRajabActivity.this, RajabTeraToPandraActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RajabTeraToPandraActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickUmmeDawood(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRajabActivity.this, RajabUmmeDawoodActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RajabUmmeDawoodActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
     public void onClickRajabShabe27(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRajabActivity.this, RajabShabe27Activity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(RajabShabe27Activity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 

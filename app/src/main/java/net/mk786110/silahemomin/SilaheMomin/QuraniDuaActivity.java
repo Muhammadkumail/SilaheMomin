@@ -11,7 +11,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
+import net.mk786110.silahemomin.ViewAmals.RozEidFitrActivity;
 import net.mk786110.silahemomin.ViewDuas.MakhsusQuraniDuaActivity;
 
 
@@ -28,8 +30,6 @@ public class QuraniDuaActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.qurani_dua_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-
 
     }
 
@@ -58,9 +58,7 @@ public class QuraniDuaActivity extends AppCompatActivity {
     }
 
     public void onClickQuranmdua(View view) {
-        Intent intent = new Intent();
-        intent.setClass(QuraniDuaActivity.this,MakhsusQuraniDuaActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(MakhsusQuraniDuaActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 

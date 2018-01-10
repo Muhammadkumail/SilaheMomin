@@ -11,8 +11,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
 
+import net.mk786110.silahemomin.ViewRajab.RajabZiaratRajabeaActivity;
 import net.mk786110.silahemomin.ViewRamzan.RamzanMunajatActivity;
 import net.mk786110.silahemomin.ViewRamzan.RamzanMushtarekaAmalActivity;
 import net.mk786110.silahemomin.ViewRamzan.RamzanShabe19Activity;
@@ -63,42 +65,28 @@ public class AmaleRamazanActivity extends AppCompatActivity {
     }
 
     public void onClickMushtarekAmal(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRamazanActivity.this, RamzanMushtarekaAmalActivity.class);
-        startActivity(intent);
-
+        C.helperMethods.getStartActivity(RamzanMushtarekaAmalActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickShabeUnnis(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRamazanActivity.this, RamzanShabe19Activity.class);
-        startActivity(intent);
 
+        C.helperMethods.getStartActivity(RamzanShabe19Activity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickShabeIkkis(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRamazanActivity.this, RamzanShabe21Activity.class);
-        startActivity(intent);
-
+        C.helperMethods.getStartActivity(RamzanShabe21Activity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickShabeTeyyes(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRamazanActivity.this, RamzanShabe23Activity.class);
-        startActivity(intent);
-
+        C.helperMethods.getStartActivity(RamzanShabe23Activity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickRamzanMunajat(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleRamazanActivity.this, RamzanMunajatActivity.class);
-        startActivity(intent);
-
+        C.helperMethods.getStartActivity(RamzanMunajatActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 }

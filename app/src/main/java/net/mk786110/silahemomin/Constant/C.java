@@ -1,5 +1,11 @@
 package net.mk786110.silahemomin.Constant;
 
+import android.content.Intent;
+
+import com.google.android.gms.ads.AdView;
+
+import net.mk786110.silahemomin.R;
+
 public class C {
 
     public static final String rootUrl = "http://friendsfashion.net/";
@@ -79,6 +85,14 @@ public class C {
     public static final String RamzanShabe23kaAmal = rootUrl + urlDirectry + "getramzan.php?ramzan=shabe23";
     public static final String RamzanMunajat = rootUrl + urlDirectry + "getramzan.php?ramzan=munajatali";
 
+    /*Youtube Live links*/
+    public static final String youtubeLinks = rootUrl + urlDirectry + "getLiveYoutubeLinks.php?livelinks=youtube";
+
+    /*Majlis links*/
+    public static final String majlisLinks = rootUrl + urlDirectry + "getMajlis.php?molanaId=";
+
+    /*Majlis links*/
+    public static final String allMolanas = rootUrl + urlDirectry + "getAllMolanas.php?mol=all";
 
     /*Hadith link*/
     public static final String RandomHadith = rootUrl + urlDirectry + "hadith.php";
@@ -97,6 +111,21 @@ public class C {
     /*Waiting Message*/
 
     public static final String Salwat = "اللَّهُمَّ صَلِّ عَلَی مُحَمَّدٍ وَآلِ مُحَمَّد";
+    public static final String AssalamuAlikum = "السلام علیکم";
+    public static final String youTubeFaildToLoad = "Sorry! Faild To Load Video";
+
+
+    /*Object Names*/
+
+    public static HelperMethods helperMethods = SingletonClass.getHelperMethodsInstance();
+    public static Intent mintent = SingletonClass.getIntentInstance();
+
+
+
+
+
+
+
 
 
 }

@@ -10,10 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.AzaAdaptor;
-import net.mk786110.silahemomin.Adaptor.DuaArafahAdaptor;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.Datasource.DuaArafahDataSource;
 import net.mk786110.silahemomin.Datasource.MuharramTisraDinDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
@@ -27,7 +28,7 @@ public class MuharramTisraDinActivity extends AppCompatActivity {
     ListView mlistViewDua;
     Context context;
     Boolean bCancelled;
-
+    private AdView mAdView;
 
 
     @Override
@@ -38,6 +39,35 @@ public class MuharramTisraDinActivity extends AppCompatActivity {
 
 
         new get_data_AsynchTask().execute();
+        mAdView = (AdView) findViewById(R.id.dua_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
 
@@ -96,7 +126,7 @@ public class MuharramTisraDinActivity extends AppCompatActivity {
             } else {
                 mlistViewDua = (ListView) findViewById(R.id.detail_listview);
                 TextView mtextView = (TextView) findViewById(R.id.detail_textview);
-                AzaAdaptor mAzaAdaptor= new AzaAdaptor(context, R.layout.activity_hadith_row, arrayList);
+                SilaheMominAdaptor mAzaAdaptor= new SilaheMominAdaptor(context, R.layout.activity_hadith_row, arrayList);
                 mtextView.setText(" ۳ محرم ");
                 mlistViewDua.setAdapter(mAzaAdaptor);
 

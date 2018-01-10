@@ -10,10 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.Adaptor.DuaIftitahAdaptor;
-import net.mk786110.silahemomin.Adaptor.QuraniDuaAdaptor;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.Datasource.DuaIftitahDataSource;
 import net.mk786110.silahemomin.Datasource.QuraniDuaDataSource;
 import net.mk786110.silahemomin.Model.Dua;
 import net.mk786110.silahemomin.R;
@@ -26,6 +27,7 @@ public class MakhsusQuraniDuaActivity extends AppCompatActivity {
     ListView mlistViewDua;
     Context context;
     Boolean bCancelled;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,35 @@ public class MakhsusQuraniDuaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         new get_data_AsynchTask().execute();
+        mAdView = (AdView) findViewById(R.id.dua_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
     DialogInterface.OnCancelListener cancelListener=new DialogInterface.OnCancelListener(){
@@ -82,7 +112,7 @@ public class MakhsusQuraniDuaActivity extends AppCompatActivity {
 
             TextView mtextView = (TextView) findViewById(R.id.detail_textview);
 
-            QuraniDuaAdaptor mQuraniDuaAdaptor = new QuraniDuaAdaptor(context, R.layout.activity_row, arrayList);
+                SilaheMominAdaptor mQuraniDuaAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
 
             mtextView.setText("قرآن میں بیان شدہ دعائیں");
             mtextView.setTextSize(15);

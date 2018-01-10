@@ -11,8 +11,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
+import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
 
+import net.mk786110.silahemomin.ViewRamzan.RamzanMushtarekaAmalActivity;
 import net.mk786110.silahemomin.ViewShaban.ShabanMushtarekaAmalActivity;
 import net.mk786110.silahemomin.ViewShaban.ShabanNimeShabanActivity;
 import net.mk786110.silahemomin.ViewShaban.ShabanThirdNightActivity;
@@ -63,23 +65,17 @@ public class AmaleShabanActivity extends AppCompatActivity {
 
 
     public void onClicktesriShaban(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleShabanActivity.this, ShabanThirdNightActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ShabanThirdNightActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickNimeShabana(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleShabanActivity.this, ShabanNimeShabanActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ShabanNimeShabanActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     public void onClickshaban_mushtarekaAmal(View view) {
-        Intent intent = new Intent();
-        intent.setClass(AmaleShabanActivity.this, ShabanMushtarekaAmalActivity.class);
-        startActivity(intent);
+        C.helperMethods.getStartActivity(ShabanMushtarekaAmalActivity.class,this);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 

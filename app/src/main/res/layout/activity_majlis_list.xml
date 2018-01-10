@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    >
+    <LinearLayout
+        android:layout_weight="60"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/molana_image"
+            android:src="@drawable/ic_ali_murtaza_zaidi"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="40"
+        android:weightSum="100"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/topics"
+            android:gravity="center"
+            android:background="@color/colorDarkGreen"
+            android:textColor="@color/colorWhite"
+            android:layout_weight="85"
+            />
+        <ListView
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/majlis_listview"
+            android:layout_weight="15">
+
+        </ListView>
+
+
+    </LinearLayout>
+</LinearLayout>
