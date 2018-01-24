@@ -44,11 +44,11 @@ public class PlayVideoActivity extends AppCompatActivity {
 
         videoView.loadUrl(mUrl);
         topicName.setText(mTopic);
-        molanaName.setText(mMolanaName);
-        molanaName.setTypeface(urdufont);
+        //molanaName.setText(mMolanaName);
+        //molanaName.setTypeface(urdufont);
         topicName.setTypeface(urdufont);
         topicName.setTextSize(20);
-        molanaName.setTextSize(30);
+        //molanaName.setTextSize(30);
         Bundle bundle = new Bundle();
 
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, mTopic);

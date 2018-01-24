@@ -30,6 +30,7 @@ public class MolanaParserParser {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 links.setName(jsonObject.getString("molana_name"));
                 links.setMolana_image(jsonObject.getString("molana_pic"));
+                links.setThumbnail(jsonObject.getInt("id"));
 
                 arrayList.add(links);
             }

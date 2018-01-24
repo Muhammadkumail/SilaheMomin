@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //if (C.helperMethods.isNetworkConnected())
         //{
-            new get_data_AsynchTask().execute();
+            //new get_data_AsynchTask().execute();
         //}
 
         if (checkPreferences() == true) {

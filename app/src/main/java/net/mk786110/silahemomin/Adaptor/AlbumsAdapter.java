@@ -54,10 +54,11 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
                 public void onClick(View v) {
                     final int position = getAdapterPosition();
 
-                    MajlisListActivity.molanaid=String.valueOf(position);
-                    MajlisListActivity.molanaimage=albumList.get(position).getThumbnail();
+                    MajlisListActivity.molanaid = String.valueOf(albumList.get(position).getThumbnail());
+                  //  MajlisListActivity.molanaimage=albumList.get(position).getThumbnail();
 
                     C.helperMethods.getStartActivity(MajlisListActivity.class,mContext);
+                    C.helperMethods.showMessage(String.valueOf(albumList.get(position).getThumbnail()),mContext);
 
                 }
             });

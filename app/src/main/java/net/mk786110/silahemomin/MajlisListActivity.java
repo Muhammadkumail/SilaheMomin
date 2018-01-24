@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class MajlisListActivity extends AppCompatActivity {
 
     public static String  molanaid;
-    public static int  molanaimage;
+    public static String  molanaimage;
     Boolean bCancelled;
     ListView mlistViewDua;
     ArrayList<Majlis> arrayListLinks;
@@ -37,8 +37,8 @@ public class MajlisListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_majlis_list);
         context=this;
-        ImageView imageView=(ImageView)findViewById(R.id.molana_image);
-        imageView.setImageResource(molanaimage);
+        /*ImageView imageView=(ImageView)findViewById(R.id.molana_image);
+        imageView.setImageResource(molanaimage);*/
         new get_data_AsynchTask().execute();
     }
 
@@ -101,7 +101,7 @@ public class MajlisListActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
                         PlayVideoActivity.mUrl=arrayListLinks.get(position).getMajlis_link();
                         PlayVideoActivity.mTopic=arrayListLinks.get(position).getMajlis_topic();
-                        PlayVideoActivity.mMolanaName=arrayListLinks.get(position).getMolana_name();
+                       // PlayVideoActivity.mMolanaName=arrayListLinks.get(position).getMolana_name();
                         C.helperMethods.getStartActivity(PlayVideoActivity.class,context);
 
                     }}

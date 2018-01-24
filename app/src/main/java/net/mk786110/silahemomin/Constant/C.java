@@ -10,6 +10,8 @@ public class C {
 
     public static final String rootUrl = "http://friendsfashion.net/";
     public static final String urlDirectry = "android/kumail/silaheMomin/";
+    public static final String apiDirectry = "AllAPIs/";
+
 
     /*Muhraram and safar */
 
@@ -89,10 +91,10 @@ public class C {
     public static final String youtubeLinks = rootUrl + urlDirectry + "getLiveYoutubeLinks.php?livelinks=youtube";
 
     /*Majlis links*/
-    public static final String majlisLinks = rootUrl + urlDirectry + "getMajlis.php?molanaId=";
+    public static final String majlisLinks = rootUrl + urlDirectry + apiDirectry + "getSpeechById.php?molanaId=";
 
     /*Majlis links*/
-    public static final String allMolanas = rootUrl + urlDirectry + "getAllMolanas.php?mol=all";
+    public static final String allMolanas = rootUrl + urlDirectry + apiDirectry + "getAllMolanas.php?mol=all";
 
     /*Hadith link*/
     public static final String RandomHadith = rootUrl + urlDirectry + "hadith.php";

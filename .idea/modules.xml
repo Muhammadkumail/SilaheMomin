@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SilaheMomin-master.iml" filepath="$PROJECT_DIR$/SilaheMomin-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SilaheMomin.iml" filepath="$PROJECT_DIR$/SilaheMomin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
