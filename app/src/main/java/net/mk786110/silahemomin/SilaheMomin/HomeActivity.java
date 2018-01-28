@@ -10,22 +10,18 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 
 
 import com.google.android.gms.ads.MobileAds;
 
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Constant.SingletonClass;
-import net.mk786110.silahemomin.Datasource.AllMolanasDataSource;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
-import net.mk786110.silahemomin.Datasource.LiveLinksDataSource;
-import net.mk786110.silahemomin.Model.Album;
-import net.mk786110.silahemomin.PlayVideoActivity;
-import net.mk786110.silahemomin.LiveYouTubeActivity;
-import net.mk786110.silahemomin.MajlisActivity;
+import net.mk786110.silahemomin.Datasource.MajlisLinksDataSource;
+import net.mk786110.silahemomin.Model.Majlis;
+import net.mk786110.silahemomin.Videos.LiveYouTubeActivity;
+import net.mk786110.silahemomin.Videos.MajlisActivity;
 import net.mk786110.silahemomin.Model.Hadith;
-import net.mk786110.silahemomin.Model.LiveLinks;
 import net.mk786110.silahemomin.R;
 
 import java.util.ArrayList;
@@ -34,17 +30,11 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     HadithDataSource mhadithDataSource;
-    LiveLinksDataSource mliveLinksDataSource;
+    MajlisLinksDataSource majlisLinksDataSource;
     ArrayList<Hadith> arrayList;
-    ArrayList<LiveLinks> arrayListLinks;
+    ArrayList<Majlis> arrayListLinks;
 
-
-
-    ListView mlistViewHadith;
-
-    String gcmId = "";
     Context context;
-    String strGcmId = "";
     Boolean bCancelled;
     SharedPreferences mSharedPreferences;
 
@@ -58,30 +48,13 @@ public class HomeActivity extends AppCompatActivity {
         mSharedPreferences = SingletonClass.getmSharedPreferencesInstance(context);
         MobileAds.initialize(this, "ca-app-pub-2985848238387199~3346315866");
 
-        //new get_data_Hadith_AsynchTask().execute();
-
-        //if (C.helperMethods.isNetworkConnected())
-        //{
-            //new get_data_AsynchTask().execute();
-        //}
-
-        if (checkPreferences() == true) {
-            if (gcmId.length() == 0) {
-                // new asyncTask_RegisterGCM().execute();
-            }
-            //new asyncTask_RegisterWeb().execute();
-        } else {
+        if (C.helperMethods.isNetworkConnected(this))
+        {
+            new get_liveYoutube_AsynchTask().execute();
             C.helperMethods.showMessage(C.AssalamuAlikum, context);
         }
-    }
 
-    private Boolean checkPreferences() {
-        strGcmId = mSharedPreferences.getString("key_gcmId", "");
 
-        if (strGcmId.length() == 0) {
-            return true;
-        }
-        return false;
     }
 
     public void onClickDuas(View view) {
@@ -124,33 +97,54 @@ public class HomeActivity extends AppCompatActivity {
         C.helperMethods.getStartActivity(ContactActivity.class, this);
     }
 
-    public void onClickSettings(View view) {
-        C.helperMethods.getStartActivity(SettingActivity.class, this);
-    }
-
     public void onclickliveKarbala(View view) {
-        C.helperMethods.getStartActivity(PlayVideoActivity.class, this);
+        if (C.helperMethods.isNetworkConnected(this)) {
+            LiveYouTubeActivity.VideoURL=arrayListLinks.get(4).getMajlis_link();
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        }
+        else {
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+        }
     }
 
     public void onclickNajaf(View view) {
-        LiveYouTubeActivity.VideoURL=arrayListLinks.get(0).getLink_url();
-        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
-
+        if (C.helperMethods.isNetworkConnected(this)) {
+            LiveYouTubeActivity.VideoURL = arrayListLinks.get(0).getMajlis_link();
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        }
+        else {
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+        }
     }
 
     public void onclickMakka(View view) {
-        LiveYouTubeActivity.VideoURL=arrayListLinks.get(3).getLink_url();
-        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        if (C.helperMethods.isNetworkConnected(this)) {
+            LiveYouTubeActivity.VideoURL = arrayListLinks.get(3).getMajlis_link();
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        }
+        else {
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+        }
     }
 
     public void onclickMadinah(View view) {
-        LiveYouTubeActivity.VideoURL=arrayListLinks.get(2).getLink_url();
-        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        if (C.helperMethods.isNetworkConnected(this)) {
+            LiveYouTubeActivity.VideoURL = arrayListLinks.get(2).getMajlis_link();
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        }
+        else {
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+        }
     }
 
     public void onclickKazmain(View view) {
-        LiveYouTubeActivity.VideoURL=arrayListLinks.get(1).getLink_url();
-        C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        if (C.helperMethods.isNetworkConnected(this)) {
+            LiveYouTubeActivity.VideoURL = arrayListLinks.get(1).getMajlis_link();
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+        }
+        else {
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+        }
     }
     public void onclickliveMajlis(View view)
     {
@@ -191,7 +185,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
-    private class get_data_AsynchTask extends AsyncTask<Void, Void, Void> {
+    private class get_liveYoutube_AsynchTask extends AsyncTask<Void, Void, Void> {
 
         ProgressDialog progressDialog;
         String connectionError = "";
@@ -204,10 +198,9 @@ public class HomeActivity extends AppCompatActivity {
             progressDialog.setOnCancelListener(cancelListener);
             bCancelled = false;
 
-
             arrayListLinks = new ArrayList<>();
 
-            mliveLinksDataSource = new LiveLinksDataSource(context);
+            majlisLinksDataSource = new MajlisLinksDataSource(context);
 
             super.onPreExecute();
         }
@@ -215,11 +208,10 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
 
-
-            arrayListLinks = mliveLinksDataSource.getList();
+            arrayListLinks = majlisLinksDataSource.getLiveYouTubeList();
             if (arrayListLinks.size() == 0) {
                 connectionError = "Please Check Internet Connection";
-
+                progressDialog.dismiss();
                 return null;
             }
             return null;

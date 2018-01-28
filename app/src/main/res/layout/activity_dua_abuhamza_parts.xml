@@ -74,7 +74,7 @@
 
 
             <com.google.android.gms.ads.AdView
-                android:id="@+id/dua_adView"
+                android:id="@+id/hamza_adView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ads:adSize="SMART_BANNER"

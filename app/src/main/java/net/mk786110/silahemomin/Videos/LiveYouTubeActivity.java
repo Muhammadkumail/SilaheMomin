@@ -1,7 +1,9 @@
-package net.mk786110.silahemomin;
+package net.mk786110.silahemomin.Videos;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 import net.mk786110.silahemomin.Constant.C;
+import net.mk786110.silahemomin.R;
 
 public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
@@ -39,23 +42,6 @@ public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubeP
       playLiveYoyTube();
     }
 
-
-   /* @Override
-    public void onResume() {
-        mRewardedVideoAd.resume(this);
-        super.onResume();
-    }
-    @Override
-    public void onPause() {
-        mRewardedVideoAd.pause(this);
-        super.onPause();
-
-    }
-    @Override
-    public void onDestroy() {
-        mRewardedVideoAd.destroy(this);
-        super.onDestroy();
-    }*/
    public void playLiveYoyTube() {
        String YoutubeAPIKey = this.getString(R.string.YoutubeAPIKey);
        youTubeView = (YouTubePlayerView) findViewById(R.id.youtubePlyer);
@@ -137,79 +123,31 @@ public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubeP
 
     public void loadAdds() {
         bannerAdds();
-       // fullScreenAdds();
-       // rewardAds();
     }
 
-    public void fullScreenAdds() {
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/7766878490");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                mInterstitialAd.show();
-            }
-        });
-    }
-    public void rewardAds() {
-        MobileAds.initialize(getApplicationContext(), getString(R.string.admmode_live_ziarat_award_id));
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.loadAd(getString(R.string.admmode_live_ziarat_award_id), new AdRequest.Builder().build());
-        mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
-            @Override
-            public void onRewardedVideoAdLoaded() {
-                Toast.makeText(getBaseContext(), "Ad loaded.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoAdOpened() {
-                Toast.makeText(getBaseContext(), "Ad opened.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoStarted() {
-                Toast.makeText(getBaseContext(), "Ad started.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoAdClosed() {
-                Toast.makeText(getBaseContext(), "Ad closed.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewarded(RewardItem rewardItem) {
-                Toast.makeText(getBaseContext(), "Ad triggered reward.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoAdLeftApplication() {
-                Toast.makeText(getBaseContext(), "Ad left application.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoAdFailedToLoad(int i) {
-                Toast.makeText(getBaseContext(), "Ad failed to load.", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
     public void bannerAdds() {
+
         mAdView_one = (AdView) findViewById(R.id.live_ziarat_adView_one);
-        mAdView_two = (AdView) findViewById(R.id.live_ziarat_adView_two);
-        mAdView_three = (AdView) findViewById(R.id.live_ziarat_adView_three);
-
         AdRequest adRequest_one = new AdRequest.Builder().build();
-        AdRequest adRequest_two = new AdRequest.Builder().build();
-        AdRequest adRequest_three = new AdRequest.Builder().build();
-
         mAdView_one.loadAd(adRequest_one);
-        mAdView_two.loadAd(adRequest_two);
-        mAdView_three.loadAd(adRequest_three);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAdView_two = (AdView) findViewById(R.id.live_ziarat_adView_two);
+                AdRequest adRequest_two = new AdRequest.Builder().build();
+                mAdView_two.loadAd(adRequest_two);
+            }
+        }, 10000);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAdView_three = (AdView) findViewById(R.id.live_ziarat_adView_three);
+                AdRequest adRequest_three = new AdRequest.Builder().build();
+                mAdView_three.loadAd(adRequest_three);
+            }
+        }, 20000);
 
     }
-    public void onclickloadad(View view) {
-        if (mRewardedVideoAd.isLoaded()) {
-       //     mRewardedVideoAd.show();
-        }
-    }
-
 }

@@ -47,13 +47,12 @@
                 android:layout_weight="30"
                 >
                 <com.google.android.gms.ads.AdView
-                    android:id="@+id/live_ziarat_adView_one"
+                    android:id="@+id/live_ziarat_adView_three"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     ads:adSize="SMART_BANNER"
                     android:layout_centerInParent="true"
-
-                    ads:adUnitId="ca-app-pub-2985848238387199/4940494472">
+                    ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
                 </com.google.android.gms.ads.AdView>
 
 
@@ -69,7 +68,7 @@
                     android:layout_height="match_parent"
                     ads:adSize="SMART_BANNER"
                     android:layout_centerInParent="true"
-                    ads:adUnitId="ca-app-pub-2985848238387199/7945931764">
+                    ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
                 </com.google.android.gms.ads.AdView>
 
 
@@ -80,12 +79,12 @@
                 android:layout_weight="30"
                 >
                 <com.google.android.gms.ads.AdView
-                    android:id="@+id/live_ziarat_adView_three"
+                    android:id="@+id/live_ziarat_adView_one"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     ads:adSize="SMART_BANNER"
                     android:layout_centerInParent="true"
-                    ads:adUnitId="ca-app-pub-2985848238387199/4842290113">
+                    ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
                 </com.google.android.gms.ads.AdView>
 
 

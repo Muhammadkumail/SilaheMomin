@@ -25,7 +25,6 @@ import net.mk786110.silahemomin.ViewDuas.DuaArafahActivity;
 public class MukhtalifAmalActivity extends AppCompatActivity {
 
     private AdView mAdView;
-    InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,27 +40,8 @@ public class MukhtalifAmalActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        // full scren ad
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/5423321468");
-        AdRequest adRequestf = new AdRequest.Builder().build();
-
-        // Load ads into Interstitial Ads
-        mInterstitialAd.loadAd(adRequestf);
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
-            }
-        });
-
-
     }
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-    }
+
 
     @Override
     public void onPause() {

@@ -1,6 +1,8 @@
-package net.mk786110.silahemomin;
+package net.mk786110.silahemomin.Videos;
 
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -14,6 +16,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import net.mk786110.silahemomin.Constant.SingletonClass;
 import net.mk786110.silahemomin.Model.Majlis;
+import net.mk786110.silahemomin.R;
 
 import java.util.ArrayList;
 
@@ -21,7 +24,6 @@ public class PlayVideoActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
     public static String mUrl ;
     public static String mTopic ;
-    public static String mMolanaName;
     WebView videoView;
     TextView topicName;
     TextView molanaName;
@@ -45,17 +47,9 @@ public class PlayVideoActivity extends AppCompatActivity {
 
         videoView.loadUrl(mUrl);
         topicName.setText(mTopic);
-        //molanaName.setText(mMolanaName);
-        //molanaName.setTypeface(urdufont);
         topicName.setTypeface(urdufont);
         topicName.setTextSize(20);
-        //molanaName.setTextSize(30);
-        Bundle bundle = new Bundle();
 
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, mTopic);
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, mMolanaName);
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "play_islamic_video");
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
         //bannerAdds();
 
     }
@@ -71,18 +65,29 @@ public class PlayVideoActivity extends AppCompatActivity {
     }
 
     public void bannerAdds() {
-        mAdView_one = (AdView) findViewById(R.id.play_video_adView_one);
-        mAdView_two = (AdView) findViewById(R.id.play_video_adView_two);
-        mAdView_three = (AdView) findViewById(R.id.play_video_adView_three);
 
-        AdRequest adRequest_one = new AdRequest.Builder().build();
-        AdRequest adRequest_two = new AdRequest.Builder().build();
+        mAdView_three = (AdView) findViewById(R.id.play_video_adView_three);
         AdRequest adRequest_three = new AdRequest.Builder().build();
 
-
-        mAdView_one.loadAd(adRequest_one);
-        mAdView_two.loadAd(adRequest_two);
         mAdView_three.loadAd(adRequest_three);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAdView_two = (AdView) findViewById(R.id.play_video_adView_two);
+                AdRequest adRequest_two = new AdRequest.Builder().build();
+                mAdView_two.loadAd(adRequest_two);
+            }
+        }, 10000);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAdView_one = (AdView) findViewById(R.id.play_video_adView_one);
+                AdRequest adRequest_one = new AdRequest.Builder().build();
+                mAdView_one.loadAd(adRequest_one);
+            }
+        }, 20000);
 
     }
 }

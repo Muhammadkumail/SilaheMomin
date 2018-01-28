@@ -87,14 +87,14 @@ public class C {
     public static final String RamzanShabe23kaAmal = rootUrl + urlDirectry + "getramzan.php?ramzan=shabe23";
     public static final String RamzanMunajat = rootUrl + urlDirectry + "getramzan.php?ramzan=munajatali";
 
-    /*Youtube Live links*/
-    public static final String youtubeLinks = rootUrl + urlDirectry + "getLiveYoutubeLinks.php?livelinks=youtube";
-
     /*Majlis links*/
     public static final String majlisLinks = rootUrl + urlDirectry + apiDirectry + "getSpeechById.php?molanaId=";
 
-    /*Majlis links*/
+    /*AllMolnas links*/
     public static final String allMolanas = rootUrl + urlDirectry + apiDirectry + "getAllMolanas.php?mol=all";
+
+    /*Live Youtbue link*/
+    public static final String allLiveYoutubeLinks = rootUrl + urlDirectry + apiDirectry + "getLiveYoutube.php?videotype=5";
 
     /*Hadith link*/
     public static final String RandomHadith = rootUrl + urlDirectry + "hadith.php";
@@ -115,6 +115,8 @@ public class C {
     public static final String Salwat = "اللَّهُمَّ صَلِّ عَلَی مُحَمَّدٍ وَآلِ مُحَمَّد";
     public static final String AssalamuAlikum = "السلام علیکم";
     public static final String youTubeFaildToLoad = "Sorry! Faild To Load Video";
+    public static final String plesseCheckInternetConnection = "plesse Check Internet Connection";
+
 
 
     /*Object Names*/

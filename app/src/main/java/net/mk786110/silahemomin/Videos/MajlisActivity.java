@@ -1,4 +1,4 @@
-package net.mk786110.silahemomin;
+package net.mk786110.silahemomin.Videos;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -25,6 +25,7 @@ import net.mk786110.silahemomin.Adaptor.AlbumsAdapter;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Datasource.AllMolanasDataSource;
 import net.mk786110.silahemomin.Model.Album;
+import net.mk786110.silahemomin.R;
 import net.mk786110.silahemomin.SilaheMomin.HomeActivity;
 
 import java.util.ArrayList;
@@ -61,10 +62,6 @@ public class MajlisActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Initializing collapsing toolbar
-     * Will show and hide the toolbar title on scroll
-     */
     private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);

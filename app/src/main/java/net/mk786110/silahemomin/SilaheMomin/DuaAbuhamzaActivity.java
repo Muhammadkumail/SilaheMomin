@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.startapp.android.publish.StartAppSDK;
 
 import net.mk786110.silahemomin.Constant.C;
@@ -19,16 +21,19 @@ import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza3Activity;
 
 public class DuaAbuhamzaActivity extends AppCompatActivity {
 
-
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StartAppSDK.init(this, "205588646", true);
         setContentView(R.layout.activity_dua_abuhamza_parts);
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.duaabuhamzapartslayout));
+
+        mAdView = (AdView) findViewById(R.id.hamza_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
     }
 

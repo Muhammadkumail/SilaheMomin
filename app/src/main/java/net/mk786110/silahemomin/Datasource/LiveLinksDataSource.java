@@ -34,7 +34,7 @@ public class LiveLinksDataSource {
 
         ArrayList<LiveLinks> arrayListLiveData = new ArrayList<>();
         try {
-                arrayListLiveData = duaParser.getParseDua(C.youtubeLinks);
+                arrayListLiveData = duaParser.getParseDua(C.allLiveYoutubeLinks);
         } catch (Exception e) {
             e.printStackTrace();
         }

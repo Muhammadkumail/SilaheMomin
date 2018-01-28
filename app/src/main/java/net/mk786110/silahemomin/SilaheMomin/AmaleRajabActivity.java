@@ -34,9 +34,6 @@ public class AmaleRajabActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.rajab_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-
-
     }
 
     @Override

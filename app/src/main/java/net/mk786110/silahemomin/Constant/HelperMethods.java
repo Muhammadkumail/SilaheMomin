@@ -6,9 +6,6 @@ import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import net.mk786110.silahemomin.R;
-import net.mk786110.silahemomin.SilaheMomin.HomeActivity;
-
 /**
  * Created by Muhammad kumail on 10/11/2017.
  */
@@ -25,9 +22,10 @@ public class HelperMethods  extends AppCompatActivity{
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
-    public boolean isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    public boolean isNetworkConnected(Context context) {
 
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null;
     }
+
 }

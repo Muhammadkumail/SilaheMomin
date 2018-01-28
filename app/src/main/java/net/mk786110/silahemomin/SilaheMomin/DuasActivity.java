@@ -38,7 +38,7 @@ public class DuasActivity extends AppCompatActivity {
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.dualayout));
-//banner ads
+
         mAdView = (AdView) findViewById(R.id.dua_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

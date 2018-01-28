@@ -1,14 +1,13 @@
 package net.mk786110.silahemomin.service;
 
 
-import android.app.IntentService;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.LiveYouTubeActivity;
+import net.mk786110.silahemomin.Videos.LiveYouTubeActivity;
 
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 

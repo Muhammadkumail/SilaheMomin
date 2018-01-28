@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MajlisLinksParser {
 
 
-    public ArrayList<Majlis> getParseDua(String url) {
+    public ArrayList<Majlis> getParseMajlis(String url) {
 
         MyHttpClient myHttpClient = new MyHttpClient();
         ArrayList<Majlis> arrayList = new ArrayList<>();
@@ -29,8 +29,7 @@ public class MajlisLinksParser {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 links.setMajlis_link(jsonObject.getString("full_link"));
                 links.setMajlis_topic(jsonObject.getString("topic_name"));
-              //  links.setMolana_name(jsonObject.getString("molana_name"));
-                //links.setMajlis_link_type(jsonObject.getString("linke_type"));
+                links.setMajlis_link_type(jsonObject.getString("video_type"));
 
                 arrayList.add(links);
             }

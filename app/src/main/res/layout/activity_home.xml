@@ -535,50 +535,6 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="2.5dp"
-                        android:layout_weight="1"
-                        android:background="@color/colorGreen"
-                        android:clickable="true"
-                        android:onClick="onClickSettings"
-                        android:orientation="vertical"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-
-                            >
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:adjustViewBounds="true"
-                                android:padding="35dp"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ic_settings" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="@string/settings"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="16sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -805,46 +761,6 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="1.25dp"
-                        android:layout_weight="1"
-                        android:background="@color/colorLightJade"
-                        android:clickable="true"
-                        android:onClick="onclickKazmain"
-                        android:orientation="vertical"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_tv" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="@string/live_kazmain"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>

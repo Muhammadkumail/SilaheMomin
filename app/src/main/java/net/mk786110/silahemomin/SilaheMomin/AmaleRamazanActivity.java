@@ -35,9 +35,6 @@ public class AmaleRamazanActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.ramzan_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-
-
     }
 
     @Override

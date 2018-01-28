@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 
+import net.mk786110.silahemomin.Model.Majlis;
+
+import java.util.ArrayList;
+
 
 /**
  * Created by Muhammad kumail on 05/11/2017.
@@ -18,6 +22,7 @@ public class SingletonClass {
     private static Intent mintent ;
     private static HelperMethods helperMethods;
     private static SharedPreferences mSharedPreferences;
+    private static ArrayList<Majlis> arrayListLiveData = new ArrayList<>();
 
     public static Typeface getLanguageFontInstance(Context context , String language) {
         if (language.equals("arabic"))

@@ -1,4 +1,4 @@
-package net.mk786110.silahemomin;
+package net.mk786110.silahemomin.Videos;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,18 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import net.mk786110.silahemomin.Adaptor.MajlisAdaptor;
-import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
-import net.mk786110.silahemomin.Datasource.LiveLinksDataSource;
 import net.mk786110.silahemomin.Datasource.MajlisLinksDataSource;
 import net.mk786110.silahemomin.Model.Majlis;
+import net.mk786110.silahemomin.R;
 
 import java.util.ArrayList;
 
@@ -93,6 +89,7 @@ public class MajlisListActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             if (connectionError.length() != 0) {
                 C.helperMethods.showMessage(connectionError, context);
+                progressDialog.dismiss();
             } else {
 
                 mlistViewDua = (ListView) findViewById(R.id.majlis_listview);
@@ -107,7 +104,6 @@ public class MajlisListActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
                         if (arrayListLinks.get(position).getMajlis_link_type().contains("1"))
                         {
-                            C.helperMethods.showMessage(arrayListLinks.get(position).getMajlis_link(),context);
                             LiveYouTubeActivity.VideoURL=arrayListLinks.get(position).getMajlis_link();
                             C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
                         }

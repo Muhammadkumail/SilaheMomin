@@ -30,7 +30,20 @@ public class MajlisLinksDataSource {
 
         ArrayList<Majlis> arrayListLiveData = new ArrayList<>();
         try {
-                arrayListLiveData = majlisParser.getParseDua(C.majlisLinks+molana_id);
+                arrayListLiveData = majlisParser.getParseMajlis(C.majlisLinks+molana_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return arrayListLiveData;
+    }
+
+    public ArrayList<Majlis> getLiveYouTubeList() {
+
+        MajlisLinksParser majlisParser = new MajlisLinksParser();
+
+        ArrayList<Majlis> arrayListLiveData = new ArrayList<>();
+        try {
+            arrayListLiveData = majlisParser.getParseMajlis(C.allLiveYoutubeLinks);
         } catch (Exception e) {
             e.printStackTrace();
         }
