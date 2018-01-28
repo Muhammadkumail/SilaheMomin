@@ -13,6 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
 import net.mk786110.silahemomin.Adaptor.MajlisAdaptor;
 import net.mk786110.silahemomin.Adaptor.SilaheMominAdaptor;
 import net.mk786110.silahemomin.Constant.C;
@@ -25,7 +28,8 @@ import java.util.ArrayList;
 public class MajlisListActivity extends AppCompatActivity {
 
     public static String  molanaid;
-    public static String  molanaimage;
+    public static String mMolanaImageURL;
+    public static ImageView mMolImage;
     Boolean bCancelled;
     ListView mlistViewDua;
     ArrayList<Majlis> arrayListLinks;
@@ -37,8 +41,10 @@ public class MajlisListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_majlis_list);
         context=this;
-        /*ImageView imageView=(ImageView)findViewById(R.id.molana_image);
-        imageView.setImageResource(molanaimage);*/
+
+        mMolImage = (ImageView)findViewById(R.id.molana_image);
+        Picasso.with(context).load(mMolanaImageURL).into(mMolImage);
+
         new get_data_AsynchTask().execute();
     }
 
@@ -99,11 +105,17 @@ public class MajlisListActivity extends AppCompatActivity {
                 mlistViewDua.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                        PlayVideoActivity.mUrl=arrayListLinks.get(position).getMajlis_link();
-                        PlayVideoActivity.mTopic=arrayListLinks.get(position).getMajlis_topic();
-                       // PlayVideoActivity.mMolanaName=arrayListLinks.get(position).getMolana_name();
-                        C.helperMethods.getStartActivity(PlayVideoActivity.class,context);
-
+                        if (arrayListLinks.get(position).getMajlis_link_type().contains("1"))
+                        {
+                            C.helperMethods.showMessage(arrayListLinks.get(position).getMajlis_link(),context);
+                            LiveYouTubeActivity.VideoURL=arrayListLinks.get(position).getMajlis_link();
+                            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
+                        }
+                        else{
+                            PlayVideoActivity.mUrl = arrayListLinks.get(position).getMajlis_link();
+                            PlayVideoActivity.mTopic = arrayListLinks.get(position).getMajlis_topic();
+                            C.helperMethods.getStartActivity(PlayVideoActivity.class, context);
+                        }
                     }}
                 );
             }
