@@ -45,7 +45,7 @@
                     android:id="@+id/live_ziarat_adView_one"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    ads:adSize="SMART_BANNER"
+                    ads:adSize="LARGE_BANNER"
                     android:layout_centerInParent="true"
                     ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
                 </com.google.android.gms.ads.AdView>

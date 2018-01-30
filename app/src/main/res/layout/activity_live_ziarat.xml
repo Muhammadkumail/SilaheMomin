@@ -75,7 +75,7 @@
                     android:id="@+id/play_video_adView_three"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    ads:adSize="SMART_BANNER"
+                    ads:adSize="LARGE_BANNER"
                     android:layout_weight="1"
                     android:layout_centerInParent="true"
                     ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
