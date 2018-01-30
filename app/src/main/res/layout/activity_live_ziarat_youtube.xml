@@ -36,47 +36,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="65"
-            android:weightSum="90"
-            android:orientation="vertical"
-
-            >
-
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="30"
-                >
-                <com.google.android.gms.ads.AdView
-                    android:id="@+id/live_ziarat_adView_three"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    ads:adSize="SMART_BANNER"
-                    android:layout_centerInParent="true"
-                    ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
-                </com.google.android.gms.ads.AdView>
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="30"
-               >
-                <com.google.android.gms.ads.AdView
-                    android:id="@+id/live_ziarat_adView_two"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    ads:adSize="SMART_BANNER"
-                    android:layout_centerInParent="true"
-                    ads:adUnitId="ca-app-pub-2985848238387199/7497313864">
-                </com.google.android.gms.ads.AdView>
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="30"
                 >
                 <com.google.android.gms.ads.AdView
                     android:id="@+id/live_ziarat_adView_one"

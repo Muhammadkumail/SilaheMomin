@@ -37,7 +37,7 @@ public class SurahDukhanActivity extends AppCompatActivity {
 
        new get_data_AsyncTask().execute();
 
-        mAdView = (AdView) findViewById(R.id.dua_adView);
+        mAdView = (AdView) findViewById(R.id.detail_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 

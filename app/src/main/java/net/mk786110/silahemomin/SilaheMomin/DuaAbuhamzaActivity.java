@@ -36,6 +36,29 @@ public class DuaAbuhamzaActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
     }
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
 
     public void onClickAbuhamzaPart1(View view) {
         C.helperMethods.getStartActivity(DuaAbumhaza1Activity.class,this);

@@ -28,8 +28,6 @@ public class PlayVideoActivity extends AppCompatActivity {
     TextView topicName;
     TextView molanaName;
     Typeface urdufont;
-    private AdView mAdView_one;
-    private AdView mAdView_two;
     private AdView mAdView_three;
 
 
@@ -50,8 +48,41 @@ public class PlayVideoActivity extends AppCompatActivity {
         topicName.setTypeface(urdufont);
         topicName.setTextSize(20);
 
-        //bannerAdds();
+        bannerAdds();
 
+    }
+
+    public void bannerAdds() {
+
+        mAdView_three = (AdView) findViewById(R.id.play_video_adView_three);
+        AdRequest adRequest_three = new AdRequest.Builder().build();
+        mAdView_three.loadAd(adRequest_three);
+
+
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView_three != null) {
+            mAdView_three.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView_three != null) {
+            mAdView_three.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView_three != null) {
+            mAdView_three.destroy();
+        }
+        super.onDestroy();
     }
     @Override
     public void onBackPressed() {
@@ -62,32 +93,5 @@ public class PlayVideoActivity extends AppCompatActivity {
         topicName.setText("");
         finish();
         super.onBackPressed();
-    }
-
-    public void bannerAdds() {
-
-        mAdView_three = (AdView) findViewById(R.id.play_video_adView_three);
-        AdRequest adRequest_three = new AdRequest.Builder().build();
-
-        mAdView_three.loadAd(adRequest_three);
-
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mAdView_two = (AdView) findViewById(R.id.play_video_adView_two);
-                AdRequest adRequest_two = new AdRequest.Builder().build();
-                mAdView_two.loadAd(adRequest_two);
-            }
-        }, 10000);
-
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mAdView_one = (AdView) findViewById(R.id.play_video_adView_one);
-                AdRequest adRequest_one = new AdRequest.Builder().build();
-                mAdView_one.loadAd(adRequest_one);
-            }
-        }, 20000);
-
     }
 }

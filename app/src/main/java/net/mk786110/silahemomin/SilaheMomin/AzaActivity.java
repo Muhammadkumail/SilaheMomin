@@ -33,7 +33,7 @@ public class AzaActivity extends AppCompatActivity {
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.dualayout));
-        mAdView = (AdView) findViewById(R.id.dua_adView);
+        mAdView = (AdView) findViewById(R.id.aza_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }

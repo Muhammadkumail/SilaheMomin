@@ -161,18 +161,14 @@ public class MajlisActivity extends AppCompatActivity {
 
 
             arrayListmolanas = mAllMolanasDataSource.getList();
-            if (arrayListmolanas.size() == 0) {
-                connectionError = "Please Check Internet Connection";
 
-                return null;
-            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            if (connectionError.length() != 0) {
-                C.helperMethods.showMessage(connectionError, context);
+            if (arrayListmolanas.size() == 0) {
+               C.helperMethods.showMessage("Sorry, please try again later.",context);
                 progressDialog.dismiss();
             } else {
                 super.onPostExecute(aVoid);

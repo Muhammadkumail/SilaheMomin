@@ -25,10 +25,8 @@ import net.mk786110.silahemomin.R;
 
 public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
-    private InterstitialAd mInterstitialAd;
     private AdView mAdView_one;
-    private AdView mAdView_two;
-    private AdView mAdView_three;
+
 
     YouTubePlayerView youTubeView;
     public static String VideoURL;
@@ -38,7 +36,7 @@ public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubeP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_ziarat_youtube);
-         //loadAdds();
+        bannerAdds();
       playLiveYoyTube();
     }
 
@@ -121,9 +119,6 @@ public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubeP
         }
     };
 
-    public void loadAdds() {
-        bannerAdds();
-    }
 
     public void bannerAdds() {
 
@@ -131,23 +126,28 @@ public class LiveYouTubeActivity extends YouTubeBaseActivity implements YouTubeP
         AdRequest adRequest_one = new AdRequest.Builder().build();
         mAdView_one.loadAd(adRequest_one);
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mAdView_two = (AdView) findViewById(R.id.live_ziarat_adView_two);
-                AdRequest adRequest_two = new AdRequest.Builder().build();
-                mAdView_two.loadAd(adRequest_two);
-            }
-        }, 10000);
+    }
+    @Override
+    public void onPause() {
+        if (mAdView_one != null) {
+            mAdView_one.pause();
+        }
+        super.onPause();
+    }
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mAdView_three = (AdView) findViewById(R.id.live_ziarat_adView_three);
-                AdRequest adRequest_three = new AdRequest.Builder().build();
-                mAdView_three.loadAd(adRequest_three);
-            }
-        }, 20000);
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView_one != null) {
+            mAdView_one.resume();
+        }
+    }
 
+    @Override
+    public void onDestroy() {
+        if (mAdView_one != null) {
+            mAdView_one.destroy();
+        }
+        super.onDestroy();
     }
 }

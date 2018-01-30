@@ -38,7 +38,7 @@ public class DuaAbumhaza2Activity extends AppCompatActivity {
         new get_data_AsynchTask().execute();
 
 
-        mAdView = (AdView) findViewById(R.id.dua_adView);
+        mAdView = (AdView) findViewById(R.id.detail_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
