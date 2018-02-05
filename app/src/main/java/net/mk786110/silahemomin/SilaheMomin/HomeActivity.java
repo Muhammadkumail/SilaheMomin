@@ -4,9 +4,11 @@ package net.mk786110.silahemomin.SilaheMomin;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
+import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.view.View;
 
 import com.google.android.gms.ads.MobileAds;
 
+import net.mk786110.silahemomin.AppFeedBack.AppRater;
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.Constant.SingletonClass;
 import net.mk786110.silahemomin.Datasource.HadithDataSource;
@@ -23,6 +26,7 @@ import net.mk786110.silahemomin.Videos.LiveYouTubeActivity;
 import net.mk786110.silahemomin.Videos.MajlisActivity;
 import net.mk786110.silahemomin.Model.Hadith;
 import net.mk786110.silahemomin.R;
+import net.mk786110.silahemomin.Videos.PlayVideoActivity;
 
 import java.util.ArrayList;
 
@@ -43,18 +47,31 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        MultiDex.install(this);
 
         context = this;
         mSharedPreferences = SingletonClass.getmSharedPreferencesInstance(context);
         MobileAds.initialize(this, "ca-app-pub-2985848238387199~3346315866");
-
+        AppRater.app_launched(this);
         if (C.helperMethods.isNetworkConnected(this))
         {
             new get_liveYoutube_AsynchTask().execute();
             C.helperMethods.showMessage(C.AssalamuAlikum, context);
         }
 
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String videoType;
+            videoType = extras.getString("videoType");
+            if (videoType.contains("1")) {
+                LiveYouTubeActivity.VideoURL = extras.getString("link");
+                C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
+            } else {
+                PlayVideoActivity.mTopic = extras.getString("topic");
+                PlayVideoActivity.mUrl = extras.getString("link");
+                C.helperMethods.getStartActivity(PlayVideoActivity.class, context);
+            }
+        }
     }
 
     public void onClickDuas(View view) {

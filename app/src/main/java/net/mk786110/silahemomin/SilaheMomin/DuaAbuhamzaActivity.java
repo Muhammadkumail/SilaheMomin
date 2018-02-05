@@ -9,11 +9,10 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.startapp.android.publish.StartAppSDK;
+
 
 import net.mk786110.silahemomin.Constant.C;
 import net.mk786110.silahemomin.R;
-import net.mk786110.silahemomin.ViewAza.MuharramPheliRatActivity;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza1Activity;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza2Activity;
 import net.mk786110.silahemomin.ViewDuas.DuaAbumhaza3Activity;

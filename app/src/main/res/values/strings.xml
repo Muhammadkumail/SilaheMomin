@@ -99,6 +99,8 @@
 
     <string name="YoutubeAPIKey">AIzaSyARixdr7ie1gUEgu3JWNVxAR94Lw4uhTA0</string>
     <string name="admmode_live_ziarat_award_id">ca-app-pub-2985848238387199/5477549087</string>
+    <string name="bannerAdId">ca-app-pub-2985848238387199/7497313864</string>
+    <string name="bannerAdTestId">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_add_favourite">Add to Favourites</string>
