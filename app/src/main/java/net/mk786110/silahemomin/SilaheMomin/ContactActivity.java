@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import net.mk786110.silahemomin.Constant.C;
+import net.mk786110.silahemomin.Constant.SingletonClass;
 import net.mk786110.silahemomin.R;
 
 import org.apache.http.HttpResponse;
@@ -43,6 +44,7 @@ public class ContactActivity extends AppCompatActivity {
 
     String strName = "";
     String strMessage = "";
+    Context context;
     InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +53,10 @@ public class ContactActivity extends AppCompatActivity {
         YoYo.with(Techniques.DropOut)
                 .duration(1000)
                 .playOn(findViewById(R.id.contactLayout));
-
-
+        context=this;
         mName = (EditText) findViewById(R.id.contact_name_editText);
         mMessage = (EditText) findViewById(R.id.contact_message_editText);
 
-    }
-
-    private boolean isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        return cm.getActiveNetworkInfo() != null;
     }
 
     public void onClick_Contact(View view)
@@ -72,27 +67,49 @@ public class ContactActivity extends AppCompatActivity {
 
             if (strName.length() > -0  && strMessage.length() > -0)
             {
-                if(isNetworkConnected()) {
-                    new asyncTask_ContactUs().execute();
+                if(C.helperMethods.isNetworkConnected(context)) {
+                    mInterstitialAd = new InterstitialAd(this);
+                    mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/4823049066");
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+                    mInterstitialAd.setAdListener(new AdListener() {
+                        @Override
+                        public void onAdLoaded() {
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                                new asyncTask_ContactUs().execute();
+                            }
+                        }
+
+                        @Override
+                        public void onAdFailedToLoad(int errorCode) {
+                            new asyncTask_ContactUs().execute();
+                        }
+
+                        @Override
+                        public void onAdOpened() {
+                        }
+
+                        @Override
+                        public void onAdLeftApplication() {
+                        }
+
+                        @Override
+                        public void onAdClosed() {
+                        }
+                    });
+
                 }
                 else
                 {
-                    errorMessage("Please Check Internet connection");
+                    C.helperMethods.showMessage(C.plesseCheckInternetConnection,context);
                 }
 
         }
             else {
-                errorMessage("Please Fill All The Fields");
+                C.helperMethods.showMessage("Please Fill All The Fields",context);
+
             }
-
-
-
-    }
-
-    public void errorMessage(String Errormessage)
-    {
-        Toast.makeText(ContactActivity.this,Errormessage , Toast.LENGTH_SHORT).show();
-
     }
 
     private class asyncTask_ContactUs extends AsyncTask<Void, Void, String> {
@@ -108,10 +125,7 @@ public class ContactActivity extends AppCompatActivity {
             String msg = "";
             try {
                 if (strName.length() > -0  && strMessage.length() > -0) {
-
-
                     msg = sendMessageToWebServer(strName,strMessage);
-
                 }
             } catch (Exception ex) {
                 msg = "Error :" + ex.getMessage();
@@ -125,29 +139,10 @@ public class ContactActivity extends AppCompatActivity {
             progressDialog.dismiss();
             mName.setText("");
             mMessage.setText("");
-            errorMessage("Thanks . Your Message Has been Submitted");
-
-            // full scren ad
-            mInterstitialAd = new InterstitialAd(getBaseContext());
-            mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/3946588264");
-            AdRequest adRequestf = new AdRequest.Builder().build();
-
-            // Load ads into Interstitial Ads
-            mInterstitialAd.loadAd(adRequestf);
-
-            mInterstitialAd.setAdListener(new AdListener() {
-                public void onAdLoaded() {
-                    showInterstitial();
-                }
-            });
-
+            C.helperMethods.showMessage("Thanks . Your Message Has been Submitted",context);
         }
     }
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-    }
+
     public String sendMessageToWebServer(String name,String message) {
         String url = C.ContactUs;
         String strResponse = "No response";

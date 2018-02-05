@@ -11,6 +11,9 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 import net.mk786110.silahemomin.Adaptor.MajlisAdaptor;
@@ -42,6 +45,7 @@ public class MajlisListActivity extends AppCompatActivity {
         Picasso.with(context).load(mMolanaImageURL).into(mMolImage);
 
         new get_data_AsynchTask().execute();
+
     }
 
     DialogInterface.OnCancelListener cancelListener = new DialogInterface.OnCancelListener() {

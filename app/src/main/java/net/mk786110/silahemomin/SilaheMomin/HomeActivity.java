@@ -52,7 +52,8 @@ public class HomeActivity extends AppCompatActivity {
         context = this;
         mSharedPreferences = SingletonClass.getmSharedPreferencesInstance(context);
         MobileAds.initialize(this, "ca-app-pub-2985848238387199~3346315866");
-        AppRater.app_launched(this);
+
+        //AppRater.app_launched(this);
         if (C.helperMethods.isNetworkConnected(this))
         {
             new get_liveYoutube_AsynchTask().execute();

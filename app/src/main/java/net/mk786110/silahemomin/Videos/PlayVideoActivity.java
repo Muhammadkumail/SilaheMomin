@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import net.mk786110.silahemomin.Constant.SingletonClass;
@@ -29,6 +31,7 @@ public class PlayVideoActivity extends AppCompatActivity {
     TextView molanaName;
     Typeface urdufont;
     private AdView mAdView_three;
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -47,7 +50,34 @@ public class PlayVideoActivity extends AppCompatActivity {
         topicName.setText(mTopic);
         topicName.setTypeface(urdufont);
         topicName.setTextSize(20);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/4823049066");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+            }
+
+            @Override
+            public void onAdOpened() {
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+            }
+
+            @Override
+            public void onAdClosed() {
+            }
+        });
         bannerAdds();
 
     }

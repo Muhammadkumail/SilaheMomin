@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
@@ -20,36 +21,26 @@ import net.mk786110.silahemomin.R;
  */
 
 public class AppRater {
-    private final static String APP_TITLE = "Silahe Momin";// App Name
-    private final static String APP_PNAME = "net.mk786110.silahemomin";// Package Name
-
-    private final static int DAYS_UNTIL_PROMPT = 1;//Min number of days
-    private final static int LAUNCHES_UNTIL_PROMPT = 1;//Min number of launches
+    private final static String APP_TITLE = "Silahe Momin";
+    private final static String APP_PNAME = "net.mk786110.silahemomin";
+    public  int launch_count = 0;
 
     public static void app_launched(Context mContext) {
-        SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
-        SharedPreferences.Editor editor = prefs.edit();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        SharedPreferences.Editor editor = preferences.edit();
 
-        // Increment launch counter
-        long launch_count = prefs.getLong("launch_count", 0) + 1;
-        editor.putLong("launch_count", launch_count);
 
-        // Get date of first launch
-        Long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
-        if (date_firstLaunch == 0) {
-            date_firstLaunch = System.currentTimeMillis();
-            editor.putLong("date_firstlaunch", date_firstLaunch);
+        int count = preferences.getInt("appLaunchCount",0);
+        if(count<5)
+        {
+
+            editor.putInt("appLaunchCount",1);
+            editor.commit();
         }
 
-        // Wait at least n days before opening
-       // if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
-         //   if (System.currentTimeMillis() >= date_firstLaunch +
-           //         (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
-                showRateDialog(mContext, editor);
-           // }
-        //}
 
-        editor.commit();
+                showRateDialog(mContext, editor);
+
     }
 
     public static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {

@@ -20,6 +20,9 @@ import android.widget.ImageView;
 
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import net.mk786110.silahemomin.Adaptor.AlbumsAdapter;
 import net.mk786110.silahemomin.Constant.C;
@@ -40,6 +43,7 @@ public class MajlisActivity extends AppCompatActivity {
     ArrayList<Album> arrayListmolanas;
     Context context;
     Boolean bCancelled;
+    private InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,34 @@ public class MajlisActivity extends AppCompatActivity {
 
         albumList = new ArrayList<>();
 
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2985848238387199/4823049066");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+            }
+
+            @Override
+            public void onAdOpened() {
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+            }
+
+            @Override
+            public void onAdClosed() {
+            }
+        });
 
         try {
             Glide.with(this).load(R.drawable.ic_majlis).into((ImageView) findViewById(R.id.backdrop));
