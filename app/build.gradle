@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
-        applicationId "net.mk786110.silahemomin"
+        applicationId "net.mk786110.isilahemomin"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 15
@@ -55,8 +55,6 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
 
 }
-apply plugin: 'com.google.gms.google-services'
-
 
 
 
