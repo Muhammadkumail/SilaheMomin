@@ -32,13 +32,7 @@ public class GCMService extends FirebaseMessagingService  {
 
 
     private static final String TAG = "FirebaseMessageService";
-    Bitmap bitmap;
 
-    /**
-     * Called when message is received.
-     *
-     * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
-     */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 

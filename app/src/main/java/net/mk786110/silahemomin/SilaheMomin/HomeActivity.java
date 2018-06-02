@@ -40,27 +40,24 @@ public class HomeActivity extends AppCompatActivity {
 
     Context context;
     Boolean bCancelled;
-    SharedPreferences mSharedPreferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        MultiDex.install(this);
 
         context = this;
-        mSharedPreferences = SingletonClass.getmSharedPreferencesInstance(context);
-        MobileAds.initialize(this, "ca-app-pub-2985848238387199~3346315866");
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2985848238387199~3346315866");
 
         //AppRater.app_launched(this);
-        if (C.helperMethods.isNetworkConnected(this))
+        if (C.helperMethods.isNetworkConnected(context))
         {
             new get_liveYoutube_AsynchTask().execute();
             C.helperMethods.showMessage(C.AssalamuAlikum, context);
         }
 
-        Bundle extras = getIntent().getExtras();
+        /*Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String videoType;
             videoType = extras.getString("videoType");
@@ -72,128 +69,94 @@ public class HomeActivity extends AppCompatActivity {
                 PlayVideoActivity.mUrl = extras.getString("link");
                 C.helperMethods.getStartActivity(PlayVideoActivity.class, context);
             }
-        }
+        }*/
     }
 
     public void onClickDuas(View view) {
-        C.helperMethods.getStartActivity(DuasActivity.class, this);
+        C.helperMethods.getStartActivity(DuasActivity.class, context);
     }
 
     public void onClickziarat(View view) {
-        C.helperMethods.getStartActivity(ZiaratActivity.class, this);
+        C.helperMethods.getStartActivity(ZiaratActivity.class, context);
     }
 
     public void onClickMuntakhibSurah(View view) {
-        C.helperMethods.getStartActivity(SurahActivity.class, this);
+        C.helperMethods.getStartActivity(SurahActivity.class, context);
     }
 
     public void onClickRamazan(View view) {
-        C.helperMethods.getStartActivity(AmaleRamazanActivity.class, this);
+        C.helperMethods.getStartActivity(AmaleRamazanActivity.class, context);
     }
 
     public void onClickShaban(View view) {
-        C.helperMethods.getStartActivity(AmaleShabanActivity.class, this);
+        C.helperMethods.getStartActivity(AmaleShabanActivity.class, context);
     }
 
     public void onClickRajab(View view) {
-        C.helperMethods.getStartActivity(AmaleRajabActivity.class, this);
+        C.helperMethods.getStartActivity(AmaleRajabActivity.class, context);
     }
 
     public void onClickQuraniDua(View view) {
-        C.helperMethods.getStartActivity(QuraniDuaActivity.class, this);
+        C.helperMethods.getStartActivity(QuraniDuaActivity.class, context);
     }
 
     public void onClickMukhtalifAmal(View view) {
-        C.helperMethods.getStartActivity(MukhtalifAmalActivity.class, this);
+        C.helperMethods.getStartActivity(MukhtalifAmalActivity.class, context);
     }
 
     public void onClickAZA(View view) {
-        C.helperMethods.getStartActivity(AzaActivity.class, this);
+        C.helperMethods.getStartActivity(AzaActivity.class, context);
     }
 
     public void onClickContactUs(View view) {
-        C.helperMethods.getStartActivity(ContactActivity.class, this);
+        C.helperMethods.getStartActivity(ContactActivity.class, context);
     }
 
     public void onclickliveKarbala(View view) {
-        if (C.helperMethods.isNetworkConnected(this)) {
+        if (C.helperMethods.isNetworkConnected(context)) {
             LiveYouTubeActivity.VideoURL=arrayListLinks.get(4).getMajlis_link();
-            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
         }
         else {
-            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,context);
         }
     }
 
     public void onclickNajaf(View view) {
-        if (C.helperMethods.isNetworkConnected(this)) {
+        if (C.helperMethods.isNetworkConnected(context)) {
             LiveYouTubeActivity.VideoURL = arrayListLinks.get(0).getMajlis_link();
-            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
         }
         else {
-            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,context);
         }
     }
 
     public void onclickMakka(View view) {
-        if (C.helperMethods.isNetworkConnected(this)) {
+        if (C.helperMethods.isNetworkConnected(context)) {
             LiveYouTubeActivity.VideoURL = arrayListLinks.get(3).getMajlis_link();
-            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
         }
         else {
-            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,context);
         }
     }
 
     public void onclickMadinah(View view) {
-        if (C.helperMethods.isNetworkConnected(this)) {
+        if (C.helperMethods.isNetworkConnected(context)) {
             LiveYouTubeActivity.VideoURL = arrayListLinks.get(2).getMajlis_link();
-            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
+            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, context);
         }
         else {
-            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
+            C.helperMethods.showMessage(C.plesseCheckInternetConnection,context);
         }
     }
 
-    public void onclickKazmain(View view) {
-        if (C.helperMethods.isNetworkConnected(this)) {
-            LiveYouTubeActivity.VideoURL = arrayListLinks.get(1).getMajlis_link();
-            C.helperMethods.getStartActivity(LiveYouTubeActivity.class, this);
-        }
-        else {
-            C.helperMethods.showMessage(C.plesseCheckInternetConnection,this);
-        }
-    }
     public void onclickliveMajlis(View view)
     {
         C.helperMethods.getStartActivity(MajlisActivity.class,this);
     }
 
-    private class get_data_Hadith_AsynchTask extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            arrayList = new ArrayList<>();
-            mhadithDataSource = new HadithDataSource();
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            arrayList = mhadithDataSource.getList();
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-/*
-            mlistViewHadith = (ListView) findViewById(R.id.home_hadith_listview);
-            SilaheMominAdaptor mhadithAdaptor = new SilaheMominAdaptor(context, R.layout.activity_row, arrayList);
-            mlistViewHadith.setAdapter(mhadithAdaptor);*/
-            super.onPostExecute(aVoid);
-        }
-    }
 
     DialogInterface.OnCancelListener cancelListener = new DialogInterface.OnCancelListener() {
         @Override
@@ -239,6 +202,7 @@ public class HomeActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             if (connectionError.length() != 0) {
                 C.helperMethods.showMessage(connectionError, context);
+                progressDialog.dismiss();
             } else {
                 super.onPostExecute(aVoid);
                 progressDialog.dismiss();
